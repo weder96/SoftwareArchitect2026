@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Product icons are from the Microsoft Azure Architecture Icons collection, V24 (July 2026). -->
+<svg xmlns="http://www.w3.org/2000/svg" width="8.54167in" height="5.3125in" viewBox="0 0 820 510" role="img" aria-labelledby="title description">
+  <title id="title">Direct access to model deployments across Foundry resources</title>
+  <desc id="description">Clients A and B connect directly to four Azure OpenAI model deployments across two Microsoft Foundry resources. Both resources send native metrics and logs to Azure Monitor.</desc>
+  <defs>
+    <linearGradient id="client-gradient" x1="9" y1="17" x2="9" y2="1" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#0078d4"/><stop offset=".16" stop-color="#1380da"/><stop offset=".53" stop-color="#3c91e5"/><stop offset=".82" stop-color="#559cec"/><stop offset="1" stop-color="#5ea0ef"/></linearGradient>
+    <radialGradient id="model-gradient" cx="-67.981" cy="793.199" r=".45" gradientTransform="translate(-17939.03 20368.029) rotate(45) scale(25.091 -34.149)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#83b9f9"/><stop offset="1" stop-color="#0078d4"/></radialGradient>
+    <linearGradient id="foundry-gradient-one" x1="10.91" y1="13.66" x2="13.62" y2="13.66" gradientTransform="translate(0 20) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#302ec9"/><stop offset=".12" stop-color="#151698"/><stop offset=".25" stop-color="#0a0b7e"/><stop offset=".43" stop-color="#090c7f"/><stop offset=".51" stop-color="#141698"/><stop offset=".61" stop-color="#282ac4"/><stop offset=".77" stop-color="#8e8ff4"/><stop offset=".85" stop-color="#a7a6f7"/><stop offset=".91" stop-color="#cacafb"/><stop offset="1" stop-color="#fff"/></linearGradient>
+    <linearGradient id="foundry-gradient-two" x1="12.26" y1="8.32" x2="12.26" y2="18.23" gradientTransform="translate(0 20) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset=".02" stop-color="#201ba6"/><stop offset=".64" stop-color="#2d29c7"/><stop offset="1" stop-color="#201ba6"/></linearGradient>
+    <linearGradient id="foundry-gradient-three" x1="14.19" y1="8.27" x2="14.19" y2="14.47" gradientTransform="translate(0 20) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3530c3"/><stop offset=".5" stop-color="#6d71d1"/><stop offset=".97" stop-color="#c0bff5"/><stop offset="1" stop-color="#e3e4ff"/></linearGradient>
+    <linearGradient id="foundry-gradient-four" x1="6.51" y1="3" x2="6.51" y2="19.15" gradientTransform="translate(0 20) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#302ec9"/><stop offset=".45" stop-color="#302ec9"/><stop offset=".95" stop-color="#cacafb"/><stop offset="1" stop-color="#7f7eaf"/></linearGradient>
+    <radialGradient id="monitor-gradient" cx="5.72" cy="7.45" r="8.42" gradientTransform="translate(3.23 1.51) scale(1.01)" gradientUnits="userSpaceOnUse"><stop offset=".18" stop-color="#5ea0ef"/><stop offset=".56" stop-color="#5c9fee"/><stop offset=".69" stop-color="#559ced"/><stop offset=".78" stop-color="#4a97e9"/><stop offset=".86" stop-color="#3990e4"/><stop offset=".93" stop-color="#2387de"/><stop offset=".99" stop-color="#087bd6"/><stop offset="1" stop-color="#0078d4"/></radialGradient>
+    <radialGradient id="monitor-center-gradient" cx="28.18" cy="202.29" r="2.7" gradientTransform="translate(-17.77 -185.01) scale(.95)" gradientUnits="userSpaceOnUse"><stop offset=".19" stop-color="#8c8e90"/><stop offset=".35" stop-color="#848688"/><stop offset=".6" stop-color="#6e7071"/><stop offset=".91" stop-color="#4a4b4c"/><stop offset="1" stop-color="#3e3f3f"/></radialGradient>
+    <marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0 7 3.5 0 7Z" fill="#3c3c41"/>
+    </marker>
+    <symbol id="client-icon" viewBox="0 0 18 18">
+      <path d="M6.6 12.2h4.8V17H6.6ZM1 5.8h4.8V1H1.67A.67.67 0 0 0 1 1.67Zm.67 11H5.8v-4.8H1v4.13a.67.67 0 0 0 .67.67ZM1 11.4h4.8V6.6H1Zm11.2 5.4h4.13a.67.67 0 0 0 .67-.67V12.2h-4.8Zm-5.6-5.4h4.8V6.6H6.6Zm5.6 0H17V6.6h-4.8Zm0-10.4v4.8H17V1.67a.67.67 0 0 0-.67-.67ZM6.6 5.8h4.8V1H6.6Z" fill="url(#client-gradient)"/>
+    </symbol>
+    <symbol id="model-icon" viewBox="0 0 18 18">
+      <path d="M0 2.7v12.6A2.7 2.7 0 0 0 2.7 18h12.6a2.7 2.7 0 0 0 2.7-2.7V2.7A2.7 2.7 0 0 0 15.3 0H2.7A2.7 2.7 0 0 0 0 2.7ZM10.8 0v3.6a7.2 7.2 0 0 0 7.2 7.2h-3.6A7.2 7.2 0 0 0 7.2 18v-3.6A7.2 7.2 0 0 0 0 7.2h3.6A7.2 7.2 0 0 0 10.8 0Z" fill="url(#model-gradient)"/>
+    </symbol>
+    <symbol id="foundry-icon" viewBox="0 0 18 18">
+      <path d="M11.96 11.68s.07-.1.07-.24V7.57c0-.85.66-1.76 1.59-2.03-.06-.19-.64-2.11-.81-2.65-.17-.56-.67-1.9-1.29-1.9h-.01s-.09.05-.13.13c-.32.58-.46 3.02-.46 4.84v2.26c.27.97.91 3.22.96 3.35 0 0 .05.1.09.1Z" fill="url(#foundry-gradient-one)"/><path d="M11.96 11.68s.07-.1.07-.24V7.57c0-.85.66-1.76 1.59-2.03-.06-.19-.64-2.11-.81-2.65-.17-.56-.67-1.9-1.29-1.9h-.01s-.09.05-.13.13c-.32.58-.46 3.02-.46 4.84v2.26c.27.97.91 3.22.96 3.35 0 0 .05.1.09.1Z" fill="url(#foundry-gradient-two)"/><path d="M16.01 5.46H14.2c-1.21 0-2.17 1.09-2.17 2.11v3.87c0 .14-.04.24-.07.24s-.09-.1-.09-.1c0 0 .07.21.17.21h1.98c.62 0 2.48-.61 2.48-2.52V6.02c0-.41-.24-.55-.49-.55Z" fill="url(#foundry-gradient-three)"/><path d="M2.34 17h5.38c2.35 0 3.2-2.03 3.2-3.81V5.96c0-2.08.19-4.97.61-4.97H8.3c-.77 0-1.43.82-2.18 2.48S1.76 15.34 1.6 15.83c-.26.79-.02 1.16.74 1.16Z" fill="url(#foundry-gradient-four)"/>
+    </symbol>
+    <symbol id="monitor-icon" viewBox="0 0 18 18">
+      <ellipse cx="9" cy="9" rx="8.5" ry="8.47" fill="url(#monitor-gradient)"/><ellipse cx="9" cy="9" rx="7.4" ry="7.37" fill="#fff"/><path d="M2.72 9.44a6.24 6.24 0 0 0 1.82 4l2-2a3.53 3.53 0 0 1-1-2Z" fill="#9cebff"/><path d="M13.13 4.27A6.25 6.25 0 0 0 9.44 2.74v2.79a3.41 3.41 0 0 1 1.71.7ZM4.87 4.27l2 2a3.41 3.41 0 0 1 1.71-.7V2.74a6.25 6.25 0 0 0-3.71 1.53ZM11.78 6.85a3.6 3.6 0 0 1 .71 1.71h2.79a6.16 6.16 0 0 0-1.53-3.67Z" fill="#32bedd"/><path d="M6.22 6.85l-2-2a6.16 6.16 0 0 0-1.5 3.67h2.79a3.6 3.6 0 0 1 .71-1.71Z" fill="#50e6ff"/><path d="M14.14 7a.45.45 0 0 0-.57-.25L9.45 8.41l.32.81 4.12-1.63a.44.44 0 0 0 .25-.59Z" fill="#f04049"/><ellipse cx="9" cy="9" rx="1.2" ry="1.2" fill="url(#monitor-center-gradient)"/>
+    </symbol>
+    <style>
+      text{font-family:"Segoe UI",Arial,sans-serif;fill:#2f2f2f;font-size:13px}
+      .small{font-size:12px}.group-title{font-size:12px}.center{text-anchor:middle}
+      .resource-shadow{fill:#8e8278;fill-opacity:.3}.resource{fill:#e1ddd8;stroke:#a79f98;stroke-width:.7}
+      .zone{fill:#f8fcfe;stroke:#53b1e0;stroke-width:.65}.card{fill:#fff;stroke:#0078d4;stroke-width:.65}
+      .client{fill:#f4f3f5;stroke:#777677;stroke-width:.7}.connector{fill:none;stroke:#3c3c41;stroke-width:1.1;marker-end:url(#arrow)}
+      .dashed{stroke-dasharray:4 3}.telemetry{fill:none;stroke:#3c3c41;stroke-width:1.1}
+    </style>
+  </defs>
+
+  <rect width="820" height="510" fill="#fff"/>
+
+  <g aria-label="Client A">
+    <rect class="client" x="20" y="105" width="88" height="92"/>
+    <use href="#client-icon" x="52" y="124" width="24" height="24"/>
+    <text class="center" x="64" y="173">Client A</text>
+  </g>
+  <g aria-label="Client B">
+    <rect class="client" x="20" y="285" width="88" height="92"/>
+    <use href="#client-icon" x="52" y="304" width="24" height="24"/>
+    <text class="center" x="64" y="353">Client B</text>
+  </g>
+
+  <rect class="resource-shadow" x="239" y="39" width="446" height="356"/>
+  <rect class="resource" x="235" y="35" width="446" height="356"/>
+  <text class="group-title center" x="458" y="55">Foundry resources</text>
+
+  <g aria-label="Foundry resource A with gpt-5-nano and gpt-5 deployments">
+    <rect class="zone" x="255" y="70" width="406" height="135"/>
+    <rect class="card" x="275" y="84" width="112" height="50"/>
+    <use href="#model-icon" x="284" y="94" width="28" height="28"/>
+    <text class="small" x="319" y="114">gpt-5-nano</text>
+    <rect class="card" x="275" y="143" width="112" height="50"/>
+    <use href="#model-icon" x="284" y="153" width="28" height="28"/>
+    <text class="small" x="319" y="173">gpt-5</text>
+    <rect class="card" x="420" y="103" width="216" height="70"/>
+    <use href="#foundry-icon" x="436" y="122" width="24" height="30"/>
+    <text x="472" y="133">Foundry resource A</text>
+    <text class="small" x="472" y="151">Model deployments</text>
+  </g>
+
+  <g aria-label="Foundry resource B with gpt-5-mini and gpt-5 deployments">
+    <rect class="zone" x="255" y="225" width="406" height="135"/>
+    <rect class="card" x="275" y="239" width="112" height="50"/>
+    <use href="#model-icon" x="284" y="249" width="28" height="28"/>
+    <text class="small" x="319" y="269">gpt-5-mini</text>
+    <rect class="card" x="275" y="298" width="112" height="50"/>
+    <use href="#model-icon" x="284" y="308" width="28" height="28"/>
+    <text class="small" x="319" y="328">gpt-5</text>
+    <rect class="card" x="420" y="258" width="216" height="70"/>
+    <use href="#foundry-icon" x="436" y="277" width="24" height="30"/>
+    <text x="472" y="288">Foundry resource B</text>
+    <text class="small" x="472" y="306">Model deployments</text>
+  </g>
+
+  <path class="connector" d="M108 151H180V109H275"/>
+  <path class="connector dashed" d="M108 151H198V264H275"/>
+  <path class="connector" d="M108 331H216V168H275"/>
+  <path class="connector dashed" d="M108 331H188V323H275"/>
+
+  <path class="telemetry" d="M636 138H722V438H559"/>
+  <path class="telemetry" d="M636 293H722"/>
+  <path class="connector" d="M722 438H559"/>
+  <text class="small" x="692" y="342">Foundry metrics</text>
+  <text class="small" x="692" y="358">and logs</text>
+  <g aria-label="Azure Monitor">
+    <use href="#monitor-icon" x="517" y="417" width="42" height="42"/>
+    <text class="center" x="538" y="479">Azure Monitor</text>
+  </g>
+</svg>
