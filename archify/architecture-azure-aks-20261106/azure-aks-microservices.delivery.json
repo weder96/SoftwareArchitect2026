@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "8ad56531-c07e-4f23-90b5-3fece8331b54",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-azure-aks-20261106/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-azure-aks-20261106/azure-aks-microservices.html",
+  "specification": {
+    "sha256": "740330a5e06e62092e331923cc08808234345a84679b261d93051652bea4caac",
+    "bytes": 6394
+  },
+  "artifact": {
+    "sha256": "9a317c85f5787731b3f25fcb9d209fe9019f26a8d0b5e698e489f433e622d959",
+    "bytes": 868872
+  }
+}

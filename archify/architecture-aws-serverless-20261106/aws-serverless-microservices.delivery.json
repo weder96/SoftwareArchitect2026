@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "c8eaadba-9df5-4a46-9379-2cea71772e09",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-aws-serverless-20261106/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-aws-serverless-20261106/aws-serverless-microservices.html",
+  "specification": {
+    "sha256": "0845d99d68d4741e4b19403a981e520c920fd9faa4fcd396c217fea8204fa14e",
+    "bytes": 4863
+  },
+  "artifact": {
+    "sha256": "eb50d09aac8224496b646079fc120b14a8333574c63500b2af29ea8de33c7ea9",
+    "bytes": 856241
+  }
+}

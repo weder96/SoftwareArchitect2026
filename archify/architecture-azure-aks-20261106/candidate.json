@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Microsserviços no Azure Kubernetes Service (AKS)",
+    "output": ".archify/architecture-azure-aks-20261106/azure-aks-microservices.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "client_apps", "type": "external", "label": "Client apps", "sublabel": "Navegador / dispositivo", "pos": [40, 120], "size": [150, 56], "icon": "person" },
+    { "id": "lb", "type": "cloud", "label": "Azure Load Balancer", "sublabel": "Public IP address", "pos": [280, 120], "size": [160, 56], "icon": "cloud" },
+    { "id": "pipelines", "type": "backend", "label": "CI/CD - Azure Pipelines", "sublabel": "DevOps", "pos": [120, 320], "size": [170, 56], "icon": "backend" },
+    { "id": "helm", "type": "external", "label": "Helm", "sublabel": "Gerenciador de pacotes", "pos": [40, 390], "size": [120, 56], "icon": "briefcase" },
+    { "id": "acr", "type": "database", "label": "Azure Container Registry", "sublabel": "Registro de imagens", "pos": [400, 320], "size": [180, 56], "icon": "database" },
+    { "id": "aks_title", "type": "cloud", "label": "Azure Kubernetes Service", "sublabel": "Cluster Kubernetes", "pos": [680, 60], "size": [180, 50], "icon": "cloud" },
+    { "id": "ingress", "type": "cloud", "label": "Ingress", "sublabel": "Namespace: Front end — NGINX", "pos": [680, 160], "size": [160, 50], "icon": "cloud" },
+    { "id": "ms1", "type": "backend", "label": "microservice1", "sublabel": "Namespace: Back end", "pos": [880, 100], "size": [150, 50], "icon": "backend" },
+    { "id": "ms2", "type": "backend", "label": "microservice2", "sublabel": "Namespace: Back end", "pos": [880, 240], "size": [150, 50], "icon": "backend" },
+    { "id": "ms3", "type": "backend", "label": "microservice3", "sublabel": "Namespace: Back end", "pos": [1080, 60], "size": [150, 50], "icon": "backend" },
+    { "id": "ms4", "type": "backend", "label": "microservice4", "sublabel": "Namespace: Back end", "pos": [1080, 180], "size": [150, 50], "icon": "backend" },
+    { "id": "ms5", "type": "backend", "label": "microservice5", "sublabel": "Namespace: Back end", "pos": [1080, 300], "size": [150, 50], "icon": "backend" },
+    { "id": "documentdb", "type": "database", "label": "Azure DocumentDB", "sublabel": "External data store", "pos": [1280, 80], "size": [160, 50], "icon": "database" },
+    { "id": "cosmosdb", "type": "database", "label": "Azure Cosmos DB", "sublabel": "External data store", "pos": [1280, 200], "size": [160, 50], "icon": "database" },
+    { "id": "redis", "type": "database", "label": "Azure Managed Redis", "sublabel": "External data store", "pos": [1280, 320], "size": [160, 50], "icon": "database" },
+    { "id": "servicebus", "type": "messagebus", "label": "Azure Service Bus", "sublabel": "External data store", "pos": [1280, 440], "size": [160, 50], "icon": "messagebus" },
+    { "id": "cilium", "type": "cloud", "label": "Azure CNI powered by Cilium", "sublabel": "Rede de contêineres", "pos": [680, 560], "size": [200, 50], "icon": "cloud" },
+    { "id": "rbac", "type": "security", "label": "Role-based access control", "sublabel": "Identidade", "pos": [400, 560], "size": [170, 50], "icon": "security" },
+    { "id": "entra", "type": "security", "label": "Microsoft Entra ID", "sublabel": "Provedor de identidade", "pos": [600, 625], "size": [150, 50], "icon": "security" },
+    { "id": "loganalytics", "type": "cloud", "label": "Log Analytics workspace", "sublabel": "Observabilidade", "pos": [820, 618], "size": [160, 50], "icon": "cloud" },
+    { "id": "appinsights", "type": "cloud", "label": "Application Insights", "sublabel": "Observabilidade", "pos": [1000, 560], "size": [160, 50], "icon": "cloud" },
+    { "id": "managedid", "type": "security", "label": "Managed identities", "sublabel": "Identidade", "pos": [1178, 560], "size": [140, 50], "icon": "security" },
+    { "id": "keyvault", "type": "security", "label": "Azure Key Vault", "sublabel": "Segredos e chaves", "pos": [1346, 560], "size": [140, 50], "icon": "security" },
+    { "id": "vnet", "type": "cloud", "label": "Virtual network", "sublabel": "Rede", "pos": [1510, 560], "size": [140, 50], "icon": "cloud" },
+    { "id": "monitor", "type": "cloud", "label": "Azure Monitor", "sublabel": "Monitoramento", "pos": [1674, 560], "size": [80, 50], "icon": "cloud" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Kubernetes cluster", "wraps": ["aks_title", "ingress", "ms1", "ms2", "ms3", "ms4", "ms5"], "pad": 24 },
+    { "kind": "region", "label": "DevOps", "wraps": ["pipelines"], "pad": 16 },
+    { "kind": "region", "label": "External data stores", "wraps": ["documentdb", "cosmosdb", "redis", "servicebus"], "pad": 16 }
+  ],
+  "connections": [
+    { "id": "t1", "from": "client_apps", "to": "lb" },
+    { "id": "t2", "from": "lb", "to": "ingress" },
+    { "id": "t3", "from": "ingress", "to": "ms1" },
+    { "id": "t4", "from": "ms1", "to": "ms2" },
+    { "id": "t5", "from": "ms2", "to": "ms3" },
+    { "id": "t6", "from": "ms2", "to": "ms4" },
+    { "id": "t7", "from": "ms2", "to": "ms5" },
+    { "id": "d1", "from": "pipelines", "to": "acr", "label": "Image push", "variant": "dashed" },
+    { "id": "d2", "from": "acr", "to": "aks_title", "label": "Image pull", "variant": "dashed" },
+    { "id": "d3", "from": "helm", "to": "aks_title", "label": "Helm", "variant": "dashed" },
+    { "id": "d4", "from": "aks_title", "to": "cilium", "label": "CNI", "variant": "dashed" },
+    { "id": "g1", "from": "rbac", "to": "entra" },
+    { "id": "g2", "from": "managedid", "to": "keyvault" },
+    { "id": "g3", "from": "vnet", "to": "monitor" }
+  ],
+  "cards": [
+    { "dot": "emerald", "title": "Tráfego de usuário", "items": ["Client apps → Azure Load Balancer → Ingress → microsserviços (Back end)", "microservice1 → microservice2 → ramificação para microservice3, microservice4 e microservice5"] },
+    { "dot": "cyan", "title": "Deploy / DevOps (tracejado)", "items": ["Azure Pipelines → Image push → Azure Container Registry", "ACR → Image pull → AKS cluster", "Helm → AKS cluster", "AKS → Azure CNI powered by Cilium"] },
+    { "dot": "rose", "title": "Governança na base", "items": ["RBAC → Microsoft Entra ID", "Managed identities → Azure Key Vault", "Virtual network → Azure Monitor", "Log Analytics workspace e Application Insights"] }
+  ]
+}

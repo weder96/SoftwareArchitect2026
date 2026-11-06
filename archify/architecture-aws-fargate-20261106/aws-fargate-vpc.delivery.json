@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "80b31f87-8c5c-4a0b-9aed-678850fe0149",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-aws-fargate-20261106/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-aws-fargate-20261106/aws-fargate-vpc.html",
+  "specification": {
+    "sha256": "2115053fc009566a12bcde0219741496f0ec9eb326428de87f527aed683ecd92",
+    "bytes": 5762
+  },
+  "artifact": {
+    "sha256": "22a2c5fd77f68dc8b3e04f0e8ee2a11ee660e5902b5c68cc9ca24ada2ef07f05",
+    "bytes": 861144
+  }
+}

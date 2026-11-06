@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "ok": false,
+  "command": "finalize",
+  "status": "running",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-db-sharding-20261106/candidate.json",
+    "sha256": "40a77df8200004d53f6c47289e1163213a96a8919b07d9e2a34b93cfdee73508",
+    "bytes": 5500
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-db-sharding-20261106/database-sharding.html",
+    "sha256": "5359687f372da96f41432b6ce6385a96091ceb71a3de2e1f2988402a75f1e15b",
+    "bytes": 860456
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "not-run"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-db-sharding-20261106/database-sharding.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-db-sharding-20261106/database-sharding.finalize-summary.json"
+  },
+  "visualReview": "not-requested",
+  "browserCheck": {
+    "requested": true,
+    "ran": false
+  }
+}

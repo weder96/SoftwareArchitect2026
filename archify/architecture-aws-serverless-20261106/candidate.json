@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Arquitetura Serverless de Microsserviços na AWS",
+    "output": ".archify/architecture-aws-serverless-20261106/aws-serverless-microservices.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "user", "type": "external", "label": "User", "sublabel": "Usuário externo", "pos": [40, 300], "size": [120, 56], "icon": "person" },
+    { "id": "gw_main", "type": "cloud", "label": "AWS API Gateway", "sublabel": "Entrada principal", "pos": [260, 280], "size": [160, 80], "icon": "cloud" },
+    { "id": "prod_gw", "type": "cloud", "label": "API Gateway", "sublabel": "Product", "pos": [480, 140], "size": [140, 50], "icon": "cloud" },
+    { "id": "prod_lambda", "type": "backend", "label": "Lambda Function", "sublabel": "Product", "pos": [660, 140], "size": [140, 50], "icon": "backend" },
+    { "id": "prod_db", "type": "database", "label": "DynamoDB Table", "sublabel": "Product", "pos": [840, 140], "size": [140, 50], "icon": "database" },
+    { "id": "basket_gw", "type": "cloud", "label": "API Gateway", "sublabel": "Basket", "pos": [480, 300], "size": [140, 50], "icon": "cloud" },
+    { "id": "basket_lambda", "type": "backend", "label": "Lambda Function", "sublabel": "Basket", "pos": [660, 300], "size": [140, 50], "icon": "backend" },
+    { "id": "basket_db", "type": "database", "label": "DynamoDB Table", "sublabel": "Basket", "pos": [840, 300], "size": [140, 50], "icon": "database" },
+    { "id": "order_gw", "type": "cloud", "label": "API Gateway", "sublabel": "Ordering", "pos": [480, 460], "size": [140, 50], "icon": "cloud" },
+    { "id": "order_lambda", "type": "backend", "label": "Lambda Function", "sublabel": "Ordering", "pos": [660, 460], "size": [140, 50], "icon": "backend" },
+    { "id": "order_db", "type": "database", "label": "DynamoDB Table", "sublabel": "Ordering", "pos": [840, 460], "size": [140, 50], "icon": "database" },
+    { "id": "eventbridge", "type": "messagebus", "label": "AWS EventBridge Event bus", "sublabel": "EventBridge Rules", "pos": [1100, 300], "size": [190, 56], "icon": "messagebus" },
+    { "id": "sqs", "type": "messagebus", "label": "AWS SQS Queue", "sublabel": "Fila de mensagens", "pos": [988, 460], "size": [150, 50], "icon": "messagebus" },
+    { "id": "cdk", "type": "cloud", "label": "CDK CloudFormation", "sublabel": "Infraestrutura como código", "pos": [40, 560], "size": [160, 50], "icon": "cloud" },
+    { "id": "cloudwatch", "type": "cloud", "label": "Amazon CloudWatch", "sublabel": "Monitoramento e observabilidade", "pos": [230, 560], "size": [160, 50], "icon": "cloud" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "AWS Cloud", "wraps": ["gw_main", "prod_gw", "prod_lambda", "prod_db", "basket_gw", "basket_lambda", "basket_db", "order_gw", "order_lambda", "order_db", "eventbridge", "sqs"], "pad": 24 },
+    { "kind": "region", "label": "Product Microservice", "wraps": ["prod_gw", "prod_lambda", "prod_db"], "pad": 16 },
+    { "kind": "region", "label": "Basket Microservice", "wraps": ["basket_gw", "basket_lambda", "basket_db"], "pad": 16 },
+    { "kind": "region", "label": "Ordering Microservice", "wraps": ["order_gw", "order_lambda", "order_db"], "pad": 16 }
+  ],
+  "connections": [
+    { "id": "c1", "from": "user", "to": "gw_main" },
+    { "id": "c2", "from": "gw_main", "to": "prod_gw", "label": "Product" },
+    { "id": "c3", "from": "gw_main", "to": "basket_gw", "label": "Basket" },
+    { "id": "c4", "from": "gw_main", "to": "order_gw", "label": "Order" },
+    { "id": "c5", "from": "prod_gw", "to": "prod_lambda" },
+    { "id": "c6", "from": "prod_lambda", "to": "prod_db" },
+    { "id": "c7", "from": "basket_gw", "to": "basket_lambda" },
+    { "id": "c8", "from": "basket_lambda", "to": "basket_db" },
+    { "id": "c9", "from": "order_gw", "to": "order_lambda" },
+    { "id": "c10", "from": "order_lambda", "to": "order_db" },
+    { "id": "c11", "from": "basket_db", "to": "eventbridge", "label": "Checkout Event" },
+    { "id": "c12", "from": "eventbridge", "to": "sqs", "label": "Rules" },
+    { "id": "c13", "from": "sqs", "to": "order_gw", "label": "Evento de checkout", "fromSide": "top", "toSide": "top", "via": [[1063, 380], [550, 380], [550, 420]] }
+  ],
+  "cards": [
+    { "dot": "emerald", "title": "Fluxo principal", "items": ["User → AWS API Gateway → microsserviços (Product / Basket / Ordering)", "Cada microsserviço: API Gateway → Lambda → DynamoDB"] },
+    { "dot": "cyan", "title": "Eventos e mensageria", "items": ["Basket emite Checkout Event para o EventBridge", "EventBridge (Rules) encaminha para a SQS Queue", "SQS dispara a entrada do Ordering Microservice"] },
+    { "dot": "rose", "title": "Governança e deploy", "items": ["CDK CloudFormation — IaC", "Amazon CloudWatch — monitoramento e observabilidade"] }
+  ]
+}

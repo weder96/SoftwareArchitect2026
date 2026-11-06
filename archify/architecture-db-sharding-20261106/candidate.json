@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Database Sharding Architecture — Scaling Massive Databases",
+    "output": ".archify/architecture-db-sharding-20261106/database-sharding.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "app_user", "type": "external", "label": "User", "sublabel": "Camada de aplicação", "pos": [40, 80], "size": [110, 50], "icon": "person" },
+    { "id": "app_api", "type": "backend", "label": "API", "sublabel": "Gateway", "pos": [174, 80], "size": [110, 50], "icon": "backend" },
+    { "id": "app_services", "type": "backend", "label": "Services", "sublabel": "Lógica de negócio", "pos": [308, 80], "size": [110, 50], "icon": "backend" },
+    { "id": "req_a", "type": "external", "label": "User A", "sublabel": "Requisição", "pos": [40, 160], "size": [110, 40], "icon": "person" },
+    { "id": "req_c", "type": "external", "label": "User C", "sublabel": "Requisição", "pos": [40, 210], "size": [110, 40], "icon": "person" },
+    { "id": "req_d", "type": "external", "label": "User D", "sublabel": "Requisição", "pos": [40, 260], "size": [110, 40], "icon": "person" },
+    { "id": "req_e", "type": "external", "label": "User E", "sublabel": "Requisição", "pos": [40, 310], "size": [110, 40], "icon": "person" },
+    { "id": "router", "type": "backend", "label": "Sharding Router / Logic", "sublabel": "Roteia requisições para os shards", "pos": [480, 190], "size": [160, 60], "icon": "backend" },
+    { "id": "shard1", "type": "database", "label": "SHARD 1 (ID Range A-M)", "sublabel": "USER DATA TABLES (Users A-G)", "pos": [880, 100], "size": [200, 70], "icon": "database" },
+    { "id": "shard2", "type": "database", "label": "SHARD 2 (ID Range N-Z)", "sublabel": "USER DATA TABLES (Users H-N)", "pos": [880, 220], "size": [200, 70], "icon": "database" },
+    { "id": "shard3", "type": "database", "label": "SHARD 3 (ID Range 0-9)", "sublabel": "USER DATA TABLES (Users O-T)", "pos": [880, 340], "size": [200, 70], "icon": "database" },
+    { "id": "single_db", "type": "security", "label": "Single Database", "sublabel": "Single Point of Failure • Limited Scalability (Vertical) • High Load on Single Server • Bottleneck", "pos": [40, 460], "size": [362, 200], "icon": "database" },
+    { "id": "sharded_db", "type": "database", "label": "Sharded Databases", "sublabel": "High Availability & Fault Tolerance • Scalable (Horizontal) • Distributed Load across Shards • High Throughput", "pos": [420, 460], "size": [406, 200], "icon": "database" },
+    { "id": "scale1", "type": "backend", "label": "Servidor Único", "sublabel": "x1", "pos": [850, 480], "size": [130, 50], "icon": "backend" },
+    { "id": "scale2", "type": "backend", "label": "Servidor + Nós", "sublabel": "x1 → x3", "pos": [1004, 480], "size": [130, 50], "icon": "backend" },
+    { "id": "scale3a", "type": "backend", "label": "Shard", "sublabel": "x1", "pos": [1150, 460], "size": [90, 46], "icon": "backend" },
+    { "id": "scale3b", "type": "backend", "label": "Shard", "sublabel": "x3", "pos": [1150, 520], "size": [90, 46], "icon": "backend" },
+    { "id": "scale3c", "type": "backend", "label": "Shard", "sublabel": "x3", "pos": [1150, 580], "size": [90, 46], "icon": "backend" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "LARGE APPLICATION LAYER", "wraps": ["app_user", "app_api", "app_services", "req_a", "req_c", "req_d", "req_e"], "pad": 18 },
+    { "kind": "region", "label": "SHARDING ROUTER / LOGIC", "wraps": ["router"], "pad": 16 },
+    { "kind": "region", "label": "Shards (Bancos Particionados)", "wraps": ["shard1", "shard2", "shard3"], "pad": 18 },
+    { "kind": "region", "label": "SINGLE DATABASE VS. DISTRIBUTED SHARDED DATABASES", "wraps": ["single_db", "sharded_db"], "pad": 18 },
+    { "kind": "region", "label": "HORIZONTAL SCALING CONCEPT", "wraps": ["scale1", "scale2", "scale3a", "scale3b", "scale3c"], "pad": 18 }
+  ],
+  "connections": [
+    { "id": "a1", "from": "app_user", "to": "app_api" },
+    { "id": "a2", "from": "app_api", "to": "app_services" },
+    { "id": "a3", "from": "app_services", "to": "router" },
+    { "id": "a4", "from": "req_a", "to": "router", "label": "User A" },
+    { "id": "a5", "from": "req_c", "to": "router", "label": "User B" },
+    { "id": "a6", "from": "req_d", "to": "router", "label": "User D" },
+    { "id": "a7", "from": "router", "to": "shard1", "label": "Reads / Writes" },
+    { "id": "a8", "from": "router", "to": "shard2", "label": "Writes" },
+    { "id": "a9", "from": "router", "to": "shard3", "label": "Writes" },
+    { "id": "s1", "from": "scale1", "to": "scale2" },
+    { "id": "s2", "from": "scale2", "to": "scale3a" }
+  ],
+  "cards": [
+    { "dot": "rose", "title": "Single Database — problemas", "items": ["Single Point of Failure", "Limited Scalability (Vertical)", "High Load on Single Server", "Bottleneck"] },
+    { "dot": "emerald", "title": "Sharded Databases — benefícios", "items": ["High Availability & Fault Tolerance", "Scalable (Horizontal)", "Distributed Load across Shards", "High Throughput"] },
+    { "dot": "cyan", "title": "Horizontal Scaling (Scale Out)", "items": ["Adiciona mais servidores para distribuir a carga", "Evolução: x1 → x1+x3 → Shards (x1, x3, x3)"] },
+    { "dot": "violet", "title": "Mapeamento de requisições (topo)", "items": ["User A, User C, User D, User E listadas na camada de aplicação", "Setas ao roteador rotuladas: User A, User B, User D"] }
+  ]
+}

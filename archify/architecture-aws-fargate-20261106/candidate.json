@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Arquitetura AWS Fargate e VPC",
+    "output": ".archify/architecture-aws-fargate-20261106/aws-fargate-vpc.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "users", "type": "external", "label": "Users", "sublabel": "Múltiplos usuários", "pos": [40, 100], "size": [120, 56], "icon": "person" },
+    { "id": "devices", "type": "external", "label": "Devices", "sublabel": "Computador / tablet", "pos": [40, 200], "size": [120, 56], "icon": "person" },
+    { "id": "sdk", "type": "external", "label": "SDK", "sublabel": "Cubo de integração", "pos": [40, 300], "size": [120, 56], "icon": "person" },
+    { "id": "alb", "type": "cloud", "label": "Application Load Balancer", "sublabel": "Public subnet — ALB", "pos": [360, 250], "size": [170, 50], "icon": "cloud" },
+    { "id": "fargate", "type": "cloud", "label": "AWS Fargate", "sublabel": "Compute de contêineres", "pos": [560, 250], "size": [140, 50], "icon": "cloud" },
+    { "id": "search", "type": "backend", "label": "Search", "sublabel": "Fargate task", "pos": [720, 160], "size": [140, 40], "icon": "backend" },
+    { "id": "list", "type": "backend", "label": "List", "sublabel": "Fargate task", "pos": [720, 220], "size": [140, 40], "icon": "backend" },
+    { "id": "pricegraph", "type": "backend", "label": "PriceGraph", "sublabel": "Fargate task", "pos": [720, 280], "size": [140, 40], "icon": "backend" },
+    { "id": "select", "type": "backend", "label": "Select", "sublabel": "Fargate task", "pos": [720, 340], "size": [140, 40], "icon": "backend" },
+    { "id": "elasticache", "type": "database", "label": "ElastiCache for Redis", "sublabel": "Private subnet — cache", "pos": [920, 250], "size": [150, 50], "icon": "database" },
+    { "id": "rds", "type": "database", "label": "Amazon RDS", "sublabel": "Private subnet — relacional", "pos": [920, 350], "size": [150, 50], "icon": "database" },
+    { "id": "paramstore", "type": "cloud", "label": "AWS Systems Manager Parameter Store", "sublabel": "Governança — Region", "pos": [1100, 180], "size": [230, 50], "icon": "cloud" },
+    { "id": "cloudwatch", "type": "cloud", "label": "Amazon CloudWatch", "sublabel": "Monitoramento — Region", "pos": [1120, 320], "size": [170, 50], "icon": "cloud" },
+    { "id": "ecr", "type": "database", "label": "Amazon ECR", "sublabel": "Registro de imagens", "pos": [300, 560], "size": [160, 50], "icon": "database" },
+    { "id": "ecs", "type": "backend", "label": "Amazon ECS", "sublabel": "Orquestração de contêineres", "pos": [520, 560], "size": [150, 50], "icon": "backend" },
+    { "id": "s3", "type": "cloud", "label": "Amazon S3", "sublabel": "Armazenamento de objetos", "pos": [1000, 560], "size": [140, 50], "icon": "cloud" },
+    { "id": "lambda", "type": "backend", "label": "AWS Lambda", "sublabel": "Função serverless", "pos": [1210, 560], "size": [130, 50], "icon": "backend" },
+    { "id": "dynamodb", "type": "database", "label": "Amazon DynamoDB", "sublabel": "Banco NoSQL", "pos": [1410, 560], "size": [150, 50], "icon": "database" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "AWS Cloud", "wraps": ["alb", "fargate", "search", "list", "pricegraph", "select", "elasticache", "rds", "paramstore", "cloudwatch", "ecr", "ecs", "s3", "lambda", "dynamodb"], "pad": 24 },
+    { "kind": "region", "label": "Region", "wraps": ["alb", "fargate", "search", "list", "pricegraph", "select", "elasticache", "rds", "paramstore", "cloudwatch", "ecr", "ecs", "s3", "lambda", "dynamodb"], "pad": 24 },
+    { "kind": "region", "label": "Virtual private cloud (VPC)", "wraps": ["alb", "fargate", "search", "list", "pricegraph", "select", "elasticache", "rds"], "pad": 22 },
+    { "kind": "region", "label": "Public subnet", "wraps": ["alb"], "pad": 16 },
+    { "kind": "region", "label": "Private subnet", "wraps": ["elasticache", "rds"], "pad": 16 },
+    { "kind": "region", "label": "Fargate Tasks", "wraps": ["search", "list", "pricegraph", "select"], "pad": 14 },
+    { "kind": "region", "label": "Client Apps", "wraps": ["users", "devices", "sdk"], "pad": 14 }
+  ],
+  "connections": [
+    { "id": "n1", "from": "users", "to": "alb" },
+    { "id": "n2", "from": "devices", "to": "alb" },
+    { "id": "n3", "from": "sdk", "to": "alb" },
+    { "id": "n4", "from": "alb", "to": "fargate" },
+    { "id": "n5", "from": "fargate", "to": "elasticache" },
+    { "id": "n6", "from": "fargate", "to": "rds" },
+    { "id": "n7", "from": "fargate", "to": "paramstore" },
+    { "id": "n8", "from": "users", "to": "paramstore", "fromSide": "top", "toSide": "left", "label": "Linha superior sobre a nuvem", "variant": "dashed" },
+    { "id": "n9", "from": "ecr", "to": "ecs" },
+    { "id": "n10", "from": "ecs", "to": "fargate" },
+    { "id": "n11", "from": "s3", "to": "lambda" },
+    { "id": "n12", "from": "lambda", "to": "dynamodb" }
+  ],
+  "cards": [
+    { "dot": "emerald", "title": "Atores externos (esquerda)", "items": ["Users", "Devices", "SDK"] },
+    { "dot": "cyan", "title": "Rede VPC", "items": ["AWS Cloud → Region → VPC → Public subnet / Private subnet", "ALB na Public subnet", "ElastiCache e RDS na Private subnet", "Fargate entre as subnets"] },
+    { "dot": "rose", "title": "Fluxo de dados", "items": ["Atores → ALB → Fargate", "Fargate → ElastiCache e RDS", "Fargate → Parameter Store", "Atores → linha superior → Parameter Store"] },
+    { "dot": "violet", "title": "Infraestrutura de contêineres e serverless (base)", "items": ["ECR → ECS → Fargate", "S3 → Lambda → DynamoDB"] },
+    { "dot": "slate", "title": "Governança e monitoramento (Region)", "items": ["AWS Systems Manager Parameter Store", "Amazon CloudWatch"] }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Microsserviços Azure — Ecossistema Azure",
+    "output": ".archify/architecture-azure-microservices-20261106/azure-microservices.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "angular", "type": "external", "label": "Angular", "sublabel": "Framework (A vermelha)", "pos": [40, 200], "size": [130, 50], "icon": "person" },
+    { "id": "azure_logo", "type": "cloud", "label": "Azure", "sublabel": "Plataforma Microsoft Azure", "pos": [700, 60], "size": [130, 50], "icon": "cloud" },
+    { "id": "apim", "type": "cloud", "label": "Api Management", "sublabel": "Nuvem com nós", "pos": [700, 300], "size": [150, 50], "icon": "cloud" },
+    { "id": "aks", "type": "cloud", "label": "Azure Kubernetes", "sublabel": "AKS — hexágonos roxos", "pos": [700, 180], "size": [150, 50], "icon": "cloud" },
+    { "id": "appinsights", "type": "cloud", "label": "Azure Application Insights", "sublabel": "Lâmpada — Governança", "pos": [1460, 60], "size": [170, 46], "icon": "cloud" },
+    { "id": "appconfig", "type": "cloud", "label": "Azure App Configuration", "sublabel": "Nuvem com engrenagens — Governança", "pos": [1460, 140], "size": [170, 46], "icon": "cloud" },
+    { "id": "sec_ms", "type": "backend", "label": "Security Microservice", "sublabel": "Hexágono verde · REST API", "pos": [960, 160], "size": [160, 50], "icon": "backend" },
+    { "id": "sec_db", "type": "database", "label": "SQL", "sublabel": "Banco SQL", "pos": [1160, 160], "size": [150, 50], "icon": "database" },
+    { "id": "acct_ms", "type": "backend", "label": "Account Microservice", "sublabel": "Hexágono verde · REST API", "pos": [960, 300], "size": [160, 50], "icon": "backend" },
+    { "id": "acct_db", "type": "database", "label": "SQL", "sublabel": "Banco SQL", "pos": [1160, 300], "size": [150, 50], "icon": "database" },
+    { "id": "trans_ms", "type": "backend", "label": "Transaction Microservice", "sublabel": "Hexágono verde · REST API", "pos": [960, 440], "size": [160, 50], "icon": "backend" },
+    { "id": "trans_db", "type": "database", "label": "PostgreSQL", "sublabel": "Banco PostgreSQL", "pos": [1160, 440], "size": [150, 50], "icon": "database" },
+    { "id": "hist_ms", "type": "backend", "label": "History Microservice", "sublabel": "Hexágono verde · REST API", "pos": [960, 580], "size": [160, 50], "icon": "backend" },
+    { "id": "hist_db", "type": "database", "label": "CosmosDb NoSQL", "sublabel": "Anéis planetários", "pos": [1160, 580], "size": [150, 50], "icon": "database" },
+    { "id": "redis", "type": "database", "label": "Azure Redis Cache", "sublabel": "Cilindro azul claro com raio", "pos": [960, 680], "size": [160, 50], "icon": "database" },
+    { "id": "servicebus", "type": "messagebus", "label": "Azure Service Bus", "sublabel": "Mensageria assíncrona", "pos": [1340, 300], "size": [160, 50], "icon": "messagebus" },
+    { "id": "hist_process", "type": "backend", "label": "History Process", "sublabel": "Azure Functions — raio", "pos": [1340, 480], "size": [160, 50], "icon": "backend" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Client Apps", "wraps": ["angular"], "pad": 18 },
+    { "kind": "region", "label": "Microservices Architecture", "wraps": ["azure_logo", "apim", "aks", "appinsights", "appconfig", "sec_ms", "sec_db", "acct_ms", "acct_db", "trans_ms", "trans_db", "hist_ms", "hist_db", "redis", "servicebus", "hist_process"], "pad": 22 },
+    { "kind": "region", "label": "Central Micro Services Block", "wraps": ["sec_ms", "sec_db", "acct_ms", "acct_db", "trans_ms", "trans_db", "hist_ms", "hist_db", "redis"], "pad": 18 }
+  ],
+  "connections": [
+    { "id": "c1", "from": "angular", "to": "apim", "variant": "dashed" },
+    { "id": "c2", "from": "apim", "to": "aks", "fromSide": "top", "toSide": "bottom", "label": "", "variant": "dashed" },
+    { "id": "c3", "from": "azure_logo", "to": "aks", "fromSide": "bottom", "toSide": "top", "label": "Deploy", "variant": "dashed" },
+    { "id": "c4", "from": "aks", "to": "sec_ms", "variant": "dashed" },
+    { "id": "c5", "from": "sec_ms", "to": "sec_db" },
+    { "id": "c6", "from": "acct_ms", "to": "acct_db" },
+    { "id": "c7", "from": "trans_ms", "to": "trans_db" },
+    { "id": "c8", "from": "hist_ms", "to": "hist_db" },
+    { "id": "c9", "from": "hist_ms", "to": "redis" },
+    { "id": "c10", "from": "trans_ms", "to": "servicebus" },
+    { "id": "c11", "from": "servicebus", "to": "acct_ms", "label": "Account Suscription", "variant": "dashed" },
+    { "id": "c12", "from": "servicebus", "to": "hist_process", "fromSide": "bottom", "toSide": "top", "label": "History Suscription", "variant": "dashed" },
+    { "id": "c13", "from": "hist_process", "to": "hist_db" },
+    { "id": "c14", "from": "sec_ms", "to": "appinsights", "variant": "dashed" },
+    { "id": "c15", "from": "acct_ms", "to": "appconfig", "variant": "dashed" },
+    { "id": "c16", "from": "trans_ms", "to": "appinsights", "variant": "dashed" },
+    { "id": "c17", "from": "hist_ms", "to": "appconfig", "variant": "dashed" }
+  ],
+  "cards": [
+    { "dot": "emerald", "title": "Fluxo de entrada", "items": ["Angular → Api Management → Azure Kubernetes (AKS)", "Logo Azure → Deploy → AKS"] },
+    { "dot": "cyan", "title": "Microsserviços e bancos", "items": ["Security → SQL", "Account → SQL", "Transaction → PostgreSQL", "History → CosmosDb NoSQL", "History → Azure Redis Cache"] },
+    { "dot": "rose", "title": "Mensageria assíncrona", "items": ["Transaction → Azure Service Bus", "Service Bus → Account Microservice (Account Suscription)", "Service Bus → History Process (History Suscription)", "History Process → CosmosDb NoSQL"] },
+    { "dot": "violet", "title": "Governança e observabilidade", "items": ["Microsserviços → Azure Application Insights", "Microsserviços → Azure App Configuration"] }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "eb893033-7938-4e56-9afa-3a685f3472ed",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-data-warehouse-20261106/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-data-warehouse-20261106/data-warehouse-reference-architecture.html",
+  "specification": {
+    "sha256": "697d0524b57a7a0a579e65e22df29415afb90ec43b840ccd4304f3c617c50260",
+    "bytes": 6232
+  },
+  "artifact": {
+    "sha256": "c58e4c41bf72ddba35b303195fa097564525f7afd6a14e9453998f2410aee5a3",
+    "bytes": 869756
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "19a03ad3-d51a-447f-8159-2702f1edf7a2",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-db-sharding-20261106/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-db-sharding-20261106/database-sharding.html",
+  "specification": {
+    "sha256": "40a77df8200004d53f6c47289e1163213a96a8919b07d9e2a34b93cfdee73508",
+    "bytes": 5500
+  },
+  "artifact": {
+    "sha256": "5359687f372da96f41432b6ce6385a96091ceb71a3de2e1f2988402a75f1e15b",
+    "bytes": 860456
+  }
+}

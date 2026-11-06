@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-aws-serverless-20261106/candidate.json",
+    "sha256": "0845d99d68d4741e4b19403a981e520c920fd9faa4fcd396c217fea8204fa14e",
+    "bytes": 4863
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-aws-serverless-20261106/aws-serverless-microservices.html",
+    "sha256": "eb50d09aac8224496b646079fc120b14a8333574c63500b2af29ea8de33c7ea9",
+    "bytes": 856241
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-aws-serverless-20261106/review-2/aws-serverless-microservices.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-aws-serverless-20261106/review-2/aws-serverless-microservices.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-aws-serverless-20261106/review-2/aws-serverless-microservices.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-11-06T19:02:12.803Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2015,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "ec147096-5bcb-43f4-ba2a-e6d5f582c093",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-azure-microservices-20261106/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-azure-microservices-20261106/azure-microservices.html",
+  "specification": {
+    "sha256": "87c86db25dbafb4f316be233cc93fb35ca729c3f87128c483f1d349e9fa07d80",
+    "bytes": 5938
+  },
+  "artifact": {
+    "sha256": "e5838010cbb8da783b4207455694eab1f55506c1f6b111a18ec9dfd40a512c21",
+    "bytes": 862920
+  }
+}

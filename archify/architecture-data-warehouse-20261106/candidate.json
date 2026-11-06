@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Arquitetura de Referência do Data Warehouse",
+    "output": ".archify/architecture-data-warehouse-20261106/data-warehouse-reference-architecture.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "dw_db_salary", "type": "database", "label": "Data (Workforce salary)", "sublabel": "Fonte 1 — salário da força de trabalho", "pos": [140, 110], "size": [220, 56], "icon": "database" },
+    { "id": "dw_db_erp", "type": "database", "label": "Data (Billing, ERP)", "sublabel": "Fonte 2 — faturamento / ERP", "pos": [140, 230], "size": [220, 56], "icon": "database" },
+    { "id": "dw_db_order", "type": "database", "label": "Data (Order, product)", "sublabel": "Fonte 3 — pedidos / produtos", "pos": [140, 350], "size": [220, 56], "icon": "database" },
+    { "id": "di_removal", "type": "backend", "label": "Data Removal process", "sublabel": "Remoção / extração", "pos": [470, 100], "size": [220, 56], "icon": "backend" },
+    { "id": "di_abc", "type": "backend", "label": "ABC software", "sublabel": "Staging — área de transição", "pos": [470, 200], "size": [220, 56], "icon": "briefcase" },
+    { "id": "di_stg_data", "type": "database", "label": "Data", "sublabel": "Staging — banco temporário", "pos": [470, 300], "size": [220, 56], "icon": "database" },
+    { "id": "di_etl", "type": "backend", "label": "Data transformation and loading", "sublabel": "ETL — transformação e carga", "pos": [470, 400], "size": [220, 56], "icon": "backend" },
+    { "id": "di_storage", "type": "backend", "label": "Storage admin, tool", "sublabel": "Administração de armazenamento", "pos": [470, 500], "size": [220, 56], "icon": "briefcase" },
+    { "id": "di_meta", "type": "database", "label": "Central metadata", "sublabel": "Metadados centrais", "pos": [470, 600], "size": [220, 56], "icon": "database" },
+    { "id": "dw_repo", "type": "database", "label": "Data Repository", "sublabel": "Text here — Data Warehouse principal", "pos": [800, 340], "size": [220, 64], "icon": "database" },
+    { "id": "an_bi", "type": "backend", "label": "Cognos, SPSS", "sublabel": "Ferramentas analíticas", "pos": [1130, 240], "size": [220, 56], "icon": "backend" },
+    { "id": "an_olap1", "type": "backend", "label": "Consulta / Cubo OLAP", "sublabel": "Motor de análise 1", "pos": [1130, 360], "size": [220, 56], "icon": "backend" },
+    { "id": "an_olap2", "type": "backend", "label": "Consulta / Cubo OLAP", "sublabel": "Motor de análise 2", "pos": [1130, 480], "size": [220, 56], "icon": "backend" },
+    { "id": "pr_mkt", "type": "external", "label": "Marketing", "sublabel": "Ator / usuário", "pos": [1460, 200], "size": [220, 56], "icon": "person" },
+    { "id": "pr_con", "type": "external", "label": "Consumer", "sublabel": "Ator / usuário", "pos": [1460, 360], "size": [220, 56], "icon": "person" },
+    { "id": "pr_agt", "type": "external", "label": "Agent", "sublabel": "Ator / usuário", "pos": [1460, 520], "size": [220, 56], "icon": "person" },
+    { "id": "x_meta_mgmt", "type": "security", "label": "Metadata management", "sublabel": "Information sphere metadata management", "pos": [20, 690], "size": [1580, 40], "icon": "none" },
+    { "id": "x_quality_mgmt", "type": "security", "label": "Data quality management", "sublabel": "Information sphere quality stage", "pos": [20, 745], "size": [1580, 40], "icon": "none" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Data Acquisition (Aquisição de dados)", "wraps": ["dw_db_salary", "dw_db_erp", "dw_db_order"], "pad": 24 },
+    { "kind": "region", "label": "Data Integration (Integração de dados)", "wraps": ["di_removal", "di_abc", "di_stg_data", "di_etl", "di_storage", "di_meta"], "pad": 24 },
+    { "kind": "region", "label": "Data Repository (Repositório de dados)", "wraps": ["dw_repo"], "pad": 24 },
+    { "kind": "region", "label": "Analytics (Análise)", "wraps": ["an_bi", "an_olap1", "an_olap2"], "pad": 24 },
+    { "kind": "region", "label": "Presentation (Apresentação)", "wraps": ["pr_mkt", "pr_con", "pr_agt"], "pad": 24 }
+  ],
+  "connections": [
+    { "id": "f1", "from": "dw_db_salary", "to": "di_removal" },
+    { "id": "f2", "from": "dw_db_erp", "to": "di_removal" },
+    { "id": "f3", "from": "dw_db_order", "to": "di_removal" },
+    { "id": "f4", "from": "di_removal", "to": "di_abc" },
+    { "id": "f5", "from": "di_abc", "to": "di_stg_data" },
+    { "id": "f6", "from": "di_stg_data", "to": "di_etl" },
+    { "id": "f7", "from": "di_etl", "to": "di_storage", "label": "troca", "variant": "dashed" },
+    { "id": "f8", "from": "di_storage", "to": "di_etl", "variant": "dashed" },
+    { "id": "f9", "from": "di_etl", "to": "di_meta", "label": "troca", "variant": "dashed" },
+    { "id": "f10", "from": "di_meta", "to": "di_etl", "variant": "dashed" },
+    { "id": "f11", "from": "di_etl", "to": "dw_repo", "label": "carga" },
+    { "id": "f12", "from": "dw_repo", "to": "an_bi", "label": "visões" },
+    { "id": "f13", "from": "dw_repo", "to": "an_olap1" },
+    { "id": "f14", "from": "dw_repo", "to": "an_olap2" },
+    { "id": "f15", "from": "an_bi", "to": "pr_mkt" },
+    { "id": "f16", "from": "an_bi", "to": "pr_con" },
+    { "id": "f17", "from": "an_bi", "to": "pr_agt" },
+    { "id": "f18", "from": "an_olap1", "to": "pr_mkt" },
+    { "id": "f19", "from": "an_olap1", "to": "pr_con" },
+    { "id": "f20", "from": "an_olap1", "to": "pr_agt" },
+    { "id": "f21", "from": "an_olap2", "to": "pr_mkt" },
+    { "id": "f22", "from": "an_olap2", "to": "pr_con" },
+    { "id": "f23", "from": "an_olap2", "to": "pr_agt" }
+  ],
+  "cards": [
+    { "dot": "emerald", "title": "Camadas (fluxo da esquerda para a direita)", "items": ["Data Acquisition", "Data Integration", "Data Repository", "Analytics", "Presentation"] },
+    { "dot": "cyan", "title": "Fluxo de dados", "items": ["Três fontes → Data Removal process → Staging → ETL → Data Repository → Analytics → atores"] },
+    { "dot": "rose", "title": "Governança na base (cruza todas as fases)", "items": ["Metadata management — Information sphere metadata management", "Data quality management — Information sphere quality stage"] }
+  ]
+}

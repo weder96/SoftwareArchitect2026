@@ -1,0 +1,341 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-data-warehouse-20261106/candidate.json",
+    "sha256": "697d0524b57a7a0a579e65e22df29415afb90ec43b840ccd4304f3c617c50260",
+    "bytes": 6232
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-data-warehouse-20261106/data-warehouse-reference-architecture.html",
+    "sha256": "c58e4c41bf72ddba35b303195fa097564525f7afd6a14e9453998f2410aee5a3",
+    "bytes": 869756
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-data-warehouse-20261106/data-warehouse-reference-architecture.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-data-warehouse-20261106/data-warehouse-reference-architecture.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-data-warehouse-20261106/data-warehouse-reference-architecture.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-11-06T19:02:12.803Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2386,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "resolvedCrossovers": 13,
+      "routesOverSuggestedBends": 5,
+      "routesOverSuggestedStretch": 3
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [
+        {
+          "left": {
+            "id": "f1",
+            "from": "dw_db_salary",
+            "to": "di_removal",
+            "label": "",
+            "collectionIndex": 0,
+            "artifactIndex": 1
+          },
+          "right": {
+            "id": "f2",
+            "from": "dw_db_erp",
+            "to": "di_removal",
+            "label": "",
+            "collectionIndex": 1,
+            "artifactIndex": 2
+          },
+          "point": [
+            415,
+            138
+          ],
+          "sharedNode": "di_removal"
+        },
+        {
+          "left": {
+            "id": "f15",
+            "from": "an_bi",
+            "to": "pr_mkt",
+            "label": "",
+            "collectionIndex": 14,
+            "artifactIndex": 15
+          },
+          "right": {
+            "id": "f16",
+            "from": "an_bi",
+            "to": "pr_con",
+            "label": "",
+            "collectionIndex": 15,
+            "artifactIndex": 16
+          },
+          "point": [
+            1444,
+            266
+          ],
+          "sharedNode": "an_bi"
+        },
+        {
+          "left": {
+            "id": "f15",
+            "from": "an_bi",
+            "to": "pr_mkt",
+            "label": "",
+            "collectionIndex": 14,
+            "artifactIndex": 15
+          },
+          "right": {
+            "id": "f21",
+            "from": "an_olap2",
+            "to": "pr_mkt",
+            "label": "",
+            "collectionIndex": 20,
+            "artifactIndex": 21
+          },
+          "point": [
+            1556,
+            280
+          ],
+          "sharedNode": "pr_mkt"
+        },
+        {
+          "left": {
+            "id": "f16",
+            "from": "an_bi",
+            "to": "pr_con",
+            "label": "",
+            "collectionIndex": 15,
+            "artifactIndex": 16
+          },
+          "right": {
+            "id": "f18",
+            "from": "an_olap1",
+            "to": "pr_mkt",
+            "label": "",
+            "collectionIndex": 17,
+            "artifactIndex": 18
+          },
+          "point": [
+            1476,
+            308
+          ]
+        },
+        {
+          "left": {
+            "id": "f16",
+            "from": "an_bi",
+            "to": "pr_con",
+            "label": "",
+            "collectionIndex": 15,
+            "artifactIndex": 16
+          },
+          "right": {
+            "id": "f21",
+            "from": "an_olap2",
+            "to": "pr_mkt",
+            "label": "",
+            "collectionIndex": 20,
+            "artifactIndex": 21
+          },
+          "point": [
+            1476,
+            297
+          ]
+        },
+        {
+          "left": {
+            "id": "f17",
+            "from": "an_bi",
+            "to": "pr_agt",
+            "label": "",
+            "collectionIndex": 16,
+            "artifactIndex": 17
+          },
+          "right": {
+            "id": "f18",
+            "from": "an_olap1",
+            "to": "pr_mkt",
+            "label": "",
+            "collectionIndex": 17,
+            "artifactIndex": 18
+          },
+          "point": [
+            1412,
+            308
+          ]
+        },
+        {
+          "left": {
+            "id": "f17",
+            "from": "an_bi",
+            "to": "pr_agt",
+            "label": "",
+            "collectionIndex": 16,
+            "artifactIndex": 17
+          },
+          "right": {
+            "id": "f19",
+            "from": "an_olap1",
+            "to": "pr_con",
+            "label": "",
+            "collectionIndex": 18,
+            "artifactIndex": 19
+          },
+          "point": [
+            1412,
+            386
+          ]
+        },
+        {
+          "left": {
+            "id": "f17",
+            "from": "an_bi",
+            "to": "pr_agt",
+            "label": "",
+            "collectionIndex": 16,
+            "artifactIndex": 17
+          },
+          "right": {
+            "id": "f21",
+            "from": "an_olap2",
+            "to": "pr_mkt",
+            "label": "",
+            "collectionIndex": 20,
+            "artifactIndex": 21
+          },
+          "point": [
+            1412,
+            297
+          ]
+        }
+      ],
+      "detours": [
+        {
+          "relationship": {
+            "id": "f1",
+            "from": "dw_db_salary",
+            "to": "di_removal",
+            "label": "",
+            "collectionIndex": 0,
+            "artifactIndex": 1
+          },
+          "bends": 3,
+          "stretch": 1.214
+        },
+        {
+          "relationship": {
+            "id": "f9",
+            "from": "di_etl",
+            "to": "di_meta",
+            "label": "troca",
+            "collectionIndex": 8,
+            "artifactIndex": 9
+          },
+          "bends": 4,
+          "stretch": 2.165,
+          "directCorridorBlockers": [
+            {
+              "id": "di_storage",
+              "label": "Storage admin, tool",
+              "box": [
+                470,
+                500,
+                220,
+                56
+              ]
+            }
+          ]
+        },
+        {
+          "relationship": {
+            "id": "f10",
+            "from": "di_meta",
+            "to": "di_etl",
+            "label": "",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "bends": 4,
+          "stretch": 2.314,
+          "directCorridorBlockers": [
+            {
+              "id": "di_storage",
+              "label": "Storage admin, tool",
+              "box": [
+                470,
+                500,
+                220,
+                56
+              ]
+            }
+          ]
+        },
+        {
+          "relationship": {
+            "id": "f15",
+            "from": "an_bi",
+            "to": "pr_mkt",
+            "label": "",
+            "collectionIndex": 14,
+            "artifactIndex": 15
+          },
+          "bends": 4,
+          "stretch": 1.607
+        },
+        {
+          "relationship": {
+            "id": "f21",
+            "from": "an_olap2",
+            "to": "pr_mkt",
+            "label": "",
+            "collectionIndex": 20,
+            "artifactIndex": 21
+          },
+          "bends": 3,
+          "stretch": 1
+        }
+      ],
+      "truncated": true
+    },
+    "hints": [
+      "di_removal has 3 relationships facing its left side, which fits 2 ports: make that side at least 60px, or move some of those neighbours so they face another side of di_removal.",
+      "an_bi has 3 relationships facing its right side, which fits 2 ports: make that side at least 60px, or move some of those neighbours so they face another side of an_bi.",
+      "pr_mkt has 3 relationships facing its left side, which fits 2 ports: make that side at least 60px, or move some of those neighbours so they face another side of pr_mkt.",
+      "pr_con has 3 relationships facing its left side, which fits 2 ports: make that side at least 60px, or move some of those neighbours so they face another side of pr_con.",
+      "pr_agt has 3 relationships facing its left side, which fits 2 ports: make that side at least 60px, or move some of those neighbours so they face another side of pr_agt.",
+      "an_olap1 has 3 relationships facing its right side, which fits 2 ports: make that side at least 60px, or move some of those neighbours so they face another side of an_olap1.",
+      "an_olap2 has 3 relationships facing its right side, which fits 2 ports: make that side at least 60px, or move some of those neighbours so they face another side of an_olap2.",
+      "dw_db_salary → di_removal and dw_db_erp → di_removal cross next to di_removal: move node dw_db_salary or dw_db_erp so the two reach di_removal from different sides (for example one level with it, one directly above or below it)."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}
