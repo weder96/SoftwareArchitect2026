@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "02eaed35-3f2a-4827-b2be-ea3a0fc36090",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-aws-microservices-20261018-122000/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-aws-microservices-20261018-122000/aws-microservices-architecture.html",
+  "specification": {
+    "sha256": "f0cbe4bd30a01c30ebd3b74bce17ea9d5ef93d6732c32feb5c26f55ec862b1fb",
+    "bytes": 2854
+  },
+  "artifact": {
+    "sha256": "0dca2e7b3429762a2de0644a6694ac1802996b5b852415ec3afce9998cfd1252",
+    "bytes": 825428
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-advanced-system-20261018-131000/candidate.json",
+    "sha256": "cd48a4470322217d945a427d9ef9b8ef59422f6367c5d03982c83e937d23723e",
+    "bytes": 2115
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-advanced-system-20261018-131000/advanced-system-design.html",
+    "sha256": "62f5cd2103b2d691a37d14feaa24afe5bf57afd0db4e07cc6aced3f6ec4a1c4b",
+    "bytes": 818990
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-advanced-system-20261018-131000/advanced-system-design.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-advanced-system-20261018-131000/advanced-system-design.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-advanced-system-20261018-131000/advanced-system-design.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-21T17:33:45.780Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2175,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "resolvedCrossovers": 2
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [
+        {
+          "left": {
+            "id": "api-to-visdash",
+            "from": "api_service",
+            "to": "vis_dashboard",
+            "label": "Sends data to [JSON]",
+            "collectionIndex": 3,
+            "artifactIndex": 4
+          },
+          "right": {
+            "id": "datacollect-to-db",
+            "from": "data_collection",
+            "to": "database",
+            "label": "Writes to Influx [REST]",
+            "collectionIndex": 6,
+            "artifactIndex": 7
+          },
+          "point": [
+            845,
+            320
+          ]
+        },
+        {
+          "left": {
+            "id": "webapp-to-api",
+            "from": "web_app",
+            "to": "api_service",
+            "label": "Makes request to [JSON]",
+            "collectionIndex": 4,
+            "artifactIndex": 5
+          },
+          "right": {
+            "id": "datacollect-to-db",
+            "from": "data_collection",
+            "to": "database",
+            "label": "Writes to Influx [REST]",
+            "collectionIndex": 6,
+            "artifactIndex": 7
+          },
+          "point": [
+            654,
+            320
+          ]
+        }
+      ],
+      "detours": [],
+      "truncated": false
+    },
+    "hints": [
+      "api_service → vis_dashboard crosses data_collection → database: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "web_app → api_service crosses data_collection → database: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

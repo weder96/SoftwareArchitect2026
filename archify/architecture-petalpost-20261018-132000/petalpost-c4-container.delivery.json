@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "cc0be1ed-8885-4ea4-a027-c37a30b8d951",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-petalpost-20261018-132000/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-petalpost-20261018-132000/petalpost-c4-container.html",
+  "specification": {
+    "sha256": "e97348bbf6cfefba95bcba06cffe3ae7ba644b4448fa0ea9f1f547d37ceb8f1c",
+    "bytes": 4665
+  },
+  "artifact": {
+    "sha256": "6204c0ccd12bd219fddbe0da7d981c04bd4c11aee535ad191618d7355f7ffe1e",
+    "bytes": 844628
+  }
+}

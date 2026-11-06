@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-devops-flow-20261018-134000/candidate.json",
+    "sha256": "7589d0cc84ba207922532faa6fa86b1adcf4ffcab679712015abc31c4c08d717",
+    "bytes": 4281
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-devops-flow-20261018-134000/devops-process-flow.html",
+    "sha256": "079acdb2fde3763533320cfe72c749b9673fce51ff616082d3dbddef60e6b631",
+    "bytes": 838523
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-devops-flow-20261018-134000/devops-process-flow.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-devops-flow-20261018-134000/devops-process-flow.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-devops-flow-20261018-134000/devops-process-flow.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-21T17:33:45.780Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2460,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "resolvedCrossovers": 1,
+      "routesOverSuggestedBends": 3,
+      "routesOverSuggestedStretch": 1
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [
+        {
+          "left": {
+            "id": "review-to-master-pass",
+            "from": "pr_review",
+            "to": "pr_master",
+            "label": "Pass",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "right": {
+            "id": "qa-to-develop-fail",
+            "from": "qa_testing",
+            "to": "dev_develop",
+            "label": "Fail",
+            "collectionIndex": 7,
+            "artifactIndex": 8
+          },
+          "point": [
+            340,
+            414
+          ]
+        }
+      ],
+      "detours": [
+        {
+          "relationship": {
+            "id": "qa-to-develop-fail",
+            "from": "qa_testing",
+            "to": "dev_develop",
+            "label": "Fail",
+            "collectionIndex": 7,
+            "artifactIndex": 8
+          },
+          "bends": 3,
+          "stretch": 1.119
+        },
+        {
+          "relationship": {
+            "id": "preprod-lb-to-azb",
+            "from": "preprod_lb",
+            "to": "preprod_azb",
+            "label": "",
+            "collectionIndex": 11,
+            "artifactIndex": 12
+          },
+          "bends": 3,
+          "stretch": 1.173,
+          "directCorridorBlockers": [
+            {
+              "id": "preprod_aza",
+              "label": "Pre-Prod AZ A",
+              "box": [
+                700,
+                520,
+                140,
+                50
+              ]
+            }
+          ]
+        },
+        {
+          "relationship": {
+            "id": "prod-lb-to-azb",
+            "from": "prod_lb",
+            "to": "prod_azb",
+            "label": "",
+            "collectionIndex": 16,
+            "artifactIndex": 17
+          },
+          "bends": 4,
+          "stretch": 1.557,
+          "directCorridorBlockers": [
+            {
+              "id": "prod_aza",
+              "label": "Prod AZ A",
+              "box": [
+                920,
+                460,
+                140,
+                50
+              ]
+            }
+          ]
+        }
+      ],
+      "truncated": false
+    },
+    "hints": [
+      "pr_review → pr_master crosses qa_testing → dev_develop: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "qa_testing → dev_develop needs 3 bends: move node qa_testing or dev_develop so they share a row or column with matching centers, or sit diagonally with a clear corner."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

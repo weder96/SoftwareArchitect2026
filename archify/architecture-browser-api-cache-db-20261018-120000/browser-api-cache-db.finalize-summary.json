@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-browser-api-cache-db-20261018-120000/candidate.json",
+    "sha256": "59940fedf67f6e0b8cf71d0c586cf125b1b3ba42ae6ff35217dc26ae59e375a3",
+    "bytes": 1641
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-browser-api-cache-db-20261018-120000/browser-api-cache-db.html",
+    "sha256": "a4721085739756a538a107a987b69121e3bf87f7a71605ad9f6625126196f0f9",
+    "bytes": 811852
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [
+    {
+      "code": "i18n/locale-fallback",
+      "severity": "warning",
+      "message": "meta.locale \"pt-BR\" has no bundled catalog and no usable meta.translations; the Viewer chrome and <html lang> fall back to English.",
+      "subject": {
+        "diagramType": "architecture",
+        "path": "/meta/locale"
+      },
+      "evidence": {
+        "locale": "pt-BR",
+        "bundledLocales": [
+          "en",
+          "zh-CN",
+          "zh-TW",
+          "es",
+          "ko",
+          "ar"
+        ]
+      },
+      "supportedFixes": [
+        "Supply meta.translations for this locale.",
+        "Use a bundled locale: en, zh-CN, zh-TW, es, ko, ar."
+      ]
+    }
+  ],
+  "diagnosticSummary": {
+    "total": 1,
+    "shown": 1,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-browser-api-cache-db-20261018-120000/browser-api-cache-db.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-browser-api-cache-db-20261018-120000/browser-api-cache-db.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-browser-api-cache-db-20261018-120000/browser-api-cache-db.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.1.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-18T23:17:09.363Z",
+    "source": "network",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2263,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  }
+}

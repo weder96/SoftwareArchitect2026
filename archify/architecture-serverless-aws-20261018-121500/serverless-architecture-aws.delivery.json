@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "00acb957-4afc-4937-b046-4fd8084894e0",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-serverless-aws-20261018-121500/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-serverless-aws-20261018-121500/serverless-architecture-aws.html",
+  "specification": {
+    "sha256": "46095e77e8fbefcc0c52a63dd565a380a734b81e09e2fac28b41bea07409344f",
+    "bytes": 1353
+  },
+  "artifact": {
+    "sha256": "edbce43e5fd32e9efc881383384add2771da12a4cd17c707ff57a6cfe1473284",
+    "bytes": 812723
+  }
+}

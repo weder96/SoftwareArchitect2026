@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "AWS Serverless Microservices Architecture",
+    "output": "aws-microservices-architecture.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "user", "type": "external", "label": "User", "icon": "person", "pos": [40, 300], "size": [100, 55] },
+    { "id": "api_gateway", "type": "backend", "label": "AWS API Gateway", "pos": [200, 300], "size": [150, 55] },
+
+    { "id": "product_lambda", "type": "backend", "label": "AWS Lambda", "sublabel": "Product", "pos": [400, 100], "size": [130, 55] },
+    { "id": "product_db", "type": "database", "label": "AWS DynamoDB", "sublabel": "Product", "pos": [600, 100], "size": [130, 55] },
+
+    { "id": "basket_lambda", "type": "backend", "label": "AWS Lambda", "sublabel": "Basket", "pos": [400, 300], "size": [130, 55] },
+    { "id": "basket_db", "type": "database", "label": "AWS DynamoDB", "sublabel": "Basket", "pos": [600, 300], "size": [130, 55] },
+
+    { "id": "order_lambda", "type": "backend", "label": "AWS Lambda", "sublabel": "Order", "pos": [400, 500], "size": [130, 55] },
+    { "id": "order_db", "type": "database", "label": "AWS DynamoDB", "sublabel": "Order", "pos": [600, 500], "size": [130, 55] },
+
+    { "id": "eventbridge", "type": "messagebus", "label": "AWS EventBridge", "sublabel": "Event Bus", "pos": [800, 300], "size": [150, 55] },
+    { "id": "sqs", "type": "messagebus", "label": "AWS SQS Queue", "pos": [800, 500], "size": [130, 55] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Product Microservice", "wraps": ["product_lambda", "product_db"], "pad": 16 },
+    { "kind": "region", "label": "Basket Microservice", "wraps": ["basket_lambda", "basket_db"], "pad": 16 },
+    { "kind": "region", "label": "Ordering Microservice", "wraps": ["order_lambda", "order_db"], "pad": 16 }
+  ],
+  "connections": [
+    { "id": "user-to-apigw", "from": "user", "to": "api_gateway" },
+    { "id": "apigw-to-product", "from": "api_gateway", "to": "product_lambda", "label": "Product", "fromSide": "top", "toSide": "left" },
+    { "id": "product-lambda-to-db", "from": "product_lambda", "to": "product_db" },
+    { "id": "apigw-to-basket", "from": "api_gateway", "to": "basket_lambda", "label": "Basket" },
+    { "id": "basket-lambda-to-db", "from": "basket_lambda", "to": "basket_db" },
+    { "id": "apigw-to-order", "from": "api_gateway", "to": "order_lambda", "label": "Order", "fromSide": "bottom", "toSide": "left" },
+    { "id": "order-lambda-to-db", "from": "order_lambda", "to": "order_db" },
+    { "id": "basket-to-eventbridge", "from": "basket_lambda", "to": "eventbridge", "label": "Checkout Event" },
+    { "id": "eventbridge-to-sqs", "from": "eventbridge", "to": "sqs" },
+    { "id": "sqs-to-order", "from": "sqs", "to": "order_lambda", "label": "Order Event" }
+  ]
+}

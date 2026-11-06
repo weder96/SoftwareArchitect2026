@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Digital by you - Application Architecture",
+    "output": "digital-by-you-architecture.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "edge", "type": "cloud", "label": "Edge Network", "pos": [20, 100], "size": [140, 55] },
+    { "id": "angular", "type": "backend", "label": "Angular", "pos": [195, 100], "size": [120, 55] },
+    { "id": "api_gw", "type": "backend", "label": "API Gateway", "pos": [340, 100], "size": [130, 55] },
+    { "id": "bff", "type": "backend", "label": "BFF", "pos": [560, 200], "size": [120, 55] },
+    { "id": "eventbridge", "type": "messagebus", "label": "Amazon EventBridge", "pos": [760, 200], "size": [160, 55] },
+
+    { "id": "ms_requisition", "type": "backend", "label": "MicroService - Requisition", "pos": [760, 400], "size": [170, 55] },
+    { "id": "db_compras", "type": "database", "label": "Compras", "pos": [760, 560], "size": [130, 55] },
+    { "id": "integ_erp", "type": "backend", "label": "ERP", "pos": [1060, 400], "size": [120, 55] },
+    { "id": "integ_buddy", "type": "backend", "label": "Buddy", "pos": [1060, 480], "size": [120, 55] },
+
+    { "id": "ms_provision", "type": "backend", "label": "MicroService - Provision", "pos": [560, 400], "size": [160, 55] },
+    { "id": "s3_bucket", "type": "cloud", "label": "S3 Bucket", "pos": [1060, 640], "size": [130, 55] },
+    { "id": "db_provision", "type": "database", "label": "Provision", "pos": [1060, 560], "size": [130, 55] },
+
+    { "id": "ms_mdm", "type": "backend", "label": "MDM", "sublabel": "Master Data Mgmt", "pos": [360, 400], "size": [160, 55] },
+    { "id": "redis", "type": "database", "label": "ElastiCache for Redis", "pos": [160, 400], "size": [150, 55] },
+    { "id": "db_master", "type": "database", "label": "Master Data", "pos": [160, 560], "size": [130, 55] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "ifood", "wraps": ["edge", "angular", "api_gw"], "pad": 16 },
+    { "kind": "region", "label": "aws", "wraps": ["bff", "eventbridge", "ms_requisition", "db_compras", "integ_erp", "integ_buddy", "ms_provision", "s3_bucket", "db_provision", "ms_mdm", "redis", "db_master"], "pad": 18 },
+    { "kind": "region", "label": "Integrações", "wraps": ["integ_erp", "integ_buddy"], "pad": 14 }
+  ],
+  "connections": [
+    { "id": "edge-to-angular", "from": "edge", "to": "angular" },
+    { "id": "angular-to-apigw", "from": "angular", "to": "api_gw" },
+    { "id": "apigw-to-bff", "from": "api_gw", "to": "bff" },
+    { "id": "bff-to-eventbridge", "from": "bff", "to": "eventbridge" },
+    { "id": "bff-to-requisition", "from": "bff", "to": "ms_requisition", "label": "dispatch" },
+    { "id": "bff-to-mdm", "from": "bff", "to": "ms_mdm" },
+    { "id": "requisition-to-eventbridge", "from": "ms_requisition", "to": "eventbridge", "label": "return", "variant": "dashed" },
+    { "id": "provision-to-eventbridge", "from": "ms_provision", "to": "eventbridge", "label": "return", "variant": "dashed" },
+    { "id": "requisition-to-compras", "from": "ms_requisition", "to": "db_compras" },
+    { "id": "requisition-to-integracoes", "from": "ms_requisition", "to": "integ_erp" },
+    { "id": "provision-to-integracoes", "from": "ms_provision", "to": "integ_erp" },
+    { "id": "provision-to-s3", "from": "ms_provision", "to": "s3_bucket" },
+    { "id": "provision-to-db-provision", "from": "ms_provision", "to": "db_provision" },
+    { "id": "mdm-to-redis", "from": "ms_mdm", "to": "redis" },
+    { "id": "redis-to-master", "from": "redis", "to": "db_master" }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "d01d0856-dce3-49f1-82d0-992d1e93e141",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-aws-log-indexing-20261018-121000/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-aws-log-indexing-20261018-121000/aws-log-indexing.html",
+  "specification": {
+    "sha256": "344c15b4a87887b5f96384e1934b179ac0e9436d5e8b3688ae3c3b38873cc078",
+    "bytes": 5463
+  },
+  "artifact": {
+    "sha256": "ddb732d54c3398fb60806362b5d2c2e4d7e35f546c97290924426dee1a6344d3",
+    "bytes": 843521
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "PetalPost - C4 Container Diagram",
+    "output": "petalpost-c4-container.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "customer", "type": "external", "label": "Customer", "icon": "person", "pos": [20, 300], "size": [120, 50] },
+    { "id": "florist", "type": "external", "label": "Florist Partner", "icon": "person", "pos": [20, 500], "size": [120, 50] },
+    { "id": "support_agent", "type": "external", "label": "Support Agent", "icon": "person", "pos": [20, 700], "size": [120, 50] },
+    { "id": "stripe", "type": "external", "label": "Stripe", "pos": [920, 200], "size": [110, 50] },
+    { "id": "twilio", "type": "external", "label": "Twilio", "pos": [920, 400], "size": [110, 50] },
+    { "id": "sendgrid", "type": "external", "label": "SendGrid", "pos": [920, 500], "size": [110, 50] },
+    { "id": "mapbox", "type": "external", "label": "MapBox", "pos": [920, 600], "size": [110, 50] },
+
+    { "id": "web_app", "type": "frontend", "label": "Web App", "pos": [180, 300], "size": [140, 50] },
+    { "id": "mobile_app", "type": "frontend", "label": "Mobile App", "pos": [180, 400], "size": [140, 50] },
+    { "id": "florist_portal", "type": "frontend", "label": "Florist Portal", "pos": [180, 500], "size": [140, 50] },
+    { "id": "support_console", "type": "frontend", "label": "Support Console", "pos": [180, 600], "size": [140, 50] },
+    { "id": "api_gateway", "type": "backend", "label": "API Gateway", "pos": [360, 460], "size": [130, 50] },
+    { "id": "orders_service", "type": "backend", "label": "Orders Service", "pos": [540, 300], "size": [140, 50] },
+    { "id": "catalog_service", "type": "backend", "label": "Catalog Service", "pos": [540, 480], "size": [140, 50] },
+    { "id": "notification_service", "type": "backend", "label": "Notification Service", "pos": [540, 660], "size": [140, 50] },
+    { "id": "postgresql", "type": "database", "label": "PostgreSQL", "pos": [740, 480], "size": [130, 50] },
+    { "id": "redis", "type": "database", "label": "Redis", "pos": [740, 660], "size": [110, 50] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "PetalPost Platform [Software System]", "wraps": ["web_app", "mobile_app", "florist_portal", "support_console", "api_gateway", "orders_service", "catalog_service", "notification_service", "postgresql", "redis"], "pad": 18 }
+  ],
+  "connections": [
+    { "id": "customer-to-webapp", "from": "customer", "to": "web_app", "label": "Shops and checks out [HTTPS]" },
+    { "id": "customer-to-mobile", "from": "customer", "to": "mobile_app", "label": "Shops on phone [HTTPS]" },
+    { "id": "florist-to-portal", "from": "florist", "to": "florist_portal", "label": "Manages orders [HTTPS]" },
+    { "id": "support-to-console", "from": "support_agent", "to": "support_console", "label": "Handles customer issues" },
+    { "id": "webapp-to-apigw", "from": "web_app", "to": "api_gateway", "label": "API calls [HTTPS/JSON]" },
+    { "id": "mobile-to-apigw", "from": "mobile_app", "to": "api_gateway", "label": "API calls [HTTPS/JSON]", "labelDy": -20 },
+    { "id": "portal-to-apigw", "from": "florist_portal", "to": "api_gateway", "label": "API calls [HTTPS/JSON]" },
+    { "id": "console-to-apigw", "from": "support_console", "to": "api_gateway", "label": "Admin API [HTTPS/JSON]" },
+    { "id": "apigw-to-orders", "from": "api_gateway", "to": "orders_service", "label": "Order commands [gRPC]" },
+    { "id": "apigw-to-catalog", "from": "api_gateway", "to": "catalog_service", "label": "Product queries [gRPC]" },
+    { "id": "apigw-to-stripe", "from": "api_gateway", "to": "stripe", "label": "Charges and refunds [HTTPS/JSON]" },
+    { "id": "orders-to-postgres", "from": "orders_service", "to": "postgresql", "label": "Reads / writes [SQL/TCP]" },
+    { "id": "catalog-to-postgres", "from": "catalog_service", "to": "postgresql", "label": "Reads [SQL/TCP]" },
+    { "id": "orders-to-redis", "from": "orders_service", "to": "redis", "label": "Sessions [RESP]" },
+    { "id": "catalog-to-redis", "from": "catalog_service", "to": "redis", "label": "Caches catalog [RESP]" },
+    { "id": "orders-to-notification", "from": "orders_service", "to": "notification_service", "label": "Order events [gRPC]" },
+    { "id": "orders-to-mapbox", "from": "orders_service", "to": "mapbox", "label": "Routes deliveries [HTTPS/JSON]" },
+    { "id": "notification-to-twilio", "from": "notification_service", "to": "twilio", "label": "Sends SMS [HTTPS/JSON]" },
+    { "id": "notification-to-sendgrid", "from": "notification_service", "to": "sendgrid", "label": "Sends email [HTTPS/JSON]" }
+  ]
+}

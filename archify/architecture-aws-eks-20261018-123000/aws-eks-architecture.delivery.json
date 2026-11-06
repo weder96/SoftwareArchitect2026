@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "6216a1dd-a02c-47dd-a64f-b965321512dc",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-aws-eks-20261018-123000/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-aws-eks-20261018-123000/aws-eks-architecture.html",
+  "specification": {
+    "sha256": "0adda4f175e4f8f1ec34fd1eb33243d071ec89f0e5d1e1051367790e99871532",
+    "bytes": 2070
+  },
+  "artifact": {
+    "sha256": "4b527a4b0c81186f68a2a8225dce639e685d4f2ec546df136ad1a84f4aa2270a",
+    "bytes": 816686
+  }
+}

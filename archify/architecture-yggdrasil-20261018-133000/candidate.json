@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Authorization Architecture with Yggdrasil",
+    "output": "yggdrasil-authorization.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "app_a", "type": "backend", "label": "Application A", "sublabel": "Principal Token / Action / Resource / Context / Entities", "pos": [80, 120], "size": [210, 70] },
+    { "id": "auth_a", "type": "backend", "label": "yggdrasil-authorizer A", "pos": [320, 120], "size": [140, 55] },
+    { "id": "redis_a", "type": "database", "label": "Redis Cache A", "pos": [500, 120], "size": [140, 55] },
+    { "id": "app_b", "type": "backend", "label": "Application B", "sublabel": "Principal Token / Action / Resource / Context / Entities", "pos": [80, 320], "size": [210, 70] },
+    { "id": "auth_b", "type": "backend", "label": "yggdrasil-authorizer B", "pos": [320, 320], "size": [140, 55] },
+    { "id": "redis_b", "type": "database", "label": "Redis Cache B", "pos": [500, 320], "size": [140, 55] },
+    { "id": "s3_policy", "type": "cloud", "label": "Policy Stores S3 Bucket", "sublabel": "Refresh every 1 minute", "pos": [740, 120], "size": [170, 60] },
+    { "id": "oidc", "type": "security", "label": "Identity Providers (OIDC)", "sublabel": "Verify identity sources and collect data", "pos": [740, 320], "size": [170, 60] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Account A", "wraps": ["app_a", "auth_a", "redis_a"], "pad": 16 },
+    { "kind": "region", "label": "Account B", "wraps": ["app_b", "auth_b", "redis_b"], "pad": 16 }
+  ],
+  "connections": [
+    { "id": "app_a-to-auth_a", "from": "app_a", "to": "auth_a" },
+    { "id": "auth_a-to-redis_a", "from": "auth_a", "to": "redis_a" },
+    { "id": "auth_a-to-s3_policy", "from": "auth_a", "to": "s3_policy" },
+    { "id": "auth_a-to-oidc", "from": "auth_a", "to": "oidc" },
+    { "id": "app_b-to-auth_b", "from": "app_b", "to": "auth_b" },
+    { "id": "auth_b-to-redis_b", "from": "auth_b", "to": "redis_b" },
+    { "id": "auth_b-to-s3_policy", "from": "auth_b", "to": "s3_policy" },
+    { "id": "auth_b-to-oidc", "from": "auth_b", "to": "oidc" }
+  ]
+}

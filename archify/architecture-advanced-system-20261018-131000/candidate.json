@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Advanced Use System Design and Technical Diagrams",
+    "output": "advanced-system-design.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "support_staff", "type": "external", "label": "Support Staff", "icon": "person", "pos": [20, 300], "size": [160, 60] },
+    { "id": "alert_system", "type": "backend", "label": "Alert System", "pos": [260, 140], "size": [160, 60] },
+    { "id": "web_app", "type": "frontend", "label": "Web Application", "pos": [500, 240], "size": [170, 60] },
+    { "id": "vis_dashboard", "type": "frontend", "label": "Visualisation Dashboard", "pos": [760, 140], "size": [170, 60] },
+    { "id": "api_service", "type": "backend", "label": "API Service", "pos": [760, 340], "size": [170, 60] },
+    { "id": "data_collection", "type": "backend", "label": "Data Collection System", "pos": [260, 340], "size": [170, 60] },
+    { "id": "database", "type": "database", "label": "Database", "pos": [1020, 240], "size": [160, 60] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Status Dashboard [Container]", "wraps": ["web_app", "vis_dashboard", "api_service"], "pad": 16 }
+  ],
+  "connections": [
+    { "id": "alert-to-support", "from": "alert_system", "to": "support_staff", "label": "Sends notifications to SMS", "variant": "dashed" },
+    { "id": "webapp-to-alert", "from": "web_app", "to": "alert_system", "label": "Makes API call to [REST API]", "variant": "dashed" },
+    { "id": "visdash-to-webapp", "from": "vis_dashboard", "to": "web_app", "label": "Sends data to [HTML5]" },
+    { "id": "api-to-visdash", "from": "api_service", "to": "vis_dashboard", "label": "Sends data to [JSON]" },
+    { "id": "webapp-to-api", "from": "web_app", "to": "api_service", "label": "Makes request to [JSON]" },
+    { "id": "api-to-db", "from": "api_service", "to": "database", "label": "Makes API calls to [REST API]", "variant": "dashed" },
+    { "id": "datacollect-to-db", "from": "data_collection", "to": "database", "label": "Writes to Influx [REST]", "variant": "dashed" }
+  ]
+}

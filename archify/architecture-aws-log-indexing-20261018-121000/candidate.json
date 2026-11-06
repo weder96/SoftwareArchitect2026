@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "AWS Multi-Region Log Ingestion and Indexing",
+    "output": "aws-log-indexing.html",
+    "quality_profile": "showcase",
+    "visual_preset": "blueprint"
+  },
+  "components": [
+    { "id": "ec2-1", "type": "cloud", "label": "Amazon EC2", "sublabel": "Region 1", "pos": [60, 80], "size": [130, 55], "tag": "DEMO RESOURCES 1" },
+    { "id": "cloudtrail-1", "type": "cloud", "label": "AWS CloudTrail", "sublabel": "Region 1", "pos": [60, 155], "size": [130, 55], "tag": "DEMO RESOURCES 1" },
+    { "id": "vpcflow-1", "type": "cloud", "label": "VPC Flow Logs", "sublabel": "Region 1", "pos": [60, 230], "size": [130, 55], "tag": "DEMO RESOURCES 1" },
+    { "id": "cwdest-1", "type": "cloud", "label": "CloudWatch Destination", "sublabel": "Region 1", "pos": [230, 155], "size": [150, 55], "tag": "LOG INGESTION 1" },
+
+    { "id": "ec2-2", "type": "cloud", "label": "Amazon EC2", "sublabel": "Region 2", "pos": [60, 330], "size": [130, 55], "tag": "DEMO RESOURCES 2" },
+    { "id": "cloudtrail-2", "type": "cloud", "label": "AWS CloudTrail", "sublabel": "Region 2", "pos": [60, 405], "size": [130, 55], "tag": "DEMO RESOURCES 2" },
+    { "id": "vpcflow-2", "type": "cloud", "label": "VPC Flow Logs", "sublabel": "Region 2", "pos": [60, 480], "size": [130, 55], "tag": "DEMO RESOURCES 2" },
+    { "id": "cwdest-2", "type": "cloud", "label": "CloudWatch Destination", "sublabel": "Region 2", "pos": [230, 405], "size": [150, 55], "tag": "LOG INGESTION 2" },
+
+    { "id": "kinesis-streams", "type": "messagebus", "label": "Kinesis Data Streams", "sublabel": "ingest", "pos": [480, 230], "size": [160, 55], "tag": "LOG INDEXING" },
+    { "id": "lambda", "type": "backend", "label": "AWS Lambda", "sublabel": "transform", "pos": [700, 230], "size": [140, 55], "tag": "LOG INDEXING" },
+    { "id": "firehose", "type": "messagebus", "label": "Kinesis Data Firehose", "sublabel": "delivery", "pos": [900, 230], "size": [160, 55], "tag": "LOG INDEXING" },
+
+    { "id": "opensearch", "type": "database", "label": "OpenSearch Service", "sublabel": "VPC", "pos": [900, 405], "size": [160, 55], "tag": "LOG INDEXING" },
+
+    { "id": "s3", "type": "cloud", "label": "Amazon S3", "sublabel": "log archive", "pos": [1120, 100], "size": [140, 55], "tag": "EXTERNAL" },
+
+    { "id": "datacharts", "type": "frontend", "label": "Data Analysis & Charts", "sublabel": "dashboard", "pos": [480, 560], "size": [170, 55], "tag": "VISUALIZATION" },
+    { "id": "cognito", "type": "security", "label": "Amazon Cognito", "sublabel": "auth", "pos": [710, 560], "size": [150, 55], "tag": "VISUALIZATION" },
+    { "id": "user", "type": "external", "label": "User", "sublabel": "analyst", "pos": [710, 480], "size": [150, 55], "icon": "person", "tag": "VISUALIZATION" },
+    { "id": "kibana", "type": "frontend", "label": "Kibana", "sublabel": "visualize", "pos": [920, 560], "size": [140, 55], "tag": "VISUALIZATION" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "REGION 1", "wraps": ["ec2-1", "cloudtrail-1", "vpcflow-1", "cwdest-1"], "pad": 18 },
+    { "kind": "region", "label": "REGION 2", "wraps": ["ec2-2", "cloudtrail-2", "vpcflow-2", "cwdest-2"], "pad": 18 },
+    { "kind": "region", "label": "LOG INDEXING", "wraps": ["kinesis-streams", "lambda", "firehose", "opensearch"], "pad": 18 },
+    { "kind": "security-group", "label": "VPC", "wraps": ["opensearch"], "pad": 12 },
+    { "kind": "region", "label": "VISUALIZATION", "wraps": ["datacharts", "cognito", "user", "kibana"], "pad": 18 }
+  ],
+  "connections": [
+    { "id": "ec2-1-to-cwdest-1", "from": "ec2-1", "to": "cwdest-1", "label": "logs", "fromSide": "right", "toSide": "left" },
+    { "id": "ec2-2-to-cwdest-2", "from": "ec2-2", "to": "cwdest-2", "label": "logs", "fromSide": "right", "toSide": "left" },
+    { "id": "cwdest-1-to-kinesis", "from": "cwdest-1", "to": "kinesis-streams", "label": "cross-region", "fromSide": "right", "toSide": "top" },
+    { "id": "cwdest-2-to-kinesis", "from": "cwdest-2", "to": "kinesis-streams", "label": "cross-region", "fromSide": "right", "toSide": "bottom" },
+    { "id": "kinesis-to-lambda", "from": "kinesis-streams", "to": "lambda", "label": "records" },
+    { "id": "lambda-to-firehose", "from": "lambda", "to": "firehose", "label": "transformed" },
+    { "id": "firehose-to-s3", "from": "firehose", "to": "s3", "label": "archive", "variant": "dashed", "fromSide": "top", "toSide": "bottom" },
+    { "id": "firehose-to-opensearch", "from": "firehose", "to": "opensearch", "label": "index", "fromSide": "bottom", "toSide": "top" },
+    { "id": "datacharts-to-cognito", "from": "datacharts", "to": "cognito", "label": "auth" },
+    { "id": "cognito-to-opensearch", "from": "cognito", "to": "opensearch", "label": "authenticate", "fromSide": "right", "toSide": "left" },
+    { "id": "user-to-cognito", "from": "user", "to": "cognito", "label": "login", "fromSide": "bottom", "toSide": "top", "labelDy": 24 }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Ingestion", "items": ["EC2, CloudTrail, VPC Flow Logs send logs to CloudWatch Destinations", "Cross-region streaming into Kinesis Data Streams"] },
+    { "dot": "emerald", "title": "Indexing", "items": ["Lambda transforms records", "Firehose delivers to S3 (archive) and OpenSearch (VPC)"] },
+    { "dot": "violet", "title": "Visualization", "items": ["Kibana dashboards for log analysis", "Cognito controls access to OpenSearch"] }
+  ]
+}

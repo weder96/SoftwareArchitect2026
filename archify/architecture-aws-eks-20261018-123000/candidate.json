@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "AWS EKS Architecture",
+    "output": "aws-eks-architecture.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "user", "type": "external", "label": "User", "icon": "person", "pos": [40, 300], "size": [100, 55] },
+    { "id": "eks_control_plane", "type": "cloud", "label": "EKS Control Plane", "pos": [40, 80], "size": [160, 55] },
+    { "id": "elb", "type": "cloud", "label": "Elastic Load Balancer", "pos": [280, 300], "size": [150, 55] },
+    { "id": "k_proxy_1", "type": "backend", "label": "k-proxy", "pos": [520, 180], "size": [120, 50] },
+    { "id": "app_1", "type": "backend", "label": "Application", "pos": [720, 180], "size": [130, 55] },
+    { "id": "k_proxy_2", "type": "backend", "label": "k-proxy", "pos": [520, 420], "size": [120, 50] },
+    { "id": "app_2", "type": "backend", "label": "Application", "pos": [720, 420], "size": [130, 55] },
+    { "id": "k8s_svc", "type": "cloud", "label": "svc", "pos": [940, 300], "size": [100, 50] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "VPC", "wraps": ["elb", "k_proxy_1", "app_1", "k_proxy_2", "app_2", "k8s_svc"], "pad": 18 },
+    { "kind": "region", "label": "Availability Zone 1", "wraps": ["k_proxy_1", "app_1"], "pad": 14 },
+    { "kind": "region", "label": "Availability Zone 2", "wraps": ["k_proxy_2", "app_2"], "pad": 14 }
+  ],
+  "connections": [
+    { "id": "user-to-elb", "from": "user", "to": "elb", "variant": "emphasis" },
+    { "id": "elb-to-proxy1", "from": "elb", "to": "k_proxy_1", "fromSide": "top", "toSide": "left" },
+    { "id": "elb-to-proxy2", "from": "elb", "to": "k_proxy_2", "fromSide": "bottom", "toSide": "left" },
+    { "id": "proxy1-to-app1", "from": "k_proxy_1", "to": "app_1" },
+    { "id": "proxy2-to-app2", "from": "k_proxy_2", "to": "app_2" },
+    { "id": "app1-to-svc", "from": "app_1", "to": "k8s_svc", "fromSide": "right", "toSide": "top" },
+    { "id": "app2-to-svc", "from": "app_2", "to": "k8s_svc", "fromSide": "right", "toSide": "bottom" }
+  ]
+}

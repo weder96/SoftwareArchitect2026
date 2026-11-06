@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Microservices Architecture",
+    "output": "microservices-architecture.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "app", "type": "external", "label": "App", "pos": [20, 300], "size": [100, 50] },
+    { "id": "api_gateway", "type": "backend", "label": "Api Gateway", "pos": [180, 300], "size": [110, 50] },
+    { "id": "load_balancer", "type": "cloud", "label": "Load Balancer", "pos": [320, 300], "size": [120, 50] },
+
+    { "id": "auth_service", "type": "backend", "label": "Auth Service", "pos": [460, 60], "size": [110, 45] },
+    { "id": "auth_db", "type": "database", "label": "AuthDB", "sublabel": "Login e Autenticação", "pos": [600, 60], "size": [110, 50] },
+    { "id": "user_service", "type": "backend", "label": "User Service", "pos": [460, 120], "size": [110, 45] },
+    { "id": "user_db", "type": "database", "label": "UserDB", "sublabel": "Cadastro de usuários", "pos": [600, 120], "size": [110, 50] },
+    { "id": "store_service", "type": "backend", "label": "Store Service", "pos": [460, 180], "size": [110, 45] },
+    { "id": "store_db", "type": "database", "label": "StoreDB", "sublabel": "Cadastro de Lojas e Estoque", "pos": [600, 180], "size": [120, 50] },
+    { "id": "cart_service", "type": "backend", "label": "Cart Service", "pos": [460, 240], "size": [110, 45] },
+    { "id": "cart_db", "type": "database", "label": "CartDB", "sublabel": "Carrinho", "pos": [600, 240], "size": [110, 50] },
+    { "id": "payment_service", "type": "backend", "label": "Payment Service", "pos": [470, 300], "size": [110, 45] },
+    { "id": "payment_db", "type": "database", "label": "PaymentDB", "sublabel": "Processamento de pagamentos", "pos": [610, 300], "size": [120, 50] },
+    { "id": "payment_provider", "type": "external", "label": "Payment Provider", "sublabel": "Integração com parceiros externos", "pos": [740, 300], "size": [130, 50] },
+
+    { "id": "order_service", "type": "backend", "label": "Order Service", "pos": [460, 380], "size": [110, 45] },
+    { "id": "order_queues", "type": "messagebus", "label": "Order Queues", "pos": [600, 380], "size": [110, 45] },
+    { "id": "order_consumer", "type": "backend", "label": "Order Consumer", "pos": [750, 380], "size": [120, 45] },
+    { "id": "order_db", "type": "database", "label": "Order DB", "sublabel": "Processamento de pedidos de forma assíncrona", "pos": [900, 380], "size": [170, 55] },
+
+    { "id": "delivery_service", "type": "backend", "label": "Delivery Service", "pos": [460, 460], "size": [110, 45] },
+    { "id": "delivery_queues", "type": "messagebus", "label": "Delivery Queues", "pos": [600, 460], "size": [120, 45] },
+    { "id": "delivery_consumer", "type": "backend", "label": "Delivery Consumer", "pos": [750, 460], "size": [130, 45] },
+    { "id": "delivery_db", "type": "database", "label": "Delivery DB", "sublabel": "Processamento de entregas e entregadores de forma assíncrona", "pos": [910, 460], "size": [230, 55] },
+
+    { "id": "rating_service", "type": "backend", "label": "Rating Service", "pos": [460, 540], "size": [110, 45] },
+    { "id": "rating_db", "type": "database", "label": "Rating DB", "sublabel": "Avaliação de pedidos e entregadores", "pos": [600, 540], "size": [140, 50] }
+  ],
+  "connections": [
+    { "id": "app-to-apigw", "from": "app", "to": "api_gateway" },
+    { "id": "apigw-to-lb", "from": "api_gateway", "to": "load_balancer" },
+    { "id": "lb-to-auth", "from": "load_balancer", "to": "auth_service" },
+    { "id": "lb-to-user", "from": "load_balancer", "to": "user_service" },
+    { "id": "lb-to-store", "from": "load_balancer", "to": "store_service" },
+    { "id": "lb-to-cart", "from": "load_balancer", "to": "cart_service" },
+    { "id": "lb-to-payment", "from": "load_balancer", "to": "payment_service" },
+    { "id": "lb-to-order", "from": "load_balancer", "to": "order_service" },
+    { "id": "lb-to-delivery", "from": "load_balancer", "to": "delivery_service" },
+    { "id": "lb-to-rating", "from": "load_balancer", "to": "rating_service" },
+    { "id": "auth-to-db", "from": "auth_service", "to": "auth_db" },
+    { "id": "user-to-db", "from": "user_service", "to": "user_db" },
+    { "id": "store-to-db", "from": "store_service", "to": "store_db" },
+    { "id": "cart-to-db", "from": "cart_service", "to": "cart_db" },
+    { "id": "payment-to-db", "from": "payment_service", "to": "payment_db" },
+    { "id": "payment-to-provider", "from": "payment_service", "to": "payment_provider" },
+    { "id": "order-to-queues", "from": "order_service", "to": "order_queues" },
+    { "id": "queues-to-consumer", "from": "order_queues", "to": "order_consumer" },
+    { "id": "consumer-to-db", "from": "order_consumer", "to": "order_db" },
+    { "id": "delivery-to-queues", "from": "delivery_service", "to": "delivery_queues" },
+    { "id": "delivery-queues-to-consumer", "from": "delivery_queues", "to": "delivery_consumer" },
+    { "id": "delivery-consumer-to-db", "from": "delivery_consumer", "to": "delivery_db" },
+    { "id": "rating-to-db", "from": "rating_service", "to": "rating_db" }
+  ]
+}

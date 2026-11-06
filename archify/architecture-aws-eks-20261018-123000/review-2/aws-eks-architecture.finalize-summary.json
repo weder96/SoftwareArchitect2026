@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-aws-eks-20261018-123000/candidate.json",
+    "sha256": "0adda4f175e4f8f1ec34fd1eb33243d071ec89f0e5d1e1051367790e99871532",
+    "bytes": 2070
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-aws-eks-20261018-123000/aws-eks-architecture.html",
+    "sha256": "4b527a4b0c81186f68a2a8225dce639e685d4f2ec546df136ad1a84f4aa2270a",
+    "bytes": 816686
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-aws-eks-20261018-123000/review-2/aws-eks-architecture.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-aws-eks-20261018-123000/review-2/aws-eks-architecture.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-aws-eks-20261018-123000/review-2/aws-eks-architecture.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.1.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-18T23:17:09.363Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2213,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  }
+}

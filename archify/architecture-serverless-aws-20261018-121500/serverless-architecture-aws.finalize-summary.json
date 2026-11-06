@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-serverless-aws-20261018-121500/candidate.json",
+    "sha256": "e03036eeba1746baf95d9ec86018a43690f538a49d37eb541683cfe869ea9243",
+    "bytes": 1354
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-serverless-aws-20261018-121500/serverless-architecture-aws.html",
+    "sha256": "eda24d265386d925218fc8bbc7379696f84c6b1f3b5cc3730aa9bd47c9d28d63",
+    "bytes": 812737
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-serverless-aws-20261018-121500/serverless-architecture-aws.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-serverless-aws-20261018-121500/serverless-architecture-aws.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-serverless-aws-20261018-121500/serverless-architecture-aws.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.1.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-18T23:17:09.363Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2288,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "layoutReviewRecommendation": {
+    "action": "inspect-leading-space",
+    "evidence": {
+      "measured": true,
+      "emptyTopPx": 140,
+      "emptyTopRatio": 0.238,
+      "occupiedTop": 140,
+      "viewBoxTop": 0,
+      "canvasHeight": 588,
+      "typicalNodeHeight": 60,
+      "reviewSuggested": true
+    },
+    "reason": "Measured content, including routes and labels, leaves a large empty area above the diagram. This is a composition suggestion, not a failed gate.",
+    "repair": "Check whether that leading space is intentional. If not, reposition the connected scene nearer the canvas origin while retaining room for its actual boundaries, labels and return routes. Preserve all meaning and user-fixed geometry, then rerun finalize. No screenshot is required."
+  }
+}

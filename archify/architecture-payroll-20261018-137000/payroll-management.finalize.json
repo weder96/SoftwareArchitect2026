@@ -1,0 +1,1329 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "startedAt": "2026-10-21T21:29:46.489Z",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/candidate.json",
+    "sha256": "976c201df70870666dac662718149a303058312212de7b064001b1b4b3791536",
+    "bytes": 4760
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/payroll-management.html",
+    "sha256": "c2e61b4775d0d83906a9fd1e8d745f7d704bf7b865922dd2d035858a4afe2a69",
+    "bytes": 841858
+  },
+  "stages": {
+    "validate": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": null,
+      "execution": "embedded-in-deliver",
+      "command": [
+        "/home/weder/.nvm/versions/node/v24.11.0/bin/node",
+        "/home/weder/.agents/skills/archify/bin/archify.mjs",
+        "deliver",
+        "architecture",
+        "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/candidate.json",
+        "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/payroll-management.html",
+        "--quality",
+        "showcase",
+        "--json"
+      ],
+      "receipt": {
+        "schemaVersion": 1,
+        "ok": true,
+        "command": "validate",
+        "specification": {
+          "sha256": "976c201df70870666dac662718149a303058312212de7b064001b1b4b3791536",
+          "bytes": 4760
+        },
+        "validation": {
+          "checksPassed": 9,
+          "checkCount": 9,
+          "compositionProfile": "showcase",
+          "compositionStatus": "pass",
+          "errors": 0,
+          "warnings": 0
+        }
+      }
+    },
+    "deliver": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 492,
+      "command": [
+        "/home/weder/.nvm/versions/node/v24.11.0/bin/node",
+        "/home/weder/.agents/skills/archify/bin/archify.mjs",
+        "deliver",
+        "architecture",
+        "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/candidate.json",
+        "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/payroll-management.html",
+        "--quality",
+        "showcase",
+        "--json"
+      ],
+      "receipt": {
+        "schemaVersion": 1,
+        "receiptId": "40ee4372-ac5f-414f-975a-c496d9ef2353",
+        "ok": true,
+        "command": "deliver",
+        "type": "architecture",
+        "input": "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/candidate.json",
+        "output": "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/payroll-management.html",
+        "specification": {
+          "sha256": "976c201df70870666dac662718149a303058312212de7b064001b1b4b3791536",
+          "bytes": 4760
+        },
+        "artifact": {
+          "sha256": "c2e61b4775d0d83906a9fd1e8d745f7d704bf7b865922dd2d035858a4afe2a69",
+          "bytes": 841858
+        },
+        "validation": {
+          "checksPassed": 9,
+          "checkCount": 9,
+          "compositionProfile": "showcase",
+          "compositionStatus": "pass",
+          "errors": 0,
+          "warnings": 0
+        },
+        "update": {
+          "status": "unavailable",
+          "installedVersion": null,
+          "availableVersion": null,
+          "releaseNotes": null,
+          "checkedAt": null,
+          "source": null,
+          "noticeRequired": false,
+          "noticeText": null,
+          "reason": "disabled"
+        }
+      }
+    },
+    "check": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 166,
+      "command": [
+        "/home/weder/.nvm/versions/node/v24.11.0/bin/node",
+        "/home/weder/.agents/skills/archify/bin/archify.mjs",
+        "check",
+        "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/payroll-management.html",
+        "--require-provenance"
+      ],
+      "receipt": {
+        "ok": true,
+        "file": "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/payroll-management.html",
+        "artifact": {
+          "sha256": "c2e61b4775d0d83906a9fd1e8d745f7d704bf7b865922dd2d035858a4afe2a69",
+          "bytes": 841858
+        },
+        "checks": [
+          {
+            "name": "single_svg",
+            "ok": true,
+            "details": [
+              "found 1 <svg> block(s)"
+            ]
+          },
+          {
+            "name": "finite_svg",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "orthogonal_arrows",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "label_route_clearance",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "relationship_crossings",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "relationship_corridors",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "container_border_runs",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "route_rhythm",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "legend_clearance",
+            "ok": true,
+            "details": []
+          }
+        ],
+        "composition": {
+          "schemaVersion": 1,
+          "profile": "showcase",
+          "status": "pass",
+          "summary": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "metrics": {
+            "properCrossings": 0,
+            "resolvedCrossovers": 10,
+            "ambiguousCorridors": 0,
+            "arrowheadCollisions": 0,
+            "containerBorderRuns": 0,
+            "labelRouteClearanceIssues": 0,
+            "labelCanvasOverflowIssues": 0,
+            "minLabelRouteClearance": null,
+            "desktopReadabilityIssues": 0,
+            "viewportHeightIssues": 0,
+            "minProjectedNodeTextPx": 7.386585365853658,
+            "maxBends": 4,
+            "routesOverSuggestedBends": 7,
+            "maxStretch": 1.325,
+            "routesOverSuggestedStretch": 0,
+            "minSegmentPx": 8.7,
+            "minInteriorSegmentPx": 20,
+            "shortSegmentCount": 7,
+            "shortEndpointSegmentCount": 7,
+            "shortInteriorSegmentCount": 0,
+            "microSegmentCount": 0
+          },
+          "suggestedLimits": {
+            "bendsPerRelationship": 2,
+            "stretch": 1.35,
+            "segmentPx": 16,
+            "microSegmentPx": 8
+          },
+          "routeReview": {
+            "crossings": [
+              {
+                "left": {
+                  "id": "hr_monthly-to-income_structure",
+                  "from": "hr_finance_monthly",
+                  "to": "income_structure",
+                  "label": "",
+                  "collectionIndex": 2,
+                  "artifactIndex": 3
+                },
+                "right": {
+                  "id": "hr_monthly-to-tax_monthly",
+                  "from": "hr_finance_monthly",
+                  "to": "tax_monthly",
+                  "label": "",
+                  "collectionIndex": 3,
+                  "artifactIndex": 4
+                },
+                "point": [
+                  695,
+                  139
+                ],
+                "sharedNode": "hr_finance_monthly"
+              },
+              {
+                "left": {
+                  "id": "hr_monthly-to-tax_monthly",
+                  "from": "hr_finance_monthly",
+                  "to": "tax_monthly",
+                  "label": "",
+                  "collectionIndex": 3,
+                  "artifactIndex": 4
+                },
+                "right": {
+                  "id": "income_structure-to-monthly_process",
+                  "from": "income_structure",
+                  "to": "monthly_process",
+                  "label": "",
+                  "collectionIndex": 6,
+                  "artifactIndex": 7
+                },
+                "point": [
+                  754.0000000000003,
+                  139
+                ]
+              },
+              {
+                "left": {
+                  "id": "att_monthly-to-monthly_process",
+                  "from": "att_monthly",
+                  "to": "monthly_process",
+                  "label": "",
+                  "collectionIndex": 4,
+                  "artifactIndex": 5
+                },
+                "right": {
+                  "id": "bonus-to-monthly_process",
+                  "from": "bonus",
+                  "to": "monthly_process",
+                  "label": "",
+                  "collectionIndex": 5,
+                  "artifactIndex": 6
+                },
+                "point": [
+                  1106,
+                  77
+                ],
+                "sharedNode": "monthly_process"
+              },
+              {
+                "left": {
+                  "id": "bank_advice_monthly-to-bank",
+                  "from": "bank_advice_monthly",
+                  "to": "bank",
+                  "label": "",
+                  "collectionIndex": 10,
+                  "artifactIndex": 11
+                },
+                "right": {
+                  "id": "payslip-to-employee",
+                  "from": "payslip",
+                  "to": "employee",
+                  "label": "",
+                  "collectionIndex": 11,
+                  "artifactIndex": 12
+                },
+                "point": [
+                  1476,
+                  187.5
+                ]
+              },
+              {
+                "left": {
+                  "id": "payslip-to-employee",
+                  "from": "payslip",
+                  "to": "employee",
+                  "label": "",
+                  "collectionIndex": 11,
+                  "artifactIndex": 12
+                },
+                "right": {
+                  "id": "bank_advice_eos-to-bank",
+                  "from": "bank_advice_eos",
+                  "to": "bank",
+                  "label": "",
+                  "collectionIndex": 22,
+                  "artifactIndex": 23
+                },
+                "point": [
+                  1497,
+                  280.5
+                ]
+              },
+              {
+                "left": {
+                  "id": "hr_eos-to-pf_gratuity",
+                  "from": "hr_finance_eos",
+                  "to": "pf_gratuity",
+                  "label": "",
+                  "collectionIndex": 13,
+                  "artifactIndex": 14
+                },
+                "right": {
+                  "id": "hr_eos-to-salary_structure",
+                  "from": "hr_finance_eos",
+                  "to": "salary_structure",
+                  "label": "",
+                  "collectionIndex": 14,
+                  "artifactIndex": 15
+                },
+                "point": [
+                  516.6,
+                  257
+                ],
+                "sharedNode": "hr_finance_eos"
+              },
+              {
+                "left": {
+                  "id": "hr_eos-to-salary_structure",
+                  "from": "hr_finance_eos",
+                  "to": "salary_structure",
+                  "label": "",
+                  "collectionIndex": 14,
+                  "artifactIndex": 15
+                },
+                "right": {
+                  "id": "pf_gratuity-to-eos_process",
+                  "from": "pf_gratuity",
+                  "to": "eos_process",
+                  "label": "",
+                  "collectionIndex": 17,
+                  "artifactIndex": 18
+                },
+                "point": [
+                  537.4,
+                  257
+                ]
+              },
+              {
+                "left": {
+                  "id": "hr_eos-to-tax_eos",
+                  "from": "hr_finance_eos",
+                  "to": "tax_eos",
+                  "label": "",
+                  "collectionIndex": 15,
+                  "artifactIndex": 16
+                },
+                "right": {
+                  "id": "att_eos-to-eos_process",
+                  "from": "att_eos",
+                  "to": "eos_process",
+                  "label": "",
+                  "collectionIndex": 16,
+                  "artifactIndex": 17
+                },
+                "point": [
+                  345,
+                  359
+                ]
+              },
+              {
+                "left": {
+                  "id": "hr_eos-to-tax_eos",
+                  "from": "hr_finance_eos",
+                  "to": "tax_eos",
+                  "label": "",
+                  "collectionIndex": 15,
+                  "artifactIndex": 16
+                },
+                "right": {
+                  "id": "salary_structure-to-eos_process",
+                  "from": "salary_structure",
+                  "to": "eos_process",
+                  "label": "",
+                  "collectionIndex": 18,
+                  "artifactIndex": 19
+                },
+                "point": [
+                  902.142857142857,
+                  357.6666666666667
+                ]
+              },
+              {
+                "left": {
+                  "id": "bank_advice_eos-to-bank",
+                  "from": "bank_advice_eos",
+                  "to": "bank",
+                  "label": "",
+                  "collectionIndex": 22,
+                  "artifactIndex": 23
+                },
+                "right": {
+                  "id": "eos_statement-to-employee",
+                  "from": "eos_statement",
+                  "to": "employee",
+                  "label": "",
+                  "collectionIndex": 23,
+                  "artifactIndex": 24
+                },
+                "point": [
+                  1497,
+                  299
+                ]
+              }
+            ],
+            "crowdedSides": [
+              {
+                "node": "hr_finance_monthly",
+                "label": "HR / Finance (Monthly)",
+                "side": "right",
+                "relationships": 4,
+                "sidePx": 55,
+                "neededPx": 74
+              },
+              {
+                "node": "monthly_process",
+                "label": "Monthly Payroll Process",
+                "side": "left",
+                "relationships": 4,
+                "sidePx": 55,
+                "neededPx": 74
+              },
+              {
+                "node": "hr_finance_eos",
+                "label": "HR / Finance (End of Service)",
+                "side": "right",
+                "relationships": 4,
+                "sidePx": 55,
+                "neededPx": 74
+              },
+              {
+                "node": "eos_process",
+                "label": "End of Service Process",
+                "side": "left",
+                "relationships": 4,
+                "sidePx": 55,
+                "neededPx": 74
+              }
+            ],
+            "detours": [
+              {
+                "relationship": {
+                  "id": "hr_monthly-to-att_monthly",
+                  "from": "hr_finance_monthly",
+                  "to": "att_monthly",
+                  "label": "",
+                  "collectionIndex": 0,
+                  "artifactIndex": 1
+                },
+                "bends": 3,
+                "stretch": 1.325
+              },
+              {
+                "relationship": {
+                  "id": "hr_monthly-to-bonus",
+                  "from": "hr_finance_monthly",
+                  "to": "bonus",
+                  "label": "",
+                  "collectionIndex": 1,
+                  "artifactIndex": 2
+                },
+                "bends": 4,
+                "stretch": 1.165
+              },
+              {
+                "relationship": {
+                  "id": "hr_monthly-to-tax_monthly",
+                  "from": "hr_finance_monthly",
+                  "to": "tax_monthly",
+                  "label": "",
+                  "collectionIndex": 3,
+                  "artifactIndex": 4
+                },
+                "bends": 3,
+                "stretch": 1.058
+              },
+              {
+                "relationship": {
+                  "id": "bonus-to-monthly_process",
+                  "from": "bonus",
+                  "to": "monthly_process",
+                  "label": "",
+                  "collectionIndex": 5,
+                  "artifactIndex": 6
+                },
+                "bends": 3,
+                "stretch": 1.107
+              },
+              {
+                "relationship": {
+                  "id": "hr_eos-to-salary_structure",
+                  "from": "hr_finance_eos",
+                  "to": "salary_structure",
+                  "label": "",
+                  "collectionIndex": 14,
+                  "artifactIndex": 15
+                },
+                "bends": 3,
+                "stretch": 1.174
+              },
+              {
+                "relationship": {
+                  "id": "hr_eos-to-tax_eos",
+                  "from": "hr_finance_eos",
+                  "to": "tax_eos",
+                  "label": "",
+                  "collectionIndex": 15,
+                  "artifactIndex": 16
+                },
+                "bends": 3,
+                "stretch": 1.06
+              },
+              {
+                "relationship": {
+                  "id": "bank_advice_eos-to-bank",
+                  "from": "bank_advice_eos",
+                  "to": "bank",
+                  "label": "",
+                  "collectionIndex": 22,
+                  "artifactIndex": 23
+                },
+                "bends": 3,
+                "stretch": 1
+              }
+            ]
+          },
+          "leadingSpace": {
+            "measured": true,
+            "emptyTopPx": 56,
+            "emptyTopRatio": 0.115,
+            "occupiedTop": 56,
+            "viewBoxTop": 0,
+            "canvasHeight": 486,
+            "typicalNodeHeight": 55,
+            "reviewSuggested": false
+          },
+          "desktopReadability": {
+            "budgetBasis": "recognized-declared-wide",
+            "readerContract": "declared-wide-v1",
+            "availableDiagramWidth": 1346,
+            "actualBudgetPx": 1346,
+            "actualReaderWidth": 1376,
+            "desiredReaderWidth": 1396.6666666666667,
+            "viewportCap": 1376,
+            "limit": "viewport-cap",
+            "requestedTargetPx": 7.5,
+            "requestedTargetMet": false,
+            "hardFloorPx": 6,
+            "hardFloorMet": true,
+            "minimumOwner": {
+              "kind": "node",
+              "id": "att_monthly"
+            },
+            "minimumSourceTextPx": 9,
+            "minimumProjectedTextPx": 7.386585365853658,
+            "semanticTextCount": 20
+          },
+          "issues": []
+        },
+        "provenance": "current",
+        "deliveryReceiptId": "40ee4372-ac5f-414f-975a-c496d9ef2353"
+      }
+    },
+    "browser-check": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 1785,
+      "command": [
+        "/home/weder/.nvm/versions/node/v24.11.0/bin/node",
+        "/home/weder/.agents/skills/archify/bin/archify.mjs",
+        "browser-check",
+        "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/payroll-management.html",
+        "--json",
+        "--require-provenance"
+      ],
+      "execution": "in-process",
+      "receipt": {
+        "schemaVersion": 1,
+        "ok": true,
+        "command": "browser-check",
+        "evidenceKind": "automated-browser",
+        "status": "pass",
+        "visualReview": "not-requested",
+        "provenance": "current",
+        "deliveryReceiptId": "40ee4372-ac5f-414f-975a-c496d9ef2353",
+        "artifact": {
+          "path": "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/payroll-management.html",
+          "sha256": "c2e61b4775d0d83906a9fd1e8d745f7d704bf7b865922dd2d035858a4afe2a69",
+          "bytes": 841858
+        },
+        "state": {
+          "detail": "read",
+          "motion": "still"
+        },
+        "chrome": {
+          "status": "available",
+          "executable": "/usr/bin/google-chrome"
+        },
+        "diagnostics": [],
+        "containment": {
+          "status": "pass",
+          "policy": "fit-or-reader-declared-readable-vertical-scroll",
+          "viewports": [
+            {
+              "width": 1440,
+              "height": 900,
+              "theme": "light",
+              "innerWidth": 1440,
+              "innerHeight": 900,
+              "scrollWidth": 1440,
+              "scrollHeight": 900,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1376,
+              "diagramWidth": 1346,
+              "pageComposition": {
+                "bodyPaddingPx": 12,
+                "headerPx": 52,
+                "diagramChromePx": 78,
+                "svgPx": 399,
+                "cardsPx": 0,
+                "viewBoxHeight": 486
+              },
+              "viewBoxWidth": 1640,
+              "minimumProjectedNodeTextPx": 7.386585365853658,
+              "minimumProjectedNonEdgeTextPx": 7.386585365853658,
+              "minimumProjectedEdgeTextPx": null,
+              "minimumProjectedNodeText": "attendance device software",
+              "minimumProjectedNodeTextDetail": "context",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "node",
+                "id": "att_monthly"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 54,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            },
+            {
+              "width": 1600,
+              "height": 1000,
+              "theme": "light",
+              "innerWidth": 1600,
+              "innerHeight": 1000,
+              "scrollWidth": 1600,
+              "scrollHeight": 1000,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1536,
+              "diagramWidth": 1506,
+              "pageComposition": {
+                "bodyPaddingPx": 64,
+                "headerPx": 60,
+                "diagramChromePx": 84,
+                "svgPx": 446,
+                "cardsPx": 0,
+                "viewBoxHeight": 486
+              },
+              "viewBoxWidth": 1640,
+              "minimumProjectedNodeTextPx": 8.264634146341464,
+              "minimumProjectedNonEdgeTextPx": 8.264634146341464,
+              "minimumProjectedEdgeTextPx": null,
+              "minimumProjectedNodeText": "attendance device software",
+              "minimumProjectedNodeTextDetail": "context",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "node",
+                "id": "att_monthly"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 54,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            },
+            {
+              "width": 1920,
+              "height": 1080,
+              "theme": "light",
+              "innerWidth": 1920,
+              "innerHeight": 1080,
+              "scrollWidth": 1920,
+              "scrollHeight": 1080,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1856,
+              "diagramWidth": 1826,
+              "pageComposition": {
+                "bodyPaddingPx": 64,
+                "headerPx": 60,
+                "diagramChromePx": 84,
+                "svgPx": 541,
+                "cardsPx": 0,
+                "viewBoxHeight": 486
+              },
+              "viewBoxWidth": 1640,
+              "minimumProjectedNodeTextPx": 9,
+              "minimumProjectedNonEdgeTextPx": 9,
+              "minimumProjectedEdgeTextPx": null,
+              "minimumProjectedNodeText": "attendance device software",
+              "minimumProjectedNodeTextDetail": "context",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "node",
+                "id": "att_monthly"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 54,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            },
+            {
+              "width": 2048,
+              "height": 1320,
+              "theme": "light",
+              "innerWidth": 2048,
+              "innerHeight": 1320,
+              "scrollWidth": 2048,
+              "scrollHeight": 1320,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1920,
+              "diagramWidth": 1870,
+              "pageComposition": {
+                "bodyPaddingPx": 64,
+                "headerPx": 68,
+                "diagramChromePx": 94,
+                "svgPx": 554,
+                "cardsPx": 0,
+                "viewBoxHeight": 486
+              },
+              "viewBoxWidth": 1640,
+              "minimumProjectedNodeTextPx": 9,
+              "minimumProjectedNonEdgeTextPx": 9,
+              "minimumProjectedEdgeTextPx": null,
+              "minimumProjectedNodeText": "attendance device software",
+              "minimumProjectedNodeTextDetail": "context",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "node",
+                "id": "att_monthly"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 44,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            }
+          ]
+        },
+        "themeStates": {
+          "status": "pass",
+          "viewports": [
+            {
+              "width": 1440,
+              "height": 900,
+              "requestedTheme": "light",
+              "resolvedTheme": "light",
+              "ok": true
+            },
+            {
+              "width": 1600,
+              "height": 1000,
+              "requestedTheme": "light",
+              "resolvedTheme": "light",
+              "ok": true
+            },
+            {
+              "width": 1920,
+              "height": 1080,
+              "requestedTheme": "light",
+              "resolvedTheme": "light",
+              "ok": true
+            },
+            {
+              "width": 2048,
+              "height": 1320,
+              "requestedTheme": "light",
+              "resolvedTheme": "light",
+              "ok": true
+            },
+            {
+              "width": 1440,
+              "height": 900,
+              "requestedTheme": "dark",
+              "resolvedTheme": "dark",
+              "ok": true
+            },
+            {
+              "width": 2048,
+              "height": 1320,
+              "requestedTheme": "dark",
+              "resolvedTheme": "dark",
+              "ok": true
+            }
+          ]
+        },
+        "readability": {
+          "status": "pass",
+          "minimumProjectedNodeTextPx": 6,
+          "viewports": [
+            {
+              "width": 1440,
+              "height": 900,
+              "theme": "light",
+              "innerWidth": 1440,
+              "innerHeight": 900,
+              "scrollWidth": 1440,
+              "scrollHeight": 900,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1376,
+              "diagramWidth": 1346,
+              "pageComposition": {
+                "bodyPaddingPx": 12,
+                "headerPx": 52,
+                "diagramChromePx": 78,
+                "svgPx": 399,
+                "cardsPx": 0,
+                "viewBoxHeight": 486
+              },
+              "viewBoxWidth": 1640,
+              "minimumProjectedNodeTextPx": 7.386585365853658,
+              "minimumProjectedNonEdgeTextPx": 7.386585365853658,
+              "minimumProjectedEdgeTextPx": null,
+              "minimumProjectedNodeText": "attendance device software",
+              "minimumProjectedNodeTextDetail": "context",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "node",
+                "id": "att_monthly"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 54,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            },
+            {
+              "width": 1600,
+              "height": 1000,
+              "theme": "light",
+              "innerWidth": 1600,
+              "innerHeight": 1000,
+              "scrollWidth": 1600,
+              "scrollHeight": 1000,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1536,
+              "diagramWidth": 1506,
+              "pageComposition": {
+                "bodyPaddingPx": 64,
+                "headerPx": 60,
+                "diagramChromePx": 84,
+                "svgPx": 446,
+                "cardsPx": 0,
+                "viewBoxHeight": 486
+              },
+              "viewBoxWidth": 1640,
+              "minimumProjectedNodeTextPx": 8.264634146341464,
+              "minimumProjectedNonEdgeTextPx": 8.264634146341464,
+              "minimumProjectedEdgeTextPx": null,
+              "minimumProjectedNodeText": "attendance device software",
+              "minimumProjectedNodeTextDetail": "context",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "node",
+                "id": "att_monthly"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 54,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            },
+            {
+              "width": 1920,
+              "height": 1080,
+              "theme": "light",
+              "innerWidth": 1920,
+              "innerHeight": 1080,
+              "scrollWidth": 1920,
+              "scrollHeight": 1080,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1856,
+              "diagramWidth": 1826,
+              "pageComposition": {
+                "bodyPaddingPx": 64,
+                "headerPx": 60,
+                "diagramChromePx": 84,
+                "svgPx": 541,
+                "cardsPx": 0,
+                "viewBoxHeight": 486
+              },
+              "viewBoxWidth": 1640,
+              "minimumProjectedNodeTextPx": 9,
+              "minimumProjectedNonEdgeTextPx": 9,
+              "minimumProjectedEdgeTextPx": null,
+              "minimumProjectedNodeText": "attendance device software",
+              "minimumProjectedNodeTextDetail": "context",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "node",
+                "id": "att_monthly"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 54,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            },
+            {
+              "width": 2048,
+              "height": 1320,
+              "theme": "light",
+              "innerWidth": 2048,
+              "innerHeight": 1320,
+              "scrollWidth": 2048,
+              "scrollHeight": 1320,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1920,
+              "diagramWidth": 1870,
+              "pageComposition": {
+                "bodyPaddingPx": 64,
+                "headerPx": 68,
+                "diagramChromePx": 94,
+                "svgPx": 554,
+                "cardsPx": 0,
+                "viewBoxHeight": 486
+              },
+              "viewBoxWidth": 1640,
+              "minimumProjectedNodeTextPx": 9,
+              "minimumProjectedNonEdgeTextPx": 9,
+              "minimumProjectedEdgeTextPx": null,
+              "minimumProjectedNodeText": "attendance device software",
+              "minimumProjectedNodeTextDetail": "context",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "node",
+                "id": "att_monthly"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 44,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            }
+          ]
+        },
+        "viewerChrome": {
+          "status": "pass",
+          "viewports": [
+            {
+              "width": 1440,
+              "height": 900,
+              "theme": "light",
+              "innerWidth": 1440,
+              "innerHeight": 900,
+              "scrollWidth": 1440,
+              "scrollHeight": 900,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1376,
+              "diagramWidth": 1346,
+              "pageComposition": {
+                "bodyPaddingPx": 12,
+                "headerPx": 52,
+                "diagramChromePx": 78,
+                "svgPx": 399,
+                "cardsPx": 0,
+                "viewBoxHeight": 486
+              },
+              "viewBoxWidth": 1640,
+              "minimumProjectedNodeTextPx": 7.386585365853658,
+              "minimumProjectedNonEdgeTextPx": 7.386585365853658,
+              "minimumProjectedEdgeTextPx": null,
+              "minimumProjectedNodeText": "attendance device software",
+              "minimumProjectedNodeTextDetail": "context",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "node",
+                "id": "att_monthly"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 54,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            },
+            {
+              "width": 1600,
+              "height": 1000,
+              "theme": "light",
+              "innerWidth": 1600,
+              "innerHeight": 1000,
+              "scrollWidth": 1600,
+              "scrollHeight": 1000,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1536,
+              "diagramWidth": 1506,
+              "pageComposition": {
+                "bodyPaddingPx": 64,
+                "headerPx": 60,
+                "diagramChromePx": 84,
+                "svgPx": 446,
+                "cardsPx": 0,
+                "viewBoxHeight": 486
+              },
+              "viewBoxWidth": 1640,
+              "minimumProjectedNodeTextPx": 8.264634146341464,
+              "minimumProjectedNonEdgeTextPx": 8.264634146341464,
+              "minimumProjectedEdgeTextPx": null,
+              "minimumProjectedNodeText": "attendance device software",
+              "minimumProjectedNodeTextDetail": "context",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "node",
+                "id": "att_monthly"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 54,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            },
+            {
+              "width": 1920,
+              "height": 1080,
+              "theme": "light",
+              "innerWidth": 1920,
+              "innerHeight": 1080,
+              "scrollWidth": 1920,
+              "scrollHeight": 1080,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1856,
+              "diagramWidth": 1826,
+              "pageComposition": {
+                "bodyPaddingPx": 64,
+                "headerPx": 60,
+                "diagramChromePx": 84,
+                "svgPx": 541,
+                "cardsPx": 0,
+                "viewBoxHeight": 486
+              },
+              "viewBoxWidth": 1640,
+              "minimumProjectedNodeTextPx": 9,
+              "minimumProjectedNonEdgeTextPx": 9,
+              "minimumProjectedEdgeTextPx": null,
+              "minimumProjectedNodeText": "attendance device software",
+              "minimumProjectedNodeTextDetail": "context",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "node",
+                "id": "att_monthly"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 54,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            },
+            {
+              "width": 2048,
+              "height": 1320,
+              "theme": "light",
+              "innerWidth": 2048,
+              "innerHeight": 1320,
+              "scrollWidth": 2048,
+              "scrollHeight": 1320,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1920,
+              "diagramWidth": 1870,
+              "pageComposition": {
+                "bodyPaddingPx": 64,
+                "headerPx": 68,
+                "diagramChromePx": 94,
+                "svgPx": 554,
+                "cardsPx": 0,
+                "viewBoxHeight": 486
+              },
+              "viewBoxWidth": 1640,
+              "minimumProjectedNodeTextPx": 9,
+              "minimumProjectedNonEdgeTextPx": 9,
+              "minimumProjectedEdgeTextPx": null,
+              "minimumProjectedNodeText": "attendance device software",
+              "minimumProjectedNodeTextDetail": "context",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "node",
+                "id": "att_monthly"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 44,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            }
+          ]
+        },
+        "captures": {
+          "status": "not-requested",
+          "screenshots": [],
+          "contactSheet": null
+        },
+        "sidecars": {
+          "receipt": "payroll-management.browser-check.json",
+          "files": []
+        }
+      }
+    }
+  },
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "diagnostics": [],
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/payroll-management.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/payroll-management.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/payroll-management.browser-check.json"
+  },
+  "visualReview": "not-requested",
+  "finishedAt": "2026-10-21T21:29:49.069Z",
+  "durationMs": 2579,
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-21T17:33:45.780Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  }
+}

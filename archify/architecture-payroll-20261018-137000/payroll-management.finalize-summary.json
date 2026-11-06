@@ -1,0 +1,340 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/candidate.json",
+    "sha256": "976c201df70870666dac662718149a303058312212de7b064001b1b4b3791536",
+    "bytes": 4760
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/payroll-management.html",
+    "sha256": "c2e61b4775d0d83906a9fd1e8d745f7d704bf7b865922dd2d035858a4afe2a69",
+    "bytes": 841858
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/payroll-management.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/payroll-management.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/payroll-management.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-21T17:33:45.780Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2579,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "resolvedCrossovers": 10,
+      "routesOverSuggestedBends": 7
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [
+        {
+          "left": {
+            "id": "hr_monthly-to-income_structure",
+            "from": "hr_finance_monthly",
+            "to": "income_structure",
+            "label": "",
+            "collectionIndex": 2,
+            "artifactIndex": 3
+          },
+          "right": {
+            "id": "hr_monthly-to-tax_monthly",
+            "from": "hr_finance_monthly",
+            "to": "tax_monthly",
+            "label": "",
+            "collectionIndex": 3,
+            "artifactIndex": 4
+          },
+          "point": [
+            695,
+            139
+          ],
+          "sharedNode": "hr_finance_monthly"
+        },
+        {
+          "left": {
+            "id": "hr_monthly-to-tax_monthly",
+            "from": "hr_finance_monthly",
+            "to": "tax_monthly",
+            "label": "",
+            "collectionIndex": 3,
+            "artifactIndex": 4
+          },
+          "right": {
+            "id": "income_structure-to-monthly_process",
+            "from": "income_structure",
+            "to": "monthly_process",
+            "label": "",
+            "collectionIndex": 6,
+            "artifactIndex": 7
+          },
+          "point": [
+            754.0000000000003,
+            139
+          ]
+        },
+        {
+          "left": {
+            "id": "att_monthly-to-monthly_process",
+            "from": "att_monthly",
+            "to": "monthly_process",
+            "label": "",
+            "collectionIndex": 4,
+            "artifactIndex": 5
+          },
+          "right": {
+            "id": "bonus-to-monthly_process",
+            "from": "bonus",
+            "to": "monthly_process",
+            "label": "",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "point": [
+            1106,
+            77
+          ],
+          "sharedNode": "monthly_process"
+        },
+        {
+          "left": {
+            "id": "bank_advice_monthly-to-bank",
+            "from": "bank_advice_monthly",
+            "to": "bank",
+            "label": "",
+            "collectionIndex": 10,
+            "artifactIndex": 11
+          },
+          "right": {
+            "id": "payslip-to-employee",
+            "from": "payslip",
+            "to": "employee",
+            "label": "",
+            "collectionIndex": 11,
+            "artifactIndex": 12
+          },
+          "point": [
+            1476,
+            187.5
+          ]
+        },
+        {
+          "left": {
+            "id": "payslip-to-employee",
+            "from": "payslip",
+            "to": "employee",
+            "label": "",
+            "collectionIndex": 11,
+            "artifactIndex": 12
+          },
+          "right": {
+            "id": "bank_advice_eos-to-bank",
+            "from": "bank_advice_eos",
+            "to": "bank",
+            "label": "",
+            "collectionIndex": 22,
+            "artifactIndex": 23
+          },
+          "point": [
+            1497,
+            280.5
+          ]
+        },
+        {
+          "left": {
+            "id": "hr_eos-to-pf_gratuity",
+            "from": "hr_finance_eos",
+            "to": "pf_gratuity",
+            "label": "",
+            "collectionIndex": 13,
+            "artifactIndex": 14
+          },
+          "right": {
+            "id": "hr_eos-to-salary_structure",
+            "from": "hr_finance_eos",
+            "to": "salary_structure",
+            "label": "",
+            "collectionIndex": 14,
+            "artifactIndex": 15
+          },
+          "point": [
+            516.6,
+            257
+          ],
+          "sharedNode": "hr_finance_eos"
+        },
+        {
+          "left": {
+            "id": "hr_eos-to-salary_structure",
+            "from": "hr_finance_eos",
+            "to": "salary_structure",
+            "label": "",
+            "collectionIndex": 14,
+            "artifactIndex": 15
+          },
+          "right": {
+            "id": "pf_gratuity-to-eos_process",
+            "from": "pf_gratuity",
+            "to": "eos_process",
+            "label": "",
+            "collectionIndex": 17,
+            "artifactIndex": 18
+          },
+          "point": [
+            537.4,
+            257
+          ]
+        },
+        {
+          "left": {
+            "id": "hr_eos-to-tax_eos",
+            "from": "hr_finance_eos",
+            "to": "tax_eos",
+            "label": "",
+            "collectionIndex": 15,
+            "artifactIndex": 16
+          },
+          "right": {
+            "id": "att_eos-to-eos_process",
+            "from": "att_eos",
+            "to": "eos_process",
+            "label": "",
+            "collectionIndex": 16,
+            "artifactIndex": 17
+          },
+          "point": [
+            345,
+            359
+          ]
+        }
+      ],
+      "detours": [
+        {
+          "relationship": {
+            "id": "hr_monthly-to-att_monthly",
+            "from": "hr_finance_monthly",
+            "to": "att_monthly",
+            "label": "",
+            "collectionIndex": 0,
+            "artifactIndex": 1
+          },
+          "bends": 3,
+          "stretch": 1.325
+        },
+        {
+          "relationship": {
+            "id": "hr_monthly-to-bonus",
+            "from": "hr_finance_monthly",
+            "to": "bonus",
+            "label": "",
+            "collectionIndex": 1,
+            "artifactIndex": 2
+          },
+          "bends": 4,
+          "stretch": 1.165
+        },
+        {
+          "relationship": {
+            "id": "hr_monthly-to-tax_monthly",
+            "from": "hr_finance_monthly",
+            "to": "tax_monthly",
+            "label": "",
+            "collectionIndex": 3,
+            "artifactIndex": 4
+          },
+          "bends": 3,
+          "stretch": 1.058
+        },
+        {
+          "relationship": {
+            "id": "bonus-to-monthly_process",
+            "from": "bonus",
+            "to": "monthly_process",
+            "label": "",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "bends": 3,
+          "stretch": 1.107
+        },
+        {
+          "relationship": {
+            "id": "hr_eos-to-salary_structure",
+            "from": "hr_finance_eos",
+            "to": "salary_structure",
+            "label": "",
+            "collectionIndex": 14,
+            "artifactIndex": 15
+          },
+          "bends": 3,
+          "stretch": 1.174
+        },
+        {
+          "relationship": {
+            "id": "hr_eos-to-tax_eos",
+            "from": "hr_finance_eos",
+            "to": "tax_eos",
+            "label": "",
+            "collectionIndex": 15,
+            "artifactIndex": 16
+          },
+          "bends": 3,
+          "stretch": 1.06
+        },
+        {
+          "relationship": {
+            "id": "bank_advice_eos-to-bank",
+            "from": "bank_advice_eos",
+            "to": "bank",
+            "label": "",
+            "collectionIndex": 22,
+            "artifactIndex": 23
+          },
+          "bends": 3,
+          "stretch": 1
+        }
+      ],
+      "truncated": true
+    },
+    "hints": [
+      "hr_finance_monthly has 4 relationships facing its right side, which fits 2 ports: make that side at least 74px, or move some of those neighbours so they face another side of hr_finance_monthly.",
+      "monthly_process has 4 relationships facing its left side, which fits 2 ports: make that side at least 74px, or move some of those neighbours so they face another side of monthly_process.",
+      "hr_finance_eos has 4 relationships facing its right side, which fits 2 ports: make that side at least 74px, or move some of those neighbours so they face another side of hr_finance_eos.",
+      "eos_process has 4 relationships facing its left side, which fits 2 ports: make that side at least 74px, or move some of those neighbours so they face another side of eos_process.",
+      "hr_finance_monthly → income_structure and hr_finance_monthly → tax_monthly cross next to hr_finance_monthly: move node income_structure or tax_monthly so the two reach hr_finance_monthly from different sides (for example one level with it, one directly above or below it).",
+      "hr_finance_monthly → tax_monthly crosses income_structure → monthly_process: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "att_monthly → monthly_process and bonus → monthly_process cross next to monthly_process: move node att_monthly or bonus so the two reach monthly_process from different sides (for example one level with it, one directly above or below it).",
+      "bank_advice_monthly → bank crosses payslip → employee: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

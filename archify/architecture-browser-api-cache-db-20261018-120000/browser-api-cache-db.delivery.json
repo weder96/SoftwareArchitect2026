@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "f221470c-18e8-4888-98b2-df4c9838fc74",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-browser-api-cache-db-20261018-120000/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-browser-api-cache-db-20261018-120000/browser-api-cache-db.html",
+  "specification": {
+    "sha256": "59940fedf67f6e0b8cf71d0c586cf125b1b3ba42ae6ff35217dc26ae59e375a3",
+    "bytes": 1641
+  },
+  "artifact": {
+    "sha256": "a4721085739756a538a107a987b69121e3bf87f7a71605ad9f6625126196f0f9",
+    "bytes": 811852
+  }
+}

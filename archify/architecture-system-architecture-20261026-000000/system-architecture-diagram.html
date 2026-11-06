@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="archify 3.2.0">
+  <title>System Architecture Diagram</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --panel: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --group-border: #3d444d;
+      --group-label: #9198a1;
+      --edge: #6e7681;
+      --edge-label-bg: #0d1117;
+      --node-network: #1f6feb;
+      --node-api_gateway: #d29922;
+      --node-service: #2ea043;
+      --node-policy: #8957e5;
+      --node-queue: #1b9c9c;
+      --node-database: #da3633;
+      --node-process: #bf8700;
+      --node-observability: #57606a;
+    }
+    html[data-theme="light"] {
+      --bg: #ffffff;
+      --panel: #f6f8fa;
+      --border: #d0d7de;
+      --text: #1f2328;
+      --muted: #656d76;
+      --group-border: #afb8c1;
+      --group-label: #656d76;
+      --edge: #6e7681;
+      --edge-label-bg: #ffffff;
+      --node-network: #0969da;
+      --node-api_gateway: #9a6700;
+      --node-service: #1a7f37;
+      --node-policy: #8250df;
+      --node-queue: #09697a;
+      --node-database: #cf222e;
+      --node-process: #9a6700;
+      --node-observability: #6e7781;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 2rem 1rem;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin: 0 0 1.5rem;
+      text-transform: uppercase;
+    }
+    .diagram-container {
+      width: 100%;
+      max-width: 1560px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      overflow-x: auto;
+    }
+    .diagram-container svg { display: block; min-width: 900px; }
+    .diagram-container svg text { font-family: inherit; }
+    .toolbar { margin-top: 1rem; }
+    .toolbar button {
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.4rem 0.8rem;
+      font-family: inherit;
+      cursor: pointer;
+    }
+    .toolbar button:hover { border-color: var(--muted); }
+  </style>
+</head>
+<body>
+  <h1>System Architecture Diagram</h1>
+
+  <div id="diagram-container" class="diagram-container"></div>
+
+  <div class="toolbar">
+    <button type="button" id="theme-toggle">Toggle theme</button>
+  </div>
+
+  <script id="archify-config" type="application/json">
+  {
+    "schema_version": 1,
+    "diagram_type": "architecture",
+    "meta": {
+      "title": "System Architecture Diagram",
+      "quality_profile": "showcase"
+    },
+    "components": [
+      { "id": "edge_1", "type": "network", "label": "Edge Node", "pos": [70, 120], "size": [160, 56] },
+      { "id": "edge_2", "type": "network", "label": "Edge Node", "pos": [70, 220], "size": [160, 56] },
+      { "id": "edge_3", "type": "network", "label": "Edge Node", "pos": [70, 320], "size": [160, 56] },
+      { "id": "edge_4", "type": "network", "label": "Edge Node", "pos": [70, 420], "size": [160, 56] },
+      { "id": "edge_5", "type": "network", "label": "Edge Node", "pos": [70, 520], "size": [160, 56] },
+
+      { "id": "api_gateway", "type": "api_gateway", "label": "API Gateway", "pos": [420, 310], "size": [190, 64] },
+
+      { "id": "resilience", "type": "policy", "label": "Resilience Layer\n- Health Checks\n- Circuit Breakers\n- Retries & Backoff\n- Timeouts\n- Bulkheads", "pos": [400, 520], "size": [240, 160] },
+
+      { "id": "service_1", "type": "service", "label": "Service Node", "pos": [720, 130], "size": [170, 56] },
+      { "id": "service_2", "type": "service", "label": "Service Node", "pos": [720, 230], "size": [170, 56] },
+      { "id": "service_3", "type": "service", "label": "Service Node", "pos": [720, 330], "size": [170, 56] },
+      { "id": "service_4", "type": "service", "label": "Service Node", "pos": [720, 430], "size": [170, 56] },
+
+      { "id": "queue", "type": "queue", "label": "Queue Layer", "pos": [980, 290], "size": [170, 64] },
+
+      { "id": "db_1", "type": "database", "label": "Data Store", "pos": [1240, 190], "size": [160, 56] },
+      { "id": "db_2", "type": "database", "label": "Data Store", "pos": [1240, 310], "size": [160, 56] },
+      { "id": "db_3", "type": "database", "label": "Data Store", "pos": [1240, 430], "size": [160, 56] },
+
+      { "id": "global_sync", "type": "process", "label": "Global Sync", "pos": [1240, 80], "size": [160, 56] },
+
+      { "id": "obs_logs", "type": "observability", "label": "Logs", "pos": [1160, 640], "size": [150, 52] },
+      { "id": "obs_metrics", "type": "observability", "label": "Metrics", "pos": [1330, 640], "size": [150, 52] },
+      { "id": "obs_traces", "type": "observability", "label": "Traces", "pos": [1160, 720], "size": [150, 52] },
+      { "id": "obs_alerts", "type": "observability", "label": "Alerts", "pos": [1330, 720], "size": [150, 52] }
+    ],
+    "groups": [
+      { "id": "g_edge_nodes", "label": "EDGE NODES", "wraps": ["edge_1", "edge_2", "edge_3", "edge_4", "edge_5"] },
+      { "id": "g_service_nodes", "label": "SERVICE NODES", "wraps": ["service_1", "service_2", "service_3", "service_4"] },
+      { "id": "g_data_stores", "label": "DATA STORES (REPLICATED)", "wraps": ["db_1", "db_2", "db_3"] },
+      { "id": "g_observability", "label": "OBSERVABILITY & TELEMETRY", "wraps": ["obs_logs", "obs_metrics", "obs_traces", "obs_alerts"] }
+    ],
+    "connections": [
+      { "id": "c-edge1-gw", "from": "edge_1", "to": "api_gateway", "variant": "dashed" },
+      { "id": "c-edge2-gw", "from": "edge_2", "to": "api_gateway", "variant": "dashed" },
+      { "id": "c-edge3-gw", "from": "edge_3", "to": "api_gateway", "variant": "dashed" },
+      { "id": "c-edge4-gw", "from": "edge_4", "to": "api_gateway", "variant": "dashed" },
+      { "id": "c-edge5-gw", "from": "edge_5", "to": "api_gateway", "variant": "dashed" },
+
+      { "id": "c-resilience-gw", "from": "resilience", "to": "api_gateway", "variant": "dashed" },
+
+      { "id": "c-gw-svc1", "from": "api_gateway", "to": "service_1", "variant": "solid" },
+      { "id": "c-gw-svc2", "from": "api_gateway", "to": "service_2", "variant": "solid" },
+      { "id": "c-gw-svc3", "from": "api_gateway", "to": "service_3", "variant": "solid" },
+      { "id": "c-gw-svc4", "from": "api_gateway", "to": "service_4", "variant": "solid" },
+
+      { "id": "c-svc1-q", "from": "service_1", "to": "queue", "variant": "solid" },
+      { "id": "c-svc2-q", "from": "service_2", "to": "queue", "variant": "solid" },
+      { "id": "c-svc3-q", "from": "service_3", "to": "queue", "variant": "solid" },
+      { "id": "c-svc4-q", "from": "service_4", "to": "queue", "variant": "solid" },
+
+      { "id": "c-q-db1", "from": "queue", "to": "db_1", "variant": "solid" },
+      { "id": "c-q-db2", "from": "queue", "to": "db_2", "variant": "solid" },
+      { "id": "c-q-db3", "from": "queue", "to": "db_3", "variant": "solid" },
+
+      { "id": "c-db1-db2", "from": "db_1", "to": "db_2", "label": "SYNC", "variant": "dashed" },
+      { "id": "c-db2-db3", "from": "db_2", "to": "db_3", "label": "SYNC", "variant": "dashed" },
+
+      { "id": "c-gsync-db1", "from": "global_sync", "to": "g_data_stores", "variant": "solid" },
+
+      { "id": "c-db1-obs", "from": "db_1", "to": "g_observability", "variant": "dashed" },
+      { "id": "c-db2-obs", "from": "db_2", "to": "g_observability", "variant": "dashed" },
+      { "id": "c-db3-obs", "from": "db_3", "to": "g_observability", "variant": "dashed" }
+    ]
+  }
+  </script>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var configText = document.getElementById("archify-config").textContent;
+      var config = JSON.parse(configText);
+      var container = document.getElementById("diagram-container");
+
+      var SVG_NS = "http://www.w3.org/2000/svg";
+      var PAD = 14;
+      var GROUP_LABEL_H = 26;
+
+      function el(name, attrs, parent) {
+        var node = document.createElementNS(SVG_NS, name);
+        for (var key in attrs) node.setAttribute(key, attrs[key]);
+        if (parent) parent.appendChild(node);
+        return node;
+      }
+
+      function extent(node) {
+        var b = node.getBoundingClientRect();
+        return { w: b.width, h: b.height };
+      }
+
+      var nodes = {};
+      config.components.forEach(function (n) { nodes[n.id] = n; });
+
+      var groups = {};
+      config.groups.forEach(function (g) {
+        var x1 = Infinity, y1 = Infinity, x2 = -Infinity, y2 = -Infinity;
+        g.wraps.forEach(function (id) {
+          var n = nodes[id];
+          x1 = Math.min(x1, n.pos[0]);
+          y1 = Math.min(y1, n.pos[1]);
+          x2 = Math.max(x2, n.pos[0] + n.size[0]);
+          y2 = Math.max(y2, n.pos[1] + n.size[1]);
+        });
+        g.box = { x: x1 - PAD, y: y1 - PAD - GROUP_LABEL_H, w: x2 - x1 + PAD * 2, h: y2 - y1 + PAD * 2 + GROUP_LABEL_H };
+        groups[g.id] = g;
+      });
+
+      var width = 0, height = 0;
+      config.components.forEach(function (n) {
+        width = Math.max(width, n.pos[0] + n.size[0]);
+        height = Math.max(height, n.pos[1] + n.size[1]);
+      });
+      config.groups.forEach(function (g) {
+        width = Math.max(width, g.box.x + g.box.w);
+        height = Math.max(height, g.box.y + g.box.h);
+      });
+      width += 40;
+      height += 40;
+
+      // ---- SVG scaffolding ----
+      var svg = el("svg", {
+        viewBox: "0 0 " + width + " " + height,
+        width: width,
+        height: height,
+        role: "img",
+        "aria-label": config.meta.title
+      });
+      container.appendChild(svg);
+
+      var defs = el("defs", {}, svg);
+      ["solid", "dashed"].forEach(function (variant) {
+        var marker = el("marker", {
+          id: "arrowhead-" + variant,
+          viewBox: "0 0 10 10",
+          refX: 9, refY: 5,
+          markerWidth: 7, markerHeight: 7,
+          orient: "auto-start-reverse"
+        }, defs);
+        el("path", { d: "M 0 0 L 10 5 L 0 10 z", fill: "var(--edge)" }, marker);
+      });
+
+      // ---- Layers ----
+      var layerGroups = el("g", {}, svg);
+      var layerEdges = el("g", {}, svg);
+      var layerEdgeLabels = el("g", {}, svg);
+      var layerNodes = el("g", {}, svg);
+      var layerGroupLabels = el("g", {}, svg);
+
+      // ---- Groups (behind everything) ----
+      config.groups.forEach(function (g) {
+        var rect = el("rect", {
+          x: g.box.x, y: g.box.y, rx: 10,
+          width: g.box.w, height: g.box.h,
+          fill: "transparent",
+          stroke: "var(--group-border)",
+          "stroke-width": 1.5,
+          "stroke-dasharray": "6 4"
+        }, layerGroups);
+        var label = el("text", {
+          x: g.box.x + 12, y: g.box.y + 18,
+          fill: "var(--group-label)",
+          "font-size": 12,
+          "font-weight": 700,
+          "letter-spacing": "0.08em"
+        }, layerGroupLabels);
+        label.textContent = g.label;
+      });
+
+      // ---- Geometry helpers ----
+      function nodeCenter(n) {
+        return { x: n.pos[0] + n.size[0] / 2, y: n.pos[1] + n.size[1] / 2 };
+      }
+
+      // Anchor point on a node's border along the line toward target center.
+      function borderPoint(n, toward) {
+        var c = nodeCenter(n);
+        var dx = toward.x - c.x, dy = toward.y - c.y;
+        var hw = n.size[0] / 2 + 3, hh = n.size[1] / 2 + 3;
+        var scale;
+        if (dx === 0 && dy === 0) return c;
+        if (Math.abs(dx) / hw >= Math.abs(dy) / hh) {
+          scale = hw / Math.abs(dx);
+        } else {
+          scale = hh / Math.abs(dy);
+        }
+        return { x: c.x + dx * scale, y: c.y + dy * scale };
+      }
+
+      function groupTargetPoint(g, fromCenter) {
+        // Nearest point on the group's right or top border.
+        var box = g.box;
+        var mid = { x: box.x + box.w / 2, y: box.y + box.h / 2 };
+        var dx = mid.x - fromCenter.x, dy = mid.y - fromCenter.y;
+        var hw = box.w / 2, hh = box.h / 2;
+        var scale;
+        if (dx === 0 && dy === 0) return mid;
+        if (Math.abs(dx) / hw >= Math.abs(dy) / hh) scale = hw / Math.abs(dx);
+        else scale = hh / Math.abs(dy);
+        var p = { x: fromCenter.x + dx * scale, y: fromCenter.y + dy * scale };
+        if (p.y < box.y + 6) p.y = box.y + 6;
+        if (p.y > box.y + box.h - 6) p.y = box.y + box.h - 6;
+        return p;
+      }
+
+      // Resolve connection endpoints to concrete points.
+      function endpoints(conn) {
+        var from = nodes[conn.from];
+        var pFrom = nodeCenter(from);
+        var pTo, toBox;
+        if (nodes[conn.to]) {
+          var to = nodes[conn.to];
+          toBox = { x: to.pos[0], y: to.pos[1], w: to.size[0], h: to.size[1] };
+          pTo = nodeCenter(to);
+        } else {
+          var g = groups[conn.to];
+          if (!g) return null;
+          pTo = groupTargetPoint(g, pFrom);
+          toBox = { x: g.box.x, y: g.box.y, w: g.box.w, h: g.box.h, isGroup: true };
+        }
+        var a = borderPoint(from, pTo);
+        var b;
+        if (toBox.isGroup) {
+          b = pTo;
+        } else {
+          b = borderPoint(nodes[conn.to], pFrom);
+        }
+        return { a: a, b: b };
+      }
+
+      // ---- Edges ----
+      config.connections.forEach(function (conn) {
+        var eps = endpoints(conn);
+        if (!eps) return;
+        var variant = conn.variant === "dashed" ? "dashed" : "solid";
+        el("path", {
+          d: "M " + eps.a.x + " " + eps.a.y + " L " + eps.b.x + " " + eps.b.y,
+          fill: "none",
+          stroke: "var(--edge)",
+          "stroke-width": 1.5,
+          "stroke-dasharray": variant === "dashed" ? "6 5" : "none",
+          "marker-end": "url(#arrowhead-" + variant + ")",
+          "data-edge-id": conn.id
+        }, layerEdges);
+
+        if (conn.label) {
+          var mx = (eps.a.x + eps.b.x) / 2;
+          var my = (eps.a.y + eps.b.y) / 2;
+          var text = el("text", {
+            x: mx, y: my - 5,
+            "text-anchor": "middle",
+            fill: "var(--muted)",
+            "font-size": 11,
+            "font-weight": 700,
+            "letter-spacing": "0.06em"
+          }, layerEdgeLabels);
+          text.textContent = conn.label;
+          var bgW = conn.label.length * 8 + 12;
+          var bg = el("rect", {
+            x: mx - bgW / 2, y: my - 17, rx: 3,
+            width: bgW, height: 15,
+            fill: "var(--edge-label-bg)"
+          });
+          layerEdgeLabels.insertBefore(bg, text);
+        }
+      });
+
+      // ---- Nodes ----
+      config.components.forEach(function (n) {
+        var g = el("g", {
+          "data-node-id": n.id,
+          "data-node-kind": n.type,
+          tabindex: 0,
+          role: "button",
+          "aria-label": n.label.replace(/\n/g, ", ")
+        }, layerNodes);
+        el("rect", {
+          x: n.pos[0], y: n.pos[1], rx: 6,
+          width: n.size[0], height: n.size[1],
+          fill: "var(--node-" + n.type + ")",
+          stroke: "var(--border)",
+          "stroke-width": 1.5,
+          opacity: 0.92
+        }, g);
+        el("rect", {
+          x: n.pos[0], y: n.pos[1], rx: 6,
+          width: n.size[0], height: 3,
+          fill: "var(--text)",
+          opacity: 0.35
+        }, g);
+
+        var lines = n.label.split("\n");
+        var lineH = 15;
+        var startY = n.pos[1] + n.size[1] / 2 - ((lines.length - 1) * lineH) / 2 + 4;
+        lines.forEach(function (line, i) {
+          var text = el("text", {
+            x: n.pos[0] + n.size[0] / 2,
+            y: startY + i * lineH,
+            "text-anchor": "middle",
+            fill: "#ffffff",
+            "font-size": i === 0 ? 12 : 10.5,
+            "font-weight": i === 0 ? 700 : 400
+          }, g);
+          text.setAttribute("fill", i === 0 ? "#ffffff" : "rgba(255,255,255,0.85)");
+          text.textContent = line;
+        });
+      });
+
+      // ---- Theme toggle ----
+      document.getElementById("theme-toggle").addEventListener("click", function () {
+        var root = document.documentElement;
+        var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem("archify-theme", next); } catch (_) {}
+      });
+      try {
+        var saved = localStorage.getItem("archify-theme");
+        if (saved === "light" || saved === "dark") {
+          document.documentElement.setAttribute("data-theme", saved);
+        }
+      } catch (_) {}
+    })();
+  </script>
+</body>
+</html>

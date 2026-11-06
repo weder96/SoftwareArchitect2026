@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Diagrama de arquitetura de referência do data warehouse",
+    "output": "data-warehouse-reference.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "src_salary", "type": "database", "label": "Data", "sublabel": "Workforce salary", "pos": [40, 100], "size": [130, 55] },
+    { "id": "src_billing", "type": "database", "label": "Data", "sublabel": "Billing, ERP", "pos": [40, 200], "size": [130, 55] },
+    { "id": "src_order", "type": "database", "label": "Data", "sublabel": "Order, product", "pos": [40, 300], "size": [130, 55] },
+    { "id": "data_removal", "type": "backend", "label": "Data Removal process", "pos": [260, 200], "size": [150, 55] },
+    { "id": "abc_software", "type": "backend", "label": "ABC software", "pos": [260, 300], "size": [130, 55] },
+    { "id": "staging", "type": "database", "label": "staging", "sublabel": "Data", "pos": [480, 200], "size": [120, 55] },
+    { "id": "storage_admin", "type": "external", "label": "Storage admin, tool", "pos": [720, 200], "size": [150, 55] },
+    { "id": "data_transformation", "type": "backend", "label": "Data transformation and loading", "pos": [480, 300], "size": [210, 55] },
+    { "id": "central_metadata", "type": "database", "label": "Central metadata", "pos": [720, 300], "size": [150, 55] },
+    { "id": "data_warehouse", "type": "database", "label": "Data Warehouse", "pos": [480, 440], "size": [150, 55] },
+    { "id": "analytics_1", "type": "frontend", "label": "Cognos, SPSS", "pos": [720, 440], "size": [140, 55] },
+    { "id": "analytics_2", "type": "frontend", "label": "Analytics Tool", "pos": [720, 520], "size": [140, 55] },
+    { "id": "analytics_3", "type": "frontend", "label": "Analytics Tool", "pos": [720, 600], "size": [140, 55] },
+    { "id": "analytics_4", "type": "frontend", "label": "Analytics Tool", "pos": [720, 680], "size": [140, 55] },
+    { "id": "pres_marketing", "type": "external", "label": "Marketing", "pos": [960, 440], "size": [130, 55] },
+    { "id": "pres_consumer", "type": "external", "label": "Consumer", "pos": [960, 520], "size": [130, 55] },
+    { "id": "pres_agent", "type": "external", "label": "Agent", "pos": [960, 600], "size": [130, 55] },
+    { "id": "meta_management", "type": "backend", "label": "Information sphere metadata management", "pos": [480, 785], "size": [250, 55] },
+    { "id": "quality_management", "type": "backend", "label": "Information sphere quality stage", "pos": [480, 860], "size": [210, 55] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Data acquisition", "wraps": ["src_salary", "src_billing", "src_order"], "pad": 16 },
+    { "kind": "region", "label": "Data integration", "wraps": ["data_removal", "abc_software", "staging", "storage_admin", "data_transformation", "central_metadata"], "pad": 16 },
+    { "kind": "region", "label": "Data repository", "wraps": ["data_warehouse"], "pad": 16 },
+    { "kind": "region", "label": "Analytics", "wraps": ["analytics_1", "analytics_2", "analytics_3", "analytics_4"], "pad": 16 },
+    { "kind": "region", "label": "Presentation", "wraps": ["pres_marketing", "pres_consumer", "pres_agent"], "pad": 16 },
+    { "kind": "region", "label": "Metadata management", "wraps": ["meta_management"], "pad": 16 },
+    { "kind": "region", "label": "Data quality management", "wraps": ["quality_management"], "pad": 16 }
+  ],
+  "connections": [
+    { "id": "salary-to-removal", "from": "src_salary", "to": "data_removal" },
+    { "id": "billing-to-removal", "from": "src_billing", "to": "data_removal" },
+    { "id": "order-to-removal", "from": "src_order", "to": "data_removal" },
+    { "id": "removal-to-staging", "from": "data_removal", "to": "staging" },
+    { "id": "staging-to-transformation", "from": "staging", "to": "data_transformation" },
+    { "id": "transformation-to-storage", "from": "data_transformation", "to": "storage_admin" },
+    { "id": "transformation-to-metadata", "from": "data_transformation", "to": "central_metadata" },
+    { "id": "transformation-to-warehouse", "from": "data_transformation", "to": "data_warehouse" },
+    { "id": "warehouse-to-analytics1", "from": "data_warehouse", "to": "analytics_1" },
+    { "id": "warehouse-to-analytics2", "from": "data_warehouse", "to": "analytics_2" },
+    { "id": "warehouse-to-analytics3", "from": "data_warehouse", "to": "analytics_3" },
+    { "id": "warehouse-to-analytics4", "from": "data_warehouse", "to": "analytics_4" },
+    { "id": "analytics1-to-marketing", "from": "analytics_1", "to": "pres_marketing" },
+    { "id": "analytics2-to-consumer", "from": "analytics_2", "to": "pres_consumer" },
+    { "id": "analytics3-to-consumer", "from": "analytics_3", "to": "pres_consumer" },
+    { "id": "analytics4-to-agent", "from": "analytics_4", "to": "pres_agent" }
+  ]
+}

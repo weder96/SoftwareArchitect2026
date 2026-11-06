@@ -1,0 +1,1305 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "startedAt": "2026-10-21T20:51:15.035Z",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-petalpost-20261018-132000/candidate.json",
+    "sha256": "e97348bbf6cfefba95bcba06cffe3ae7ba644b4448fa0ea9f1f547d37ceb8f1c",
+    "bytes": 4665
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-petalpost-20261018-132000/petalpost-c4-container.html",
+    "sha256": "6204c0ccd12bd219fddbe0da7d981c04bd4c11aee535ad191618d7355f7ffe1e",
+    "bytes": 844628
+  },
+  "stages": {
+    "validate": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": null,
+      "execution": "embedded-in-deliver",
+      "command": [
+        "/home/weder/.nvm/versions/node/v24.11.0/bin/node",
+        "/home/weder/.agents/skills/archify/bin/archify.mjs",
+        "deliver",
+        "architecture",
+        "/home/weder/Documentos/Default Project/.archify/architecture-petalpost-20261018-132000/candidate.json",
+        "/home/weder/Documentos/Default Project/.archify/architecture-petalpost-20261018-132000/petalpost-c4-container.html",
+        "--quality",
+        "showcase",
+        "--json"
+      ],
+      "receipt": {
+        "schemaVersion": 1,
+        "ok": true,
+        "command": "validate",
+        "specification": {
+          "sha256": "e97348bbf6cfefba95bcba06cffe3ae7ba644b4448fa0ea9f1f547d37ceb8f1c",
+          "bytes": 4665
+        },
+        "validation": {
+          "checksPassed": 9,
+          "checkCount": 9,
+          "compositionProfile": "showcase",
+          "compositionStatus": "pass",
+          "errors": 0,
+          "warnings": 0
+        }
+      }
+    },
+    "deliver": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 483,
+      "command": [
+        "/home/weder/.nvm/versions/node/v24.11.0/bin/node",
+        "/home/weder/.agents/skills/archify/bin/archify.mjs",
+        "deliver",
+        "architecture",
+        "/home/weder/Documentos/Default Project/.archify/architecture-petalpost-20261018-132000/candidate.json",
+        "/home/weder/Documentos/Default Project/.archify/architecture-petalpost-20261018-132000/petalpost-c4-container.html",
+        "--quality",
+        "showcase",
+        "--json"
+      ],
+      "receipt": {
+        "schemaVersion": 1,
+        "receiptId": "cc0be1ed-8885-4ea4-a027-c37a30b8d951",
+        "ok": true,
+        "command": "deliver",
+        "type": "architecture",
+        "input": "/home/weder/Documentos/Default Project/.archify/architecture-petalpost-20261018-132000/candidate.json",
+        "output": "/home/weder/Documentos/Default Project/.archify/architecture-petalpost-20261018-132000/petalpost-c4-container.html",
+        "specification": {
+          "sha256": "e97348bbf6cfefba95bcba06cffe3ae7ba644b4448fa0ea9f1f547d37ceb8f1c",
+          "bytes": 4665
+        },
+        "artifact": {
+          "sha256": "6204c0ccd12bd219fddbe0da7d981c04bd4c11aee535ad191618d7355f7ffe1e",
+          "bytes": 844628
+        },
+        "validation": {
+          "checksPassed": 9,
+          "checkCount": 9,
+          "compositionProfile": "showcase",
+          "compositionStatus": "pass",
+          "errors": 0,
+          "warnings": 0
+        },
+        "update": {
+          "status": "unavailable",
+          "installedVersion": null,
+          "availableVersion": null,
+          "releaseNotes": null,
+          "checkedAt": null,
+          "source": null,
+          "noticeRequired": false,
+          "noticeText": null,
+          "reason": "disabled"
+        }
+      }
+    },
+    "check": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 163,
+      "command": [
+        "/home/weder/.nvm/versions/node/v24.11.0/bin/node",
+        "/home/weder/.agents/skills/archify/bin/archify.mjs",
+        "check",
+        "/home/weder/Documentos/Default Project/.archify/architecture-petalpost-20261018-132000/petalpost-c4-container.html",
+        "--require-provenance"
+      ],
+      "receipt": {
+        "ok": true,
+        "file": "/home/weder/Documentos/Default Project/.archify/architecture-petalpost-20261018-132000/petalpost-c4-container.html",
+        "artifact": {
+          "sha256": "6204c0ccd12bd219fddbe0da7d981c04bd4c11aee535ad191618d7355f7ffe1e",
+          "bytes": 844628
+        },
+        "checks": [
+          {
+            "name": "single_svg",
+            "ok": true,
+            "details": [
+              "found 1 <svg> block(s)"
+            ]
+          },
+          {
+            "name": "finite_svg",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "orthogonal_arrows",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "label_route_clearance",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "relationship_crossings",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "relationship_corridors",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "container_border_runs",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "route_rhythm",
+            "ok": true,
+            "details": []
+          },
+          {
+            "name": "legend_clearance",
+            "ok": true,
+            "details": []
+          }
+        ],
+        "composition": {
+          "schemaVersion": 1,
+          "profile": "showcase",
+          "status": "pass",
+          "summary": {
+            "errors": 0,
+            "warnings": 0
+          },
+          "metrics": {
+            "properCrossings": 0,
+            "resolvedCrossovers": 8,
+            "ambiguousCorridors": 0,
+            "arrowheadCollisions": 0,
+            "containerBorderRuns": 0,
+            "labelRouteClearanceIssues": 0,
+            "labelCanvasOverflowIssues": 0,
+            "minLabelRouteClearance": 4.5,
+            "desktopReadabilityIssues": 0,
+            "viewportHeightIssues": 0,
+            "minProjectedNodeTextPx": 6.353543979504697,
+            "maxBends": 6,
+            "routesOverSuggestedBends": 7,
+            "maxStretch": 1.461,
+            "routesOverSuggestedStretch": 3,
+            "minSegmentPx": 20,
+            "minInteriorSegmentPx": 21,
+            "shortSegmentCount": 0,
+            "shortEndpointSegmentCount": 0,
+            "shortInteriorSegmentCount": 0,
+            "microSegmentCount": 0
+          },
+          "suggestedLimits": {
+            "bendsPerRelationship": 2,
+            "stretch": 1.35,
+            "segmentPx": 16,
+            "microSegmentPx": 8
+          },
+          "routeReview": {
+            "crossings": [
+              {
+                "left": {
+                  "id": "orders-to-postgres",
+                  "from": "orders_service",
+                  "to": "postgresql",
+                  "label": "Reads / writes [SQL/TCP]",
+                  "collectionIndex": 11,
+                  "artifactIndex": 12
+                },
+                "right": {
+                  "id": "catalog-to-postgres",
+                  "from": "catalog_service",
+                  "to": "postgresql",
+                  "label": "Reads [SQL/TCP]",
+                  "collectionIndex": 12,
+                  "artifactIndex": 13
+                },
+                "point": [
+                  791,
+                  456
+                ],
+                "sharedNode": "postgresql"
+              },
+              {
+                "left": {
+                  "id": "orders-to-postgres",
+                  "from": "orders_service",
+                  "to": "postgresql",
+                  "label": "Reads / writes [SQL/TCP]",
+                  "collectionIndex": 11,
+                  "artifactIndex": 12
+                },
+                "right": {
+                  "id": "orders-to-redis",
+                  "from": "orders_service",
+                  "to": "redis",
+                  "label": "Sessions [RESP]",
+                  "collectionIndex": 13,
+                  "artifactIndex": 14
+                },
+                "point": [
+                  791,
+                  374
+                ],
+                "sharedNode": "orders_service"
+              },
+              {
+                "left": {
+                  "id": "orders-to-postgres",
+                  "from": "orders_service",
+                  "to": "postgresql",
+                  "label": "Reads / writes [SQL/TCP]",
+                  "collectionIndex": 11,
+                  "artifactIndex": 12
+                },
+                "right": {
+                  "id": "orders-to-mapbox",
+                  "from": "orders_service",
+                  "to": "mapbox",
+                  "label": "Routes deliveries [HTTPS/JSON]",
+                  "collectionIndex": 16,
+                  "artifactIndex": 17
+                },
+                "point": [
+                  791,
+                  332
+                ],
+                "sharedNode": "orders_service"
+              },
+              {
+                "left": {
+                  "id": "catalog-to-postgres",
+                  "from": "catalog_service",
+                  "to": "postgresql",
+                  "label": "Reads [SQL/TCP]",
+                  "collectionIndex": 12,
+                  "artifactIndex": 13
+                },
+                "right": {
+                  "id": "orders-to-notification",
+                  "from": "orders_service",
+                  "to": "notification_service",
+                  "label": "Order events [gRPC]",
+                  "collectionIndex": 15,
+                  "artifactIndex": 16
+                },
+                "point": [
+                  683,
+                  498
+                ]
+              },
+              {
+                "left": {
+                  "id": "orders-to-redis",
+                  "from": "orders_service",
+                  "to": "redis",
+                  "label": "Sessions [RESP]",
+                  "collectionIndex": 13,
+                  "artifactIndex": 14
+                },
+                "right": {
+                  "id": "notification-to-twilio",
+                  "from": "notification_service",
+                  "to": "twilio",
+                  "label": "Sends SMS [HTTPS/JSON]",
+                  "collectionIndex": 17,
+                  "artifactIndex": 18
+                },
+                "point": [
+                  874,
+                  610.4999999999999
+                ]
+              },
+              {
+                "left": {
+                  "id": "catalog-to-redis",
+                  "from": "catalog_service",
+                  "to": "redis",
+                  "label": "Caches catalog [RESP]",
+                  "collectionIndex": 14,
+                  "artifactIndex": 15
+                },
+                "right": {
+                  "id": "orders-to-notification",
+                  "from": "orders_service",
+                  "to": "notification_service",
+                  "label": "Order events [gRPC]",
+                  "collectionIndex": 15,
+                  "artifactIndex": 16
+                },
+                "point": [
+                  683,
+                  512
+                ]
+              },
+              {
+                "left": {
+                  "id": "catalog-to-redis",
+                  "from": "catalog_service",
+                  "to": "redis",
+                  "label": "Caches catalog [RESP]",
+                  "collectionIndex": 14,
+                  "artifactIndex": 15
+                },
+                "right": {
+                  "id": "notification-to-twilio",
+                  "from": "notification_service",
+                  "to": "twilio",
+                  "label": "Sends SMS [HTTPS/JSON]",
+                  "collectionIndex": 17,
+                  "artifactIndex": 18
+                },
+                "point": [
+                  716.0666666666667,
+                  678.0000000000006
+                ]
+              },
+              {
+                "left": {
+                  "id": "notification-to-twilio",
+                  "from": "notification_service",
+                  "to": "twilio",
+                  "label": "Sends SMS [HTTPS/JSON]",
+                  "collectionIndex": 17,
+                  "artifactIndex": 18
+                },
+                "right": {
+                  "id": "notification-to-sendgrid",
+                  "from": "notification_service",
+                  "to": "sendgrid",
+                  "label": "Sends email [HTTPS/JSON]",
+                  "collectionIndex": 18,
+                  "artifactIndex": 19
+                },
+                "point": [
+                  896.0000000000001,
+                  610.4999999999999
+                ],
+                "sharedNode": "notification_service"
+              }
+            ],
+            "crowdedSides": [
+              {
+                "node": "api_gateway",
+                "label": "API Gateway",
+                "side": "left",
+                "relationships": 4,
+                "sidePx": 50,
+                "neededPx": 74
+              },
+              {
+                "node": "api_gateway",
+                "label": "API Gateway",
+                "side": "right",
+                "relationships": 3,
+                "sidePx": 50,
+                "neededPx": 60
+              }
+            ],
+            "detours": [
+              {
+                "relationship": {
+                  "id": "customer-to-webapp",
+                  "from": "customer",
+                  "to": "web_app",
+                  "label": "Shops and checks out [HTTPS]",
+                  "collectionIndex": 0,
+                  "artifactIndex": 1
+                },
+                "bends": 3,
+                "stretch": 1.384
+              },
+              {
+                "relationship": {
+                  "id": "apigw-to-catalog",
+                  "from": "api_gateway",
+                  "to": "catalog_service",
+                  "label": "Product queries [gRPC]",
+                  "collectionIndex": 9,
+                  "artifactIndex": 10
+                },
+                "bends": 3,
+                "stretch": 1.4
+              },
+              {
+                "relationship": {
+                  "id": "catalog-to-postgres",
+                  "from": "catalog_service",
+                  "to": "postgresql",
+                  "label": "Reads [SQL/TCP]",
+                  "collectionIndex": 12,
+                  "artifactIndex": 13
+                },
+                "bends": 3,
+                "stretch": 1.336
+              },
+              {
+                "relationship": {
+                  "id": "orders-to-redis",
+                  "from": "orders_service",
+                  "to": "redis",
+                  "label": "Sessions [RESP]",
+                  "collectionIndex": 13,
+                  "artifactIndex": 14
+                },
+                "bends": 3,
+                "stretch": 1.085
+              },
+              {
+                "relationship": {
+                  "id": "orders-to-notification",
+                  "from": "orders_service",
+                  "to": "notification_service",
+                  "label": "Order events [gRPC]",
+                  "collectionIndex": 15,
+                  "artifactIndex": 16
+                },
+                "bends": 4,
+                "stretch": 1.461,
+                "directCorridorBlockers": [
+                  {
+                    "id": "catalog_service",
+                    "label": "Catalog Service",
+                    "box": [
+                      540,
+                      480,
+                      140,
+                      50
+                    ]
+                  }
+                ]
+              },
+              {
+                "relationship": {
+                  "id": "notification-to-twilio",
+                  "from": "notification_service",
+                  "to": "twilio",
+                  "label": "Sends SMS [HTTPS/JSON]",
+                  "collectionIndex": 17,
+                  "artifactIndex": 18
+                },
+                "bends": 6,
+                "stretch": 1.085
+              },
+              {
+                "relationship": {
+                  "id": "notification-to-sendgrid",
+                  "from": "notification_service",
+                  "to": "sendgrid",
+                  "label": "Sends email [HTTPS/JSON]",
+                  "collectionIndex": 18,
+                  "artifactIndex": 19
+                },
+                "bends": 3,
+                "stretch": 1.097
+              }
+            ]
+          },
+          "leadingSpace": {
+            "measured": true,
+            "emptyTopPx": 200,
+            "emptyTopRatio": 0.244,
+            "occupiedTop": 200,
+            "viewBoxTop": 0,
+            "canvasHeight": 818,
+            "typicalNodeHeight": 50,
+            "reviewSuggested": true
+          },
+          "desktopReadability": {
+            "budgetBasis": "legacy-930",
+            "readerContract": "declared-wide-v1",
+            "availableDiagramWidth": 930,
+            "actualBudgetPx": 930,
+            "limit": "legacy",
+            "requestedTargetPx": 7.5,
+            "requestedTargetMet": false,
+            "hardFloorPx": 6,
+            "hardFloorMet": true,
+            "minimumOwner": {
+              "kind": "edge",
+              "id": "customer-to-webapp",
+              "from": "customer",
+              "to": "web_app"
+            },
+            "minimumSourceTextPx": 8,
+            "minimumProjectedTextPx": 6.353543979504697,
+            "semanticTextCount": 37
+          },
+          "issues": []
+        },
+        "provenance": "current",
+        "deliveryReceiptId": "cc0be1ed-8885-4ea4-a027-c37a30b8d951"
+      }
+    },
+    "browser-check": {
+      "status": "pass",
+      "exitCode": 0,
+      "durationMs": 2026,
+      "command": [
+        "/home/weder/.nvm/versions/node/v24.11.0/bin/node",
+        "/home/weder/.agents/skills/archify/bin/archify.mjs",
+        "browser-check",
+        "/home/weder/Documentos/Default Project/.archify/architecture-petalpost-20261018-132000/petalpost-c4-container.html",
+        "--json",
+        "--require-provenance"
+      ],
+      "execution": "in-process",
+      "receipt": {
+        "schemaVersion": 1,
+        "ok": true,
+        "command": "browser-check",
+        "evidenceKind": "automated-browser",
+        "status": "pass",
+        "visualReview": "not-requested",
+        "provenance": "current",
+        "deliveryReceiptId": "cc0be1ed-8885-4ea4-a027-c37a30b8d951",
+        "artifact": {
+          "path": "/home/weder/Documentos/Default Project/.archify/architecture-petalpost-20261018-132000/petalpost-c4-container.html",
+          "sha256": "6204c0ccd12bd219fddbe0da7d981c04bd4c11aee535ad191618d7355f7ffe1e",
+          "bytes": 844628
+        },
+        "state": {
+          "detail": "read",
+          "motion": "still"
+        },
+        "chrome": {
+          "status": "available",
+          "executable": "/usr/bin/google-chrome"
+        },
+        "diagnostics": [],
+        "containment": {
+          "status": "pass",
+          "policy": "fit-or-reader-declared-readable-vertical-scroll",
+          "viewports": [
+            {
+              "width": 1440,
+              "height": 900,
+              "theme": "light",
+              "innerWidth": 1440,
+              "innerHeight": 900,
+              "scrollWidth": 1440,
+              "scrollHeight": 900,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1098,
+              "diagramWidth": 1068,
+              "pageComposition": {
+                "bodyPaddingPx": 12,
+                "headerPx": 52,
+                "diagramChromePx": 78,
+                "svgPx": 746,
+                "cardsPx": 0,
+                "viewBoxHeight": 818
+              },
+              "viewBoxWidth": 1171,
+              "minimumProjectedNodeTextPx": 7.296327924850555,
+              "minimumProjectedNonEdgeTextPx": 8.208368915456875,
+              "minimumProjectedEdgeTextPx": 7.296327924850555,
+              "minimumProjectedNodeText": "Shops and checks out [HTTPS]",
+              "minimumProjectedNodeTextDetail": "edge",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "edge",
+                "id": "customer-to-webapp",
+                "from": "customer",
+                "to": "web_app"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 54,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            },
+            {
+              "width": 1600,
+              "height": 1000,
+              "theme": "light",
+              "innerWidth": 1600,
+              "innerHeight": 1000,
+              "scrollWidth": 1600,
+              "scrollHeight": 1000,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1147,
+              "diagramWidth": 1117,
+              "pageComposition": {
+                "bodyPaddingPx": 64,
+                "headerPx": 60,
+                "diagramChromePx": 84,
+                "svgPx": 780,
+                "cardsPx": 0,
+                "viewBoxHeight": 818
+              },
+              "viewBoxWidth": 1171,
+              "minimumProjectedNodeTextPx": 7.631084543125533,
+              "minimumProjectedNonEdgeTextPx": 8.584970111016226,
+              "minimumProjectedEdgeTextPx": 7.631084543125533,
+              "minimumProjectedNodeText": "Shops and checks out [HTTPS]",
+              "minimumProjectedNodeTextDetail": "edge",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "edge",
+                "id": "customer-to-webapp",
+                "from": "customer",
+                "to": "web_app"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 54,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            },
+            {
+              "width": 1920,
+              "height": 1080,
+              "theme": "light",
+              "innerWidth": 1920,
+              "innerHeight": 1080,
+              "scrollWidth": 1920,
+              "scrollHeight": 1080,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1261,
+              "diagramWidth": 1231,
+              "pageComposition": {
+                "bodyPaddingPx": 64,
+                "headerPx": 60,
+                "diagramChromePx": 84,
+                "svgPx": 860,
+                "cardsPx": 0,
+                "viewBoxHeight": 818
+              },
+              "viewBoxWidth": 1171,
+              "minimumProjectedNodeTextPx": 8,
+              "minimumProjectedNonEdgeTextPx": 9,
+              "minimumProjectedEdgeTextPx": 8,
+              "minimumProjectedNodeText": "Shops and checks out [HTTPS]",
+              "minimumProjectedNodeTextDetail": "edge",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "edge",
+                "id": "customer-to-webapp",
+                "from": "customer",
+                "to": "web_app"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 54,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            },
+            {
+              "width": 2048,
+              "height": 1320,
+              "theme": "light",
+              "innerWidth": 2048,
+              "innerHeight": 1320,
+              "scrollWidth": 2048,
+              "scrollHeight": 1320,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1599,
+              "diagramWidth": 1549,
+              "pageComposition": {
+                "bodyPaddingPx": 64,
+                "headerPx": 68,
+                "diagramChromePx": 94,
+                "svgPx": 1082,
+                "cardsPx": 0,
+                "viewBoxHeight": 818
+              },
+              "viewBoxWidth": 1171,
+              "minimumProjectedNodeTextPx": 8,
+              "minimumProjectedNonEdgeTextPx": 9,
+              "minimumProjectedEdgeTextPx": 8,
+              "minimumProjectedNodeText": "Shops and checks out [HTTPS]",
+              "minimumProjectedNodeTextDetail": "edge",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "edge",
+                "id": "customer-to-webapp",
+                "from": "customer",
+                "to": "web_app"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 44,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            }
+          ]
+        },
+        "themeStates": {
+          "status": "pass",
+          "viewports": [
+            {
+              "width": 1440,
+              "height": 900,
+              "requestedTheme": "light",
+              "resolvedTheme": "light",
+              "ok": true
+            },
+            {
+              "width": 1600,
+              "height": 1000,
+              "requestedTheme": "light",
+              "resolvedTheme": "light",
+              "ok": true
+            },
+            {
+              "width": 1920,
+              "height": 1080,
+              "requestedTheme": "light",
+              "resolvedTheme": "light",
+              "ok": true
+            },
+            {
+              "width": 2048,
+              "height": 1320,
+              "requestedTheme": "light",
+              "resolvedTheme": "light",
+              "ok": true
+            },
+            {
+              "width": 1440,
+              "height": 900,
+              "requestedTheme": "dark",
+              "resolvedTheme": "dark",
+              "ok": true
+            },
+            {
+              "width": 2048,
+              "height": 1320,
+              "requestedTheme": "dark",
+              "resolvedTheme": "dark",
+              "ok": true
+            }
+          ]
+        },
+        "readability": {
+          "status": "pass",
+          "minimumProjectedNodeTextPx": 6,
+          "viewports": [
+            {
+              "width": 1440,
+              "height": 900,
+              "theme": "light",
+              "innerWidth": 1440,
+              "innerHeight": 900,
+              "scrollWidth": 1440,
+              "scrollHeight": 900,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1098,
+              "diagramWidth": 1068,
+              "pageComposition": {
+                "bodyPaddingPx": 12,
+                "headerPx": 52,
+                "diagramChromePx": 78,
+                "svgPx": 746,
+                "cardsPx": 0,
+                "viewBoxHeight": 818
+              },
+              "viewBoxWidth": 1171,
+              "minimumProjectedNodeTextPx": 7.296327924850555,
+              "minimumProjectedNonEdgeTextPx": 8.208368915456875,
+              "minimumProjectedEdgeTextPx": 7.296327924850555,
+              "minimumProjectedNodeText": "Shops and checks out [HTTPS]",
+              "minimumProjectedNodeTextDetail": "edge",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "edge",
+                "id": "customer-to-webapp",
+                "from": "customer",
+                "to": "web_app"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 54,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            },
+            {
+              "width": 1600,
+              "height": 1000,
+              "theme": "light",
+              "innerWidth": 1600,
+              "innerHeight": 1000,
+              "scrollWidth": 1600,
+              "scrollHeight": 1000,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1147,
+              "diagramWidth": 1117,
+              "pageComposition": {
+                "bodyPaddingPx": 64,
+                "headerPx": 60,
+                "diagramChromePx": 84,
+                "svgPx": 780,
+                "cardsPx": 0,
+                "viewBoxHeight": 818
+              },
+              "viewBoxWidth": 1171,
+              "minimumProjectedNodeTextPx": 7.631084543125533,
+              "minimumProjectedNonEdgeTextPx": 8.584970111016226,
+              "minimumProjectedEdgeTextPx": 7.631084543125533,
+              "minimumProjectedNodeText": "Shops and checks out [HTTPS]",
+              "minimumProjectedNodeTextDetail": "edge",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "edge",
+                "id": "customer-to-webapp",
+                "from": "customer",
+                "to": "web_app"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 54,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            },
+            {
+              "width": 1920,
+              "height": 1080,
+              "theme": "light",
+              "innerWidth": 1920,
+              "innerHeight": 1080,
+              "scrollWidth": 1920,
+              "scrollHeight": 1080,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1261,
+              "diagramWidth": 1231,
+              "pageComposition": {
+                "bodyPaddingPx": 64,
+                "headerPx": 60,
+                "diagramChromePx": 84,
+                "svgPx": 860,
+                "cardsPx": 0,
+                "viewBoxHeight": 818
+              },
+              "viewBoxWidth": 1171,
+              "minimumProjectedNodeTextPx": 8,
+              "minimumProjectedNonEdgeTextPx": 9,
+              "minimumProjectedEdgeTextPx": 8,
+              "minimumProjectedNodeText": "Shops and checks out [HTTPS]",
+              "minimumProjectedNodeTextDetail": "edge",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "edge",
+                "id": "customer-to-webapp",
+                "from": "customer",
+                "to": "web_app"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 54,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            },
+            {
+              "width": 2048,
+              "height": 1320,
+              "theme": "light",
+              "innerWidth": 2048,
+              "innerHeight": 1320,
+              "scrollWidth": 2048,
+              "scrollHeight": 1320,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1599,
+              "diagramWidth": 1549,
+              "pageComposition": {
+                "bodyPaddingPx": 64,
+                "headerPx": 68,
+                "diagramChromePx": 94,
+                "svgPx": 1082,
+                "cardsPx": 0,
+                "viewBoxHeight": 818
+              },
+              "viewBoxWidth": 1171,
+              "minimumProjectedNodeTextPx": 8,
+              "minimumProjectedNonEdgeTextPx": 9,
+              "minimumProjectedEdgeTextPx": 8,
+              "minimumProjectedNodeText": "Shops and checks out [HTTPS]",
+              "minimumProjectedNodeTextDetail": "edge",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "edge",
+                "id": "customer-to-webapp",
+                "from": "customer",
+                "to": "web_app"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 44,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            }
+          ]
+        },
+        "viewerChrome": {
+          "status": "pass",
+          "viewports": [
+            {
+              "width": 1440,
+              "height": 900,
+              "theme": "light",
+              "innerWidth": 1440,
+              "innerHeight": 900,
+              "scrollWidth": 1440,
+              "scrollHeight": 900,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1098,
+              "diagramWidth": 1068,
+              "pageComposition": {
+                "bodyPaddingPx": 12,
+                "headerPx": 52,
+                "diagramChromePx": 78,
+                "svgPx": 746,
+                "cardsPx": 0,
+                "viewBoxHeight": 818
+              },
+              "viewBoxWidth": 1171,
+              "minimumProjectedNodeTextPx": 7.296327924850555,
+              "minimumProjectedNonEdgeTextPx": 8.208368915456875,
+              "minimumProjectedEdgeTextPx": 7.296327924850555,
+              "minimumProjectedNodeText": "Shops and checks out [HTTPS]",
+              "minimumProjectedNodeTextDetail": "edge",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "edge",
+                "id": "customer-to-webapp",
+                "from": "customer",
+                "to": "web_app"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 54,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            },
+            {
+              "width": 1600,
+              "height": 1000,
+              "theme": "light",
+              "innerWidth": 1600,
+              "innerHeight": 1000,
+              "scrollWidth": 1600,
+              "scrollHeight": 1000,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1147,
+              "diagramWidth": 1117,
+              "pageComposition": {
+                "bodyPaddingPx": 64,
+                "headerPx": 60,
+                "diagramChromePx": 84,
+                "svgPx": 780,
+                "cardsPx": 0,
+                "viewBoxHeight": 818
+              },
+              "viewBoxWidth": 1171,
+              "minimumProjectedNodeTextPx": 7.631084543125533,
+              "minimumProjectedNonEdgeTextPx": 8.584970111016226,
+              "minimumProjectedEdgeTextPx": 7.631084543125533,
+              "minimumProjectedNodeText": "Shops and checks out [HTTPS]",
+              "minimumProjectedNodeTextDetail": "edge",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "edge",
+                "id": "customer-to-webapp",
+                "from": "customer",
+                "to": "web_app"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 54,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            },
+            {
+              "width": 1920,
+              "height": 1080,
+              "theme": "light",
+              "innerWidth": 1920,
+              "innerHeight": 1080,
+              "scrollWidth": 1920,
+              "scrollHeight": 1080,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1261,
+              "diagramWidth": 1231,
+              "pageComposition": {
+                "bodyPaddingPx": 64,
+                "headerPx": 60,
+                "diagramChromePx": 84,
+                "svgPx": 860,
+                "cardsPx": 0,
+                "viewBoxHeight": 818
+              },
+              "viewBoxWidth": 1171,
+              "minimumProjectedNodeTextPx": 8,
+              "minimumProjectedNonEdgeTextPx": 9,
+              "minimumProjectedEdgeTextPx": 8,
+              "minimumProjectedNodeText": "Shops and checks out [HTTPS]",
+              "minimumProjectedNodeTextDetail": "edge",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "edge",
+                "id": "customer-to-webapp",
+                "from": "customer",
+                "to": "web_app"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 54,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            },
+            {
+              "width": 2048,
+              "height": 1320,
+              "theme": "light",
+              "innerWidth": 2048,
+              "innerHeight": 1320,
+              "scrollWidth": 2048,
+              "scrollHeight": 1320,
+              "overflowX": false,
+              "overflowY": false,
+              "verticalScrollAccepted": false,
+              "overflowDisposition": "contained",
+              "readerLayout": "adaptive",
+              "readerOverflow": null,
+              "readerFit": "intrinsic-height",
+              "ok": true,
+              "readerWidth": 1599,
+              "diagramWidth": 1549,
+              "pageComposition": {
+                "bodyPaddingPx": 64,
+                "headerPx": 68,
+                "diagramChromePx": 94,
+                "svgPx": 1082,
+                "cardsPx": 0,
+                "viewBoxHeight": 818
+              },
+              "viewBoxWidth": 1171,
+              "minimumProjectedNodeTextPx": 8,
+              "minimumProjectedNonEdgeTextPx": 9,
+              "minimumProjectedEdgeTextPx": 8,
+              "minimumProjectedNodeText": "Shops and checks out [HTTPS]",
+              "minimumProjectedNodeTextDetail": "edge",
+              "minimumProjectedNodeTextOwner": {
+                "kind": "edge",
+                "id": "customer-to-webapp",
+                "from": "customer",
+                "to": "web_app"
+              },
+              "minimumRequiredNodeTextPx": 6,
+              "readabilityOk": true,
+              "hasLegend": true,
+              "hasNavigationDock": true,
+              "legendDockIntersectionArea": 0,
+              "dockStageIntersectionArea": 0,
+              "dockStageGap": 10,
+              "requiredDockStageGap": 10,
+              "viewerChromeStageOk": true,
+              "viewerChromeReserve": 44,
+              "viewerChromeActive": true,
+              "viewerChromeOk": true,
+              "resolvedTheme": "light"
+            }
+          ]
+        },
+        "captures": {
+          "status": "not-requested",
+          "screenshots": [],
+          "contactSheet": null
+        },
+        "sidecars": {
+          "receipt": "petalpost-c4-container.browser-check.json",
+          "files": []
+        }
+      }
+    }
+  },
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "diagnostics": [],
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-petalpost-20261018-132000/petalpost-c4-container.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-petalpost-20261018-132000/petalpost-c4-container.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-petalpost-20261018-132000/petalpost-c4-container.browser-check.json"
+  },
+  "visualReview": "not-requested",
+  "finishedAt": "2026-10-21T20:51:17.811Z",
+  "durationMs": 2775,
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-21T17:33:45.780Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  }
+}

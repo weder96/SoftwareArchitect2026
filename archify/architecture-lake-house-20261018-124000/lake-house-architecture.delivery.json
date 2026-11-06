@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "280e1a75-497c-4144-b60f-61775530713b",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-lake-house-20261018-124000/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-lake-house-20261018-124000/lake-house-architecture.html",
+  "specification": {
+    "sha256": "512494655c8a9df946242cf35184c0be141e801a485e54242f0b27e81bde6774",
+    "bytes": 5663
+  },
+  "artifact": {
+    "sha256": "de814d891c36873ca921df30331c9102ecd9b2bff0fca8ea5fb0a005fb55d849",
+    "bytes": 848639
+  }
+}

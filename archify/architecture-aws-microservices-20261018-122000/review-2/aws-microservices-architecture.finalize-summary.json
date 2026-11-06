@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-aws-microservices-20261018-122000/candidate.json",
+    "sha256": "f0cbe4bd30a01c30ebd3b74bce17ea9d5ef93d6732c32feb5c26f55ec862b1fb",
+    "bytes": 2854
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-aws-microservices-20261018-122000/aws-microservices-architecture.html",
+    "sha256": "0dca2e7b3429762a2de0644a6694ac1802996b5b852415ec3afce9998cfd1252",
+    "bytes": 825428
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-aws-microservices-20261018-122000/review-2/aws-microservices-architecture.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-aws-microservices-20261018-122000/review-2/aws-microservices-architecture.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-aws-microservices-20261018-122000/review-2/aws-microservices-architecture.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.1.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-18T23:17:09.363Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2386,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "routesOverSuggestedBends": 1
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [],
+      "detours": [
+        {
+          "relationship": {
+            "id": "sqs-to-order",
+            "from": "sqs",
+            "to": "order_lambda",
+            "label": "Order Event",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "bends": 4,
+          "stretch": 1.17,
+          "directCorridorBlockers": [
+            {
+              "id": "order_db",
+              "label": "AWS DynamoDB",
+              "box": [
+                600,
+                500,
+                130,
+                55
+              ]
+            }
+          ]
+        }
+      ],
+      "truncated": false
+    },
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

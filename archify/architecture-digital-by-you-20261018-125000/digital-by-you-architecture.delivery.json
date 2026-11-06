@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "eca860ec-cf06-4cd0-9f1f-4f0879e561c0",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-digital-by-you-20261018-125000/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-digital-by-you-20261018-125000/digital-by-you-architecture.html",
+  "specification": {
+    "sha256": "d024046b45ebde607786be28ab9e94bc5571b2c40ffa84c14bb90f7845d5705b",
+    "bytes": 3601
+  },
+  "artifact": {
+    "sha256": "d52449952a76bec9b57708c92b82e3728f466667582f8a0ce49681d6d7c6a27e",
+    "bytes": 830916
+  }
+}

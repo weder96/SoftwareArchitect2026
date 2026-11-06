@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "c100d9ad-dd37-4424-979d-691a5dfc92c8",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-devops-flow-20261018-134000/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-devops-flow-20261018-134000/devops-process-flow.html",
+  "specification": {
+    "sha256": "7589d0cc84ba207922532faa6fa86b1adcf4ffcab679712015abc31c4c08d717",
+    "bytes": 4281
+  },
+  "artifact": {
+    "sha256": "079acdb2fde3763533320cfe72c749b9673fce51ff616082d3dbddef60e6b631",
+    "bytes": 838523
+  }
+}

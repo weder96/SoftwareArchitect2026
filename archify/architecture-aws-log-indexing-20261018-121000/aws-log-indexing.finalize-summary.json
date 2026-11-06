@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-aws-log-indexing-20261018-121000/candidate.json",
+    "sha256": "344c15b4a87887b5f96384e1934b179ac0e9436d5e8b3688ae3c3b38873cc078",
+    "bytes": 5463
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-aws-log-indexing-20261018-121000/aws-log-indexing.html",
+    "sha256": "ddb732d54c3398fb60806362b5d2c2e4d7e35f546c97290924426dee1a6344d3",
+    "bytes": 843521
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-aws-log-indexing-20261018-121000/aws-log-indexing.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-aws-log-indexing-20261018-121000/aws-log-indexing.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-aws-log-indexing-20261018-121000/aws-log-indexing.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.1.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-18T23:17:09.363Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2450,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  }
+}

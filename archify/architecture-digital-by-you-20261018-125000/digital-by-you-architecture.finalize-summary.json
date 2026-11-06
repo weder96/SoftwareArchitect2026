@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-digital-by-you-20261018-125000/candidate.json",
+    "sha256": "d024046b45ebde607786be28ab9e94bc5571b2c40ffa84c14bb90f7845d5705b",
+    "bytes": 3601
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-digital-by-you-20261018-125000/digital-by-you-architecture.html",
+    "sha256": "d52449952a76bec9b57708c92b82e3728f466667582f8a0ce49681d6d7c6a27e",
+    "bytes": 830916
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-digital-by-you-20261018-125000/digital-by-you-architecture.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-digital-by-you-20261018-125000/digital-by-you-architecture.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-digital-by-you-20261018-125000/digital-by-you-architecture.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-21T17:33:45.780Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2642,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "resolvedCrossovers": 4,
+      "routesOverSuggestedBends": 2
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [
+        {
+          "left": {
+            "id": "bff-to-requisition",
+            "from": "bff",
+            "to": "ms_requisition",
+            "label": "dispatch",
+            "collectionIndex": 4,
+            "artifactIndex": 5
+          },
+          "right": {
+            "id": "provision-to-eventbridge",
+            "from": "ms_provision",
+            "to": "eventbridge",
+            "label": "return",
+            "collectionIndex": 7,
+            "artifactIndex": 8
+          },
+          "point": [
+            704,
+            327.5
+          ]
+        },
+        {
+          "left": {
+            "id": "bff-to-requisition",
+            "from": "bff",
+            "to": "ms_requisition",
+            "label": "dispatch",
+            "collectionIndex": 4,
+            "artifactIndex": 5
+          },
+          "right": {
+            "id": "provision-to-integracoes",
+            "from": "ms_provision",
+            "to": "integ_erp",
+            "label": "",
+            "collectionIndex": 10,
+            "artifactIndex": 11
+          },
+          "point": [
+            838,
+            368
+          ]
+        },
+        {
+          "left": {
+            "id": "requisition-to-eventbridge",
+            "from": "ms_requisition",
+            "to": "eventbridge",
+            "label": "return",
+            "collectionIndex": 6,
+            "artifactIndex": 7
+          },
+          "right": {
+            "id": "provision-to-integracoes",
+            "from": "ms_provision",
+            "to": "integ_erp",
+            "label": "",
+            "collectionIndex": 10,
+            "artifactIndex": 11
+          },
+          "point": [
+            852,
+            368
+          ]
+        },
+        {
+          "left": {
+            "id": "requisition-to-compras",
+            "from": "ms_requisition",
+            "to": "db_compras",
+            "label": "",
+            "collectionIndex": 8,
+            "artifactIndex": 9
+          },
+          "right": {
+            "id": "provision-to-db-provision",
+            "from": "ms_provision",
+            "to": "db_provision",
+            "label": "",
+            "collectionIndex": 12,
+            "artifactIndex": 13
+          },
+          "point": [
+            845,
+            538
+          ]
+        }
+      ],
+      "detours": [
+        {
+          "relationship": {
+            "id": "provision-to-integracoes",
+            "from": "ms_provision",
+            "to": "integ_erp",
+            "label": "",
+            "collectionIndex": 10,
+            "artifactIndex": 11
+          },
+          "bends": 4,
+          "stretch": 1.288,
+          "directCorridorBlockers": [
+            {
+              "id": "ms_requisition",
+              "label": "MicroService - Requisition",
+              "box": [
+                760,
+                400,
+                170,
+                55
+              ]
+            }
+          ]
+        },
+        {
+          "relationship": {
+            "id": "provision-to-db-provision",
+            "from": "ms_provision",
+            "to": "db_provision",
+            "label": "",
+            "collectionIndex": 12,
+            "artifactIndex": 13
+          },
+          "bends": 3,
+          "stretch": 1
+        }
+      ],
+      "truncated": false
+    },
+    "hints": [
+      "ms_provision has 4 relationships facing its right side, which fits 2 ports: make that side at least 74px, or move some of those neighbours so they face another side of ms_provision.",
+      "bff → ms_requisition crosses ms_provision → eventbridge: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "bff → ms_requisition crosses ms_provision → integ_erp: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "ms_requisition → eventbridge crosses ms_provision → integ_erp: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "ms_requisition → db_compras crosses ms_provision → db_provision: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "ms_provision → db_provision needs 3 bends: move node ms_provision or db_provision so they share a row or column with matching centers, or sit diagonally with a clear corner."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

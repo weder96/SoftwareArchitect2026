@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-microservices-20261018-130000/candidate.json",
+    "sha256": "663afaa49996d0d424d2c563ebdb837f8056d69c6846789fb99305b28063aaba",
+    "bytes": 5150
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-microservices-20261018-130000/microservices-architecture.html",
+    "sha256": "83c84c05d3f6137618c953b0c64252b955eb25ce7393365d2cd2a87536fcef4a",
+    "bytes": 845100
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-microservices-20261018-130000/microservices-architecture.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-microservices-20261018-130000/microservices-architecture.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-microservices-20261018-130000/microservices-architecture.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-21T17:33:45.780Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2602,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "resolvedCrossovers": 2
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [
+        {
+          "left": {
+            "id": "lb-to-store",
+            "from": "load_balancer",
+            "to": "store_service",
+            "label": "",
+            "collectionIndex": 4,
+            "artifactIndex": 5
+          },
+          "right": {
+            "id": "lb-to-cart",
+            "from": "load_balancer",
+            "to": "cart_service",
+            "label": "",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "point": [
+            415,
+            262.5
+          ],
+          "sharedNode": "load_balancer"
+        },
+        {
+          "left": {
+            "id": "lb-to-delivery",
+            "from": "load_balancer",
+            "to": "delivery_service",
+            "label": "",
+            "collectionIndex": 8,
+            "artifactIndex": 9
+          },
+          "right": {
+            "id": "lb-to-rating",
+            "from": "load_balancer",
+            "to": "rating_service",
+            "label": "",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "point": [
+            387,
+            482.5
+          ],
+          "sharedNode": "load_balancer"
+        }
+      ],
+      "detours": [],
+      "truncated": false
+    },
+    "hints": [
+      "load_balancer has 4 relationships facing its right side, which fits 2 ports: make that side at least 74px, or move some of those neighbours so they face another side of load_balancer.",
+      "payment_service has 2 relationships facing its right side, which fits 1 ports: make that side at least 46px, or move some of those neighbours so they face another side of payment_service.",
+      "load_balancer → store_service and load_balancer → cart_service cross next to load_balancer: move node store_service or cart_service so the two reach load_balancer from different sides (for example one level with it, one directly above or below it).",
+      "load_balancer → delivery_service and load_balancer → rating_service cross next to load_balancer: move node delivery_service or rating_service so the two reach load_balancer from different sides (for example one level with it, one directly above or below it)."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

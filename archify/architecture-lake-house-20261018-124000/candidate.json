@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Lake House Architecture",
+    "output": "lake-house-architecture.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "saas", "type": "cloud", "label": "SaaS Applications", "icon": "cloud", "pos": [80, 700], "size": [130, 55] },
+    { "id": "oltp", "type": "database", "label": "OLTP", "pos": [220, 700], "size": [110, 55] },
+    { "id": "erp", "type": "database", "label": "ERP", "pos": [360, 700], "size": [110, 55] },
+    { "id": "crm", "type": "database", "label": "CRM", "pos": [500, 700], "size": [110, 55] },
+    { "id": "lob", "type": "database", "label": "LOB", "pos": [640, 700], "size": [110, 55] },
+    { "id": "files", "type": "cloud", "label": "File shares", "icon": "cloud", "pos": [780, 700], "size": [130, 55] },
+    { "id": "devices", "type": "external", "label": "Devices", "pos": [920, 700], "size": [110, 55] },
+    { "id": "web", "type": "external", "label": "Web", "pos": [1060, 700], "size": [100, 55] },
+    { "id": "sensors", "type": "external", "label": "Sensors", "pos": [1200, 700], "size": [110, 55] },
+    { "id": "social", "type": "external", "label": "Social", "pos": [1340, 700], "size": [110, 55] },
+
+    { "id": "batch_struct", "type": "backend", "label": "Batch", "pos": [200, 520], "size": [120, 55] },
+    { "id": "stream_struct", "type": "backend", "label": "Streaming", "pos": [420, 520], "size": [120, 55] },
+    { "id": "batch_unstruct", "type": "backend", "label": "Batch", "pos": [820, 520], "size": [120, 55] },
+    { "id": "stream_unstruct", "type": "backend", "label": "Streaming", "pos": [1040, 520], "size": [120, 55] },
+
+    { "id": "data_warehouse", "type": "database", "label": "Data warehouse", "pos": [420, 340], "size": [140, 55] },
+    { "id": "data_lake", "type": "database", "label": "Data lake", "pos": [720, 340], "size": [140, 55] },
+    { "id": "shared_catalog", "type": "database", "label": "Shared Catalog", "pos": [570, 200], "size": [140, 55] },
+
+    { "id": "sql_elt", "type": "backend", "label": "SQL based ELT", "pos": [280, 120], "size": [150, 55] },
+    { "id": "big_data", "type": "backend", "label": "Big data processing", "pos": [560, 120], "size": [160, 55] },
+    { "id": "real_time_etl", "type": "backend", "label": "Near Real-time ETL", "pos": [840, 120], "size": [160, 55] },
+
+    { "id": "interactive_queries", "type": "backend", "label": "Interactive Queries", "pos": [260, 40], "size": [150, 55] },
+    { "id": "bi", "type": "backend", "label": "Business intelligence", "pos": [560, 40], "size": [160, 55] },
+    { "id": "ml", "type": "backend", "label": "Machine learning", "pos": [860, 40], "size": [140, 55] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Data Sources", "wraps": ["saas", "oltp", "erp", "crm", "lob", "files", "devices", "web", "sensors", "social"], "pad": 16 },
+    { "kind": "region", "label": "Ingestion Layer", "wraps": ["batch_struct", "stream_struct", "batch_unstruct", "stream_unstruct"], "pad": 16 },
+    { "kind": "region", "label": "Structured", "wraps": ["batch_struct", "stream_struct"], "pad": 12 },
+    { "kind": "region", "label": "Unstructured, Semi-structured, Structured", "wraps": ["batch_unstruct", "stream_unstruct"], "pad": 12 },
+    { "kind": "region", "label": "Lake House Storage", "wraps": ["data_warehouse", "data_lake", "shared_catalog"], "pad": 18 },
+    { "kind": "region", "label": "Catalog Layer", "wraps": ["shared_catalog"], "pad": 12 },
+    { "kind": "region", "label": "Storage Layer", "wraps": ["data_warehouse", "data_lake"], "pad": 12 },
+    { "kind": "region", "label": "Processing Layer", "wraps": ["sql_elt", "big_data", "real_time_etl"], "pad": 16 },
+    { "kind": "region", "label": "Consumption Layer", "wraps": ["interactive_queries", "bi", "ml"], "pad": 16 }
+  ],
+  "connections": [
+    { "id": "saas-to-struct", "from": "saas", "to": "batch_struct" },
+    { "id": "oltp-to-struct", "from": "oltp", "to": "batch_struct" },
+    { "id": "erp-to-struct", "from": "erp", "to": "batch_struct" },
+    { "id": "crm-to-struct", "from": "crm", "to": "batch_struct" },
+    { "id": "lob-to-struct", "from": "lob", "to": "batch_struct" },
+    { "id": "files-to-unstruct", "from": "files", "to": "batch_unstruct" },
+    { "id": "devices-to-unstruct", "from": "devices", "to": "batch_unstruct" },
+    { "id": "web-to-unstruct", "from": "web", "to": "batch_unstruct" },
+    { "id": "sensors-to-unstruct", "from": "sensors", "to": "batch_unstruct" },
+    { "id": "social-to-unstruct", "from": "social", "to": "batch_unstruct" },
+    { "id": "struct-to-dw", "from": "batch_struct", "to": "data_warehouse" },
+    { "id": "stream-struct-to-dw", "from": "stream_struct", "to": "data_warehouse" },
+    { "id": "unstruct-to-dl", "from": "batch_unstruct", "to": "data_lake" },
+    { "id": "stream-unstruct-to-dl", "from": "stream_unstruct", "to": "data_lake" },
+    { "id": "dw-to-dl", "from": "data_warehouse", "to": "data_lake", "label": "Native Integration", "variant": "emphasis" },
+    { "id": "dw-to-catalog", "from": "data_warehouse", "to": "shared_catalog" },
+    { "id": "dl-to-catalog", "from": "data_lake", "to": "shared_catalog" },
+    { "id": "catalog-to-sql-elt", "from": "shared_catalog", "to": "sql_elt" },
+    { "id": "catalog-to-big-data", "from": "shared_catalog", "to": "big_data" },
+    { "id": "catalog-to-real-time", "from": "shared_catalog", "to": "real_time_etl" },
+    { "id": "sql-elt-to-interactive", "from": "sql_elt", "to": "interactive_queries" },
+    { "id": "big-data-to-bi", "from": "big_data", "to": "bi" },
+    { "id": "real-time-to-ml", "from": "real_time_etl", "to": "ml" }
+  ]
+}

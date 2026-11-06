@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-lake-house-20261018-124000/candidate.json",
+    "sha256": "512494655c8a9df946242cf35184c0be141e801a485e54242f0b27e81bde6774",
+    "bytes": 5663
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-lake-house-20261018-124000/lake-house-architecture.html",
+    "sha256": "de814d891c36873ca921df30331c9102ecd9b2bff0fca8ea5fb0a005fb55d849",
+    "bytes": 848639
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-lake-house-20261018-124000/lake-house-architecture.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-lake-house-20261018-124000/lake-house-architecture.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-lake-house-20261018-124000/lake-house-architecture.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-21T17:33:45.780Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2807,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  }
+}

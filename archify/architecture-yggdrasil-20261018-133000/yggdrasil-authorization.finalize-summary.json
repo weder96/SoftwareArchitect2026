@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-yggdrasil-20261018-133000/candidate.json",
+    "sha256": "b004e561fff466dc21c577f1d9a28e9757b523da40cc80a9a2db3c0614d7bacf",
+    "bytes": 2163
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-yggdrasil-20261018-133000/yggdrasil-authorization.html",
+    "sha256": "90400f5a2e11d692ad61c1c4afffe2e58c5e7408dee1263f6f6c61a7bab2de72",
+    "bytes": 819061
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-yggdrasil-20261018-133000/yggdrasil-authorization.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-yggdrasil-20261018-133000/yggdrasil-authorization.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-yggdrasil-20261018-133000/yggdrasil-authorization.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-21T17:33:45.780Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2235,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "resolvedCrossovers": 1,
+      "routesOverSuggestedBends": 2
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [
+        {
+          "left": {
+            "id": "auth_a-to-oidc",
+            "from": "auth_a",
+            "to": "oidc",
+            "label": "",
+            "collectionIndex": 3,
+            "artifactIndex": 4
+          },
+          "right": {
+            "id": "auth_b-to-s3_policy",
+            "from": "auth_b",
+            "to": "s3_policy",
+            "label": "",
+            "collectionIndex": 6,
+            "artifactIndex": 7
+          },
+          "point": [
+            822.0357142857143,
+            248.75
+          ]
+        }
+      ],
+      "detours": [
+        {
+          "relationship": {
+            "id": "auth_a-to-s3_policy",
+            "from": "auth_a",
+            "to": "s3_policy",
+            "label": "",
+            "collectionIndex": 2,
+            "artifactIndex": 3
+          },
+          "bends": 4,
+          "stretch": 1.277
+        },
+        {
+          "relationship": {
+            "id": "auth_b-to-oidc",
+            "from": "auth_b",
+            "to": "oidc",
+            "label": "",
+            "collectionIndex": 7,
+            "artifactIndex": 8
+          },
+          "bends": 3,
+          "stretch": 1.13
+        }
+      ],
+      "truncated": false
+    },
+    "hints": [
+      "auth_a has 3 relationships facing its right side, which fits 2 ports: make that side at least 60px, or move some of those neighbours so they face another side of auth_a.",
+      "auth_b has 3 relationships facing its right side, which fits 2 ports: make that side at least 60px, or move some of those neighbours so they face another side of auth_b.",
+      "auth_a → oidc crosses auth_b → s3_policy: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "auth_a → s3_policy needs 4 bends: move node auth_a or s3_policy so they share a row or column with matching centers, or sit diagonally with a clear corner.",
+      "auth_b → oidc needs 3 bends: move node auth_b or oidc so they share a row or column with matching centers, or sit diagonally with a clear corner."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

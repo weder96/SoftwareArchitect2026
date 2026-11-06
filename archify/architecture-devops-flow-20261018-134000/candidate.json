@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "DevOps process flow diagram",
+    "output": "devops-process-flow.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "dev_github", "type": "external", "label": "GitHub Master", "pos": [60, 100], "size": [140, 50] },
+    { "id": "dev_feature", "type": "external", "label": "Feature XYZ", "pos": [60, 220], "size": [140, 50] },
+    { "id": "dev_develop", "type": "backend", "label": "Develop", "pos": [60, 340], "size": [140, 50] },
+    { "id": "dev_pr", "type": "backend", "label": "Pull Request", "pos": [60, 460], "size": [140, 50] },
+    { "id": "pr_review", "type": "security", "label": "Peer code reviews", "sublabel": "Bug Check, Security analysis", "pos": [260, 300], "size": [160, 60] },
+    { "id": "pr_master", "type": "external", "label": "Master", "pos": [260, 420], "size": [160, 50] },
+    { "id": "qa_testing", "type": "backend", "label": "QA Testing", "sublabel": "User bug analysis, Security analysis", "pos": [480, 300], "size": [170, 60] },
+    { "id": "preprod_cloud", "type": "cloud", "label": "AWS Cloud Jobs", "pos": [700, 220], "size": [140, 50] },
+    { "id": "preprod_lb", "type": "cloud", "label": "Load Balancer", "pos": [700, 380], "size": [140, 50] },
+    { "id": "preprod_aza", "type": "database", "label": "Pre-Prod AZ A", "pos": [700, 520], "size": [140, 50] },
+    { "id": "preprod_azb", "type": "database", "label": "Pre-Prod AZ B", "pos": [700, 620], "size": [140, 50] },
+    { "id": "prod_internet", "type": "cloud", "label": "AWS Internet", "pos": [920, 180], "size": [140, 50] },
+    { "id": "prod_lb", "type": "cloud", "label": "Load Balancer", "pos": [920, 300], "size": [140, 50] },
+    { "id": "prod_aza", "type": "database", "label": "Prod AZ A", "pos": [920, 460], "size": [140, 50] },
+    { "id": "prod_azb", "type": "database", "label": "Prod AZ B", "pos": [920, 580], "size": [140, 50] },
+    { "id": "gcp_backup", "type": "cloud", "label": "GCP Snapshot backups", "pos": [920, 740], "size": [140, 50] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Development", "wraps": ["dev_github", "dev_feature", "dev_develop", "dev_pr"], "pad": 16 },
+    { "kind": "region", "label": "Peer Review", "wraps": ["pr_review", "pr_master"], "pad": 16 },
+    { "kind": "region", "label": "QA", "wraps": ["qa_testing"], "pad": 16 },
+    { "kind": "region", "label": "Pre-Prod", "wraps": ["preprod_cloud", "preprod_lb", "preprod_aza", "preprod_azb"], "pad": 16 },
+    { "kind": "region", "label": "Production", "wraps": ["prod_internet", "prod_lb", "prod_aza", "prod_azb", "gcp_backup"], "pad": 16 }
+  ],
+  "connections": [
+    { "id": "github-to-feature", "from": "dev_github", "to": "dev_feature", "label": "Pull down & create local feature branch" },
+    { "id": "feature-to-develop", "from": "dev_feature", "to": "dev_develop" },
+    { "id": "develop-to-pr", "from": "dev_develop", "to": "dev_pr", "label": "Create PR" },
+    { "id": "pr-to-review", "from": "dev_pr", "to": "pr_review" },
+    { "id": "review-to-develop-fail", "from": "pr_review", "to": "dev_develop", "label": "Fail" },
+    { "id": "review-to-master-pass", "from": "pr_review", "to": "pr_master", "label": "Pass" },
+    { "id": "master-to-qa", "from": "pr_master", "to": "qa_testing" },
+    { "id": "qa-to-develop-fail", "from": "qa_testing", "to": "dev_develop", "label": "Fail" },
+    { "id": "qa-to-preprod", "from": "qa_testing", "to": "preprod_lb", "label": "Auto Deploy" },
+    { "id": "preprod-cloud-to-lb", "from": "preprod_cloud", "to": "preprod_lb" },
+    { "id": "preprod-lb-to-aza", "from": "preprod_lb", "to": "preprod_aza" },
+    { "id": "preprod-lb-to-azb", "from": "preprod_lb", "to": "preprod_azb" },
+    { "id": "preprod-lb-to-prod", "from": "preprod_lb", "to": "prod_lb", "label": "Auto Deploy" },
+    { "id": "internet-to-lb", "from": "prod_internet", "to": "prod_lb" },
+    { "id": "lb-to-internet", "from": "prod_lb", "to": "prod_internet" },
+    { "id": "prod-lb-to-aza", "from": "prod_lb", "to": "prod_aza" },
+    { "id": "prod-lb-to-azb", "from": "prod_lb", "to": "prod_azb" },
+    { "id": "prod-aza-to-backup", "from": "prod_aza", "to": "gcp_backup" },
+    { "id": "prod-azb-to-backup", "from": "prod_azb", "to": "gcp_backup" }
+  ]
+}

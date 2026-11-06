@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "48653b22-ffe1-4d07-98bc-cd07063be25a",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-yggdrasil-20261018-133000/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-yggdrasil-20261018-133000/yggdrasil-authorization.html",
+  "specification": {
+    "sha256": "b004e561fff466dc21c577f1d9a28e9757b523da40cc80a9a2db3c0614d7bacf",
+    "bytes": 2163
+  },
+  "artifact": {
+    "sha256": "90400f5a2e11d692ad61c1c4afffe2e58c5e7408dee1263f6f6c61a7bab2de72",
+    "bytes": 819061
+  }
+}

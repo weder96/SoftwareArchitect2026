@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "40ee4372-ac5f-414f-975a-c496d9ef2353",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-payroll-20261018-137000/payroll-management.html",
+  "specification": {
+    "sha256": "976c201df70870666dac662718149a303058312212de7b064001b1b4b3791536",
+    "bytes": 4760
+  },
+  "artifact": {
+    "sha256": "c2e61b4775d0d83906a9fd1e8d745f7d704bf7b865922dd2d035858a4afe2a69",
+    "bytes": 841858
+  }
+}

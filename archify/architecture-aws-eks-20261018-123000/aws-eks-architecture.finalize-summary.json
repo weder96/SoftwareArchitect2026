@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-aws-eks-20261018-123000/candidate.json",
+    "sha256": "fad4c8dfc3150eb25f239032256d2dda99939f224d8cdcb3177b0cb39506a819",
+    "bytes": 2070
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-aws-eks-20261018-123000/aws-eks-architecture.html",
+    "sha256": "0a822dff8e3ec0263fb1d648eed3a63d82f22f0f2d4da71f95f2ba8d0d40aa2c",
+    "bytes": 817502
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-aws-eks-20261018-123000/aws-eks-architecture.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-aws-eks-20261018-123000/aws-eks-architecture.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-aws-eks-20261018-123000/aws-eks-architecture.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.1.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-18T23:17:09.363Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2235,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "resolvedCrossovers": 2,
+      "routesOverSuggestedBends": 5,
+      "routesOverSuggestedStretch": 1
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [
+        {
+          "left": {
+            "id": "elb-to-app1",
+            "from": "elb",
+            "to": "app_1",
+            "label": "",
+            "collectionIndex": 1,
+            "artifactIndex": 2
+          },
+          "right": {
+            "id": "proxy1-to-svc",
+            "from": "k_proxy_1",
+            "to": "k8s_svc",
+            "label": "",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "point": [
+            664,
+            263
+          ]
+        },
+        {
+          "left": {
+            "id": "elb-to-app2",
+            "from": "elb",
+            "to": "app_2",
+            "label": "",
+            "collectionIndex": 2,
+            "artifactIndex": 3
+          },
+          "right": {
+            "id": "proxy2-to-svc",
+            "from": "k_proxy_2",
+            "to": "k8s_svc",
+            "label": "",
+            "collectionIndex": 6,
+            "artifactIndex": 7
+          },
+          "point": [
+            664,
+            404
+          ]
+        }
+      ],
+      "detours": [
+        {
+          "relationship": {
+            "id": "elb-to-app1",
+            "from": "elb",
+            "to": "app_1",
+            "label": "",
+            "collectionIndex": 1,
+            "artifactIndex": 2
+          },
+          "bends": 3,
+          "stretch": 1
+        },
+        {
+          "relationship": {
+            "id": "elb-to-app2",
+            "from": "elb",
+            "to": "app_2",
+            "label": "",
+            "collectionIndex": 2,
+            "artifactIndex": 3
+          },
+          "bends": 3,
+          "stretch": 1
+        },
+        {
+          "relationship": {
+            "id": "app2-to-proxy2",
+            "from": "app_2",
+            "to": "k_proxy_2",
+            "label": "",
+            "collectionIndex": 4,
+            "artifactIndex": 5
+          },
+          "bends": 4,
+          "stretch": 1.512
+        },
+        {
+          "relationship": {
+            "id": "proxy1-to-svc",
+            "from": "k_proxy_1",
+            "to": "k8s_svc",
+            "label": "",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "bends": 3,
+          "stretch": 1
+        },
+        {
+          "relationship": {
+            "id": "proxy2-to-svc",
+            "from": "k_proxy_2",
+            "to": "k8s_svc",
+            "label": "",
+            "collectionIndex": 6,
+            "artifactIndex": 7
+          },
+          "bends": 3,
+          "stretch": 1
+        }
+      ],
+      "truncated": false
+    },
+    "hints": [
+      "elb → app_1 crosses k_proxy_1 → k8s_svc: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "elb → app_2 crosses k_proxy_2 → k8s_svc: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "elb → app_1 needs 3 bends: move node elb or app_1 so they share a row or column with matching centers, or sit diagonally with a clear corner.",
+      "elb → app_2 needs 3 bends: move node elb or app_2 so they share a row or column with matching centers, or sit diagonally with a clear corner.",
+      "app_2 → k_proxy_2 needs 4 bends: move node app_2 or k_proxy_2 so they share a row or column with matching centers, or sit diagonally with a clear corner.",
+      "k_proxy_1 → k8s_svc needs 3 bends: move node k_proxy_1 or k8s_svc so they share a row or column with matching centers, or sit diagonally with a clear corner.",
+      "k_proxy_2 → k8s_svc needs 3 bends: move node k_proxy_2 or k8s_svc so they share a row or column with matching centers, or sit diagonally with a clear corner."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Arquitetura de software do programa de aplicação web",
+    "output": "web-app-architecture.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "auth", "type": "backend", "label": "Authentication & Authorization", "pos": [60, 100], "size": [200, 55] },
+    { "id": "auth_db", "type": "database", "label": "Database", "pos": [286, 100], "size": [120, 55] },
+    { "id": "logging", "type": "backend", "label": "Logging & Reporting", "pos": [60, 200], "size": [150, 55] },
+    { "id": "log_db", "type": "database", "label": "Database", "pos": [260, 200], "size": [120, 55] },
+    { "id": "web_portal", "type": "frontend", "label": "Restful API Web Portal", "pos": [500, 180], "size": [170, 55] },
+    { "id": "web_db", "type": "database", "label": "Database", "pos": [720, 180], "size": [120, 55] },
+    { "id": "app_server", "type": "backend", "label": "Application Server", "pos": [500, 320], "size": [150, 55] },
+    { "id": "app_db", "type": "database", "label": "Database", "pos": [720, 320], "size": [120, 55] },
+    { "id": "client_service", "type": "external", "label": "Client Service Consumer", "pos": [260, 420], "size": [160, 55] },
+    { "id": "client_web", "type": "external", "label": "Client Web Browser", "pos": [480, 420], "size": [150, 55] },
+    { "id": "external_comp", "type": "backend", "label": "External Components", "pos": [700, 420], "size": [150, 55] },
+    { "id": "add_text", "type": "backend", "label": "Add text here", "pos": [950, 300], "size": [120, 55] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "System Frontier", "wraps": ["auth", "auth_db", "logging", "log_db", "web_portal", "web_db", "app_server", "app_db"], "pad": 16 }
+  ],
+  "connections": [
+    { "id": "auth-to-auth_db", "from": "auth", "to": "auth_db" },
+    { "id": "logging-to-log_db", "from": "logging", "to": "log_db" },
+    { "id": "web_portal-to-web_db", "from": "web_portal", "to": "web_db" },
+    { "id": "app_server-to-app_db", "from": "app_server", "to": "app_db" },
+    { "id": "web_portal-to-auth", "from": "web_portal", "to": "auth", "label": "Hypertext Transfer Protocol Secure (HTTPS)" },
+    { "id": "web_portal-to-logging", "from": "web_portal", "to": "logging", "label": "Hypertext Transfer Protocol (HTTP)" },
+    { "id": "web_portal-to-app_server", "from": "web_portal", "to": "app_server", "label": "Hypertext Transfer Protocol (HTTP)" },
+    { "id": "client_service-to-web_portal", "from": "client_service", "to": "web_portal", "label": "Hypertext Transfer Protocol (HTTP)" },
+    { "id": "client_web-to-web_portal", "from": "client_web", "to": "web_portal", "label": "Hypertext Transfer Protocol (HTTP)" },
+    { "id": "external_comp-to-web_portal", "from": "external_comp", "to": "web_portal", "label": "Hypertext Transfer Protocol (HTTP)" }
+  ]
+}

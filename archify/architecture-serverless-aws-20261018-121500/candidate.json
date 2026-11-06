@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Serverless Architecture in AWS",
+    "output": "serverless-architecture-aws.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "users", "type": "external", "label": "Users", "icon": "person", "pos": [40, 160], "size": [120, 60] },
+    { "id": "api_gateway", "type": "backend", "label": "API Gateway", "pos": [240, 160], "size": [130, 60] },
+    { "id": "lambda", "type": "backend", "label": "AWS Lambda", "pos": [450, 160], "size": [130, 60] },
+    { "id": "dynamodb", "type": "database", "label": "DynamoDB", "pos": [660, 160], "size": [130, 60] },
+    { "id": "cognito", "type": "security", "label": "AWS Cognito", "pos": [240, 30], "size": [130, 60] },
+    { "id": "s3", "type": "cloud", "label": "AWS S3", "pos": [240, 320], "size": [130, 60] }
+  ],
+  "connections": [
+    { "id": "users-to-apigw", "from": "users", "to": "api_gateway", "label": "REST API", "variant": "dashed" },
+    { "id": "users-to-cognito", "from": "users", "to": "cognito", "variant": "dashed" },
+    { "id": "users-to-s3", "from": "users", "to": "s3", "variant": "dashed" },
+    { "id": "apigw-to-lambda", "from": "api_gateway", "to": "lambda", "variant": "dashed" },
+    { "id": "lambda-to-dynamodb", "from": "lambda", "to": "dynamodb", "variant": "dashed" }
+  ]
+}

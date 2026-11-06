@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "832d05b4-3075-4c1d-a1af-ebcbe8efde39",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-advanced-system-20261018-131000/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-advanced-system-20261018-131000/advanced-system-design.html",
+  "specification": {
+    "sha256": "cd48a4470322217d945a427d9ef9b8ef59422f6367c5d03982c83e937d23723e",
+    "bytes": 2115
+  },
+  "artifact": {
+    "sha256": "62f5cd2103b2d691a37d14feaa24afe5bf57afd0db4e07cc6aced3f6ec4a1c4b",
+    "bytes": 818990
+  }
+}
