@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "5f83e167-5a7d-400b-aab7-5f0d9a87b800",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-rabbitmq-routing-20261111/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-rabbitmq-routing-20261111/rabbitmq-routing.html",
+  "specification": {
+    "sha256": "4e9a207e2f4dc92049e6de78ded77939a16e24843385dc6765dbdb0b83df24ea",
+    "bytes": 4771
+  },
+  "artifact": {
+    "sha256": "86e544e2158f6c34701b878c0e136e7773416003d2abd1f451b01c7b9d9e28bb",
+    "bytes": 853161
+  }
+}

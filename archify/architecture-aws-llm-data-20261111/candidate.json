@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Processamento de Dados com LLMs — AWS Event-Driven",
+    "output": ".archify/architecture-aws-llm-data-20261111/aws-llm-data-processing.html",
+    "quality_profile": "showcase",
+    "visual_preset": "classic"
+  },
+  "components": [
+    { "id": "ds_structured", "type": "frontend", "label": "Structured", "sublabel": "Tabela / planilha", "pos": [40, 80], "size": [120, 50], "icon": "frontend" },
+    { "id": "ds_unstructured", "type": "frontend", "label": "Unstructured", "sublabel": "Formas / texto", "pos": [40, 180], "size": [120, 50], "icon": "frontend" },
+    { "id": "ds_semi", "type": "frontend", "label": "Semi structured", "sublabel": "Arquivos / JSON", "pos": [40, 280], "size": [120, 50], "icon": "frontend" },
+    { "id": "ev_sqs", "type": "messagebus", "label": "Amazon SQS", "sublabel": "Evento", "pos": [280, 80], "size": [120, 50], "icon": "messagebus" },
+    { "id": "ev_eventbridge", "type": "messagebus", "label": "Amazon EventBridge", "sublabel": "Evento", "pos": [280, 180], "size": [120, 50], "icon": "messagebus" },
+    { "id": "ev_s3", "type": "cloud", "label": "Amazon S3", "sublabel": "Balde", "pos": [280, 280], "size": [120, 50], "icon": "cloud" },
+    { "id": "ev_dynamodb", "type": "database", "label": "Amazon DynamoDB", "sublabel": "Evento", "pos": [280, 380], "size": [120, 50], "icon": "database" },
+    { "id": "pr_stepfn", "type": "cloud", "label": "AWS Step Functions", "sublabel": "Orquestração", "pos": [520, 80], "size": [120, 50], "icon": "cloud" },
+    { "id": "pr_glue", "type": "cloud", "label": "AWS Glue", "sublabel": "ETL", "pos": [520, 180], "size": [120, 50], "icon": "cloud" },
+    { "id": "pr_lambda", "type": "backend", "label": "AWS Lambda", "sublabel": "Computação", "pos": [520, 280], "size": [120, 50], "icon": "backend" },
+    { "id": "pr_fargate", "type": "backend", "label": "AWS Fargate", "sublabel": "Computação", "pos": [520, 380], "size": [120, 50], "icon": "backend" },
+    { "id": "llm_bedrock", "type": "cloud", "label": "Amazon Bedrock", "sublabel": "IA gerenciada", "pos": [760, 80], "size": [130, 50], "icon": "cloud" },
+    { "id": "llm_sagemaker", "type": "cloud", "label": "Amazon SageMaker", "sublabel": "IA gerenciada", "pos": [760, 180], "size": [130, 50], "icon": "cloud" },
+    { "id": "llm_sagemaker_js", "type": "cloud", "label": "SageMaker JumpStart", "sublabel": "IA gerenciada", "pos": [760, 280], "size": [130, 50], "icon": "cloud" },
+    { "id": "secrets", "type": "security", "label": "AWS Secrets Manager", "sublabel": "API Keys", "pos": [760, 420], "size": [130, 50], "icon": "security" },
+    { "id": "openai", "type": "external", "label": "OpenAI", "sublabel": "Provedor externo", "pos": [980, 420], "size": [110, 50], "icon": "external" },
+    { "id": "huggingface", "type": "external", "label": "Hugging Face", "sublabel": "Provedor externo", "pos": [980, 500], "size": [110, 50], "icon": "external" },
+    { "id": "store_db", "type": "database", "label": "Database", "sublabel": "Cilindro", "pos": [1120, 180], "size": [120, 50], "icon": "database" },
+    { "id": "store_fs", "type": "cloud", "label": "File system", "sublabel": "Pasta / arquivos", "pos": [1120, 300], "size": [120, 50], "icon": "cloud" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Data Source", "wraps": ["ds_structured", "ds_unstructured", "ds_semi"], "pad": 14 },
+    { "kind": "region", "label": "Event", "wraps": ["ev_sqs", "ev_eventbridge", "ev_s3", "ev_dynamodb"], "pad": 14 },
+    { "kind": "region", "label": "Processor", "wraps": ["pr_stepfn", "pr_glue", "pr_lambda", "pr_fargate"], "pad": 14 },
+    { "kind": "region", "label": "LLM Host", "wraps": ["llm_bedrock", "llm_sagemaker", "llm_sagemaker_js", "secrets", "openai", "huggingface"], "pad": 14 },
+    { "kind": "region", "label": "Store", "wraps": ["store_db", "store_fs"], "pad": 14 }
+  ],
+  "connections": [
+    { "id": "fl1", "from": "ds_semi", "to": "ev_sqs", "label": "1 Land", "variant": "emphasis" },
+    { "id": "fl2", "from": "ev_sqs", "to": "pr_lambda", "label": "2 Trigger", "variant": "emphasis" },
+    { "id": "fl3a", "from": "pr_lambda", "to": "llm_bedrock", "label": "3a InvokeModel", "variant": "emphasis" },
+    { "id": "fl3b", "from": "pr_lambda", "to": "secrets", "label": "3b", "variant": "dashed" },
+    { "id": "fl3b_ext1", "from": "secrets", "to": "openai", "variant": "dashed" },
+    { "id": "fl3b_ext2", "from": "secrets", "to": "huggingface", "variant": "dashed" },
+    { "id": "fl4", "from": "llm_bedrock", "to": "store_db", "label": "4 Response", "variant": "dashed" },
+    { "id": "fl4_ext1", "from": "openai", "to": "store_db", "label": "4 Response", "variant": "dashed" },
+    { "id": "fl4_ext2", "from": "huggingface", "to": "store_db", "label": "4 Response", "variant": "dashed" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Fluxo de ingestão e inferência (esquerda → direita)", "items": ["1 Land — Data Source → Event", "2 Trigger — Event → Processor", "3a InvokeModel — Processor → LLM Host", "3b — Processor → Secrets Manager → OpenAI / Hugging Face", "4 Response — LLM Host / provedores externos → Store"] },
+    { "dot": "emerald", "title": "Colunas verticais", "items": ["Data Source", "Event", "Processor", "LLM Host", "Store"] },
+    { "dot": "rose", "title": "Cores semânticas por tipo AWS", "items": ["Rosa — Evento / Integração (SQS, EventBridge, Step Functions)", "Laranja — Computação (Lambda, Fargate)", "Verde — ML / Armazenamento (Bedrock, SageMaker, JumpStart, S3, File system)", "Roxo — Banco de dados (DynamoDB, Database)", "Vermelho — Segurança (Secrets Manager)"] }
+  ]
+}

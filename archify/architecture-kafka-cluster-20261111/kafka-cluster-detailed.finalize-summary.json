@@ -1,0 +1,388 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-kafka-cluster-20261111/candidate.json",
+    "sha256": "33ba8f38742cf8e6ab9221c027028cffda940fbc90495c1982b9f82097bbf639",
+    "bytes": 7427
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-kafka-cluster-20261111/kafka-cluster-detailed.html",
+    "sha256": "ef2d96a01aa9b2fe62e09b82c3ecb1a87154adc2c3e60d7a6d18473e07c8b506",
+    "bytes": 881925
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-kafka-cluster-20261111/kafka-cluster-detailed.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-kafka-cluster-20261111/kafka-cluster-detailed.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-kafka-cluster-20261111/kafka-cluster-detailed.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-11-11T13:32:10.253Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2528,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "resolvedCrossovers": 19,
+      "routesOverSuggestedBends": 10,
+      "routesOverSuggestedStretch": 3
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [
+        {
+          "left": {
+            "id": "k2",
+            "from": "prod_db",
+            "to": "broker2",
+            "label": "Publicação (Logs)",
+            "collectionIndex": 1,
+            "artifactIndex": 2
+          },
+          "right": {
+            "id": "k4",
+            "from": "prod_cloud",
+            "to": "broker1",
+            "label": "Publicação (Logs)",
+            "collectionIndex": 3,
+            "artifactIndex": 4
+          },
+          "point": [
+            456,
+            219
+          ]
+        },
+        {
+          "left": {
+            "id": "k2",
+            "from": "prod_db",
+            "to": "broker2",
+            "label": "Publicação (Logs)",
+            "collectionIndex": 1,
+            "artifactIndex": 2
+          },
+          "right": {
+            "id": "k5",
+            "from": "prod_dev",
+            "to": "broker2",
+            "label": "Publicação (Logs)",
+            "collectionIndex": 4,
+            "artifactIndex": 5
+          },
+          "point": [
+            616,
+            219
+          ],
+          "sharedNode": "broker2"
+        },
+        {
+          "left": {
+            "id": "k2",
+            "from": "prod_db",
+            "to": "broker2",
+            "label": "Publicação (Logs)",
+            "collectionIndex": 1,
+            "artifactIndex": 2
+          },
+          "right": {
+            "id": "k8",
+            "from": "broker1",
+            "to": "broker2",
+            "label": "",
+            "collectionIndex": 7,
+            "artifactIndex": 8
+          },
+          "point": [
+            637,
+            202
+          ],
+          "sharedNode": "broker2"
+        },
+        {
+          "left": {
+            "id": "k2",
+            "from": "prod_db",
+            "to": "broker2",
+            "label": "Publicação (Logs)",
+            "collectionIndex": 1,
+            "artifactIndex": 2
+          },
+          "right": {
+            "id": "k10",
+            "from": "broker1",
+            "to": "ta_p0",
+            "label": "",
+            "collectionIndex": 9,
+            "artifactIndex": 10
+          },
+          "point": [
+            523,
+            219
+          ]
+        },
+        {
+          "left": {
+            "id": "k2",
+            "from": "prod_db",
+            "to": "broker2",
+            "label": "Publicação (Logs)",
+            "collectionIndex": 1,
+            "artifactIndex": 2
+          },
+          "right": {
+            "id": "k13",
+            "from": "broker1",
+            "to": "tb_p0",
+            "label": "",
+            "collectionIndex": 12,
+            "artifactIndex": 13
+          },
+          "point": [
+            604,
+            219
+          ]
+        },
+        {
+          "left": {
+            "id": "k3",
+            "from": "prod_sys",
+            "to": "broker3",
+            "label": "Publicação (Logs)",
+            "collectionIndex": 2,
+            "artifactIndex": 3
+          },
+          "right": {
+            "id": "k4",
+            "from": "prod_cloud",
+            "to": "broker1",
+            "label": "Publicação (Logs)",
+            "collectionIndex": 3,
+            "artifactIndex": 4
+          },
+          "point": [
+            456,
+            279
+          ]
+        },
+        {
+          "left": {
+            "id": "k3",
+            "from": "prod_sys",
+            "to": "broker3",
+            "label": "Publicação (Logs)",
+            "collectionIndex": 2,
+            "artifactIndex": 3
+          },
+          "right": {
+            "id": "k5",
+            "from": "prod_dev",
+            "to": "broker2",
+            "label": "Publicação (Logs)",
+            "collectionIndex": 4,
+            "artifactIndex": 5
+          },
+          "point": [
+            616,
+            279
+          ]
+        },
+        {
+          "left": {
+            "id": "k3",
+            "from": "prod_sys",
+            "to": "broker3",
+            "label": "Publicação (Logs)",
+            "collectionIndex": 2,
+            "artifactIndex": 3
+          },
+          "right": {
+            "id": "k13",
+            "from": "broker1",
+            "to": "tb_p0",
+            "label": "",
+            "collectionIndex": 12,
+            "artifactIndex": 13
+          },
+          "point": [
+            604,
+            279
+          ]
+        }
+      ],
+      "detours": [
+        {
+          "relationship": {
+            "id": "k1",
+            "from": "prod_web",
+            "to": "broker1",
+            "label": "Publicação (Logs)",
+            "collectionIndex": 0,
+            "artifactIndex": 1
+          },
+          "bends": 3,
+          "stretch": 1.12
+        },
+        {
+          "relationship": {
+            "id": "k2",
+            "from": "prod_db",
+            "to": "broker2",
+            "label": "Publicação (Logs)",
+            "collectionIndex": 1,
+            "artifactIndex": 2
+          },
+          "bends": 3,
+          "stretch": 1.08
+        },
+        {
+          "relationship": {
+            "id": "k8",
+            "from": "broker1",
+            "to": "broker2",
+            "label": "",
+            "collectionIndex": 7,
+            "artifactIndex": 8
+          },
+          "bends": 3,
+          "stretch": 1.444
+        },
+        {
+          "relationship": {
+            "id": "k9",
+            "from": "broker2",
+            "to": "broker3",
+            "label": "",
+            "collectionIndex": 8,
+            "artifactIndex": 9
+          },
+          "bends": 3,
+          "stretch": 1.372
+        },
+        {
+          "relationship": {
+            "id": "k13",
+            "from": "broker1",
+            "to": "tb_p0",
+            "label": "",
+            "collectionIndex": 12,
+            "artifactIndex": 13
+          },
+          "bends": 3,
+          "stretch": 1.279,
+          "directCorridorBlockers": [
+            {
+              "id": "ta_p0",
+              "label": "Tópico A P0",
+              "box": [
+                480,
+                230,
+                100,
+                34
+              ]
+            }
+          ]
+        },
+        {
+          "relationship": {
+            "id": "k14",
+            "from": "broker2",
+            "to": "tb_p1",
+            "label": "",
+            "collectionIndex": 13,
+            "artifactIndex": 14
+          },
+          "bends": 3,
+          "stretch": 1.279,
+          "directCorridorBlockers": [
+            {
+              "id": "ta_p1",
+              "label": "Tópico A P1",
+              "box": [
+                640,
+                230,
+                100,
+                34
+              ]
+            }
+          ]
+        },
+        {
+          "relationship": {
+            "id": "k15",
+            "from": "broker3",
+            "to": "tb_p2",
+            "label": "",
+            "collectionIndex": 14,
+            "artifactIndex": 15
+          },
+          "bends": 4,
+          "stretch": 2.098,
+          "directCorridorBlockers": [
+            {
+              "id": "ta_p2",
+              "label": "Tópico A P2",
+              "box": [
+                800,
+                230,
+                100,
+                34
+              ]
+            }
+          ]
+        },
+        {
+          "relationship": {
+            "id": "k21",
+            "from": "broker3",
+            "to": "cg2_app1",
+            "label": "Processamento de Dados",
+            "collectionIndex": 20,
+            "artifactIndex": 21
+          },
+          "bends": 3,
+          "stretch": 1.294
+        }
+      ],
+      "truncated": true
+    },
+    "hints": [
+      "broker1 has 2 relationships facing its left side, which fits 1 ports: make that side at least 46px, or move some of those neighbours so they face another side of broker1.",
+      "broker2 has 3 relationships facing its left side, which fits 1 ports: make that side at least 60px, or move some of those neighbours so they face another side of broker2.",
+      "broker3 has 2 relationships facing its left side, which fits 1 ports: make that side at least 46px, or move some of those neighbours so they face another side of broker3.",
+      "broker3 has 4 relationships facing its right side, which fits 1 ports: make that side at least 74px, or move some of those neighbours so they face another side of broker3.",
+      "prod_db → broker2 crosses prod_cloud → broker1: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "prod_db → broker2 and prod_dev → broker2 cross next to broker2: move node prod_db or prod_dev so the two reach broker2 from different sides (for example one level with it, one directly above or below it).",
+      "prod_db → broker2 and broker1 → broker2 cross next to broker2: move node prod_db or broker1 so the two reach broker2 from different sides (for example one level with it, one directly above or below it).",
+      "prod_db → broker2 crosses broker1 → ta_p0: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

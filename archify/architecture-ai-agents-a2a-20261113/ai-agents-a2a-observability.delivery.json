@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "98a96271-4852-4e25-aa73-377b3ada72ec",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-ai-agents-a2a-20261113/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-ai-agents-a2a-20261113/ai-agents-a2a-observability.html",
+  "specification": {
+    "sha256": "556d9fb578541a971a46ec5b8756c87c73a06dc38e04232396b622de9164a68f",
+    "bytes": 5354
+  },
+  "artifact": {
+    "sha256": "b3710e79c839d811cdc6898b88acd0d42df16e3aeba0e64577dcf900d4f7f6e4",
+    "bytes": 854868
+  }
+}

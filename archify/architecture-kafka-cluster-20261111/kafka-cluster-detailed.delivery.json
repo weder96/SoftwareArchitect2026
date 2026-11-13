@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "5c327ebd-e572-44c1-a8d0-6dacecc4811e",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-kafka-cluster-20261111/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-kafka-cluster-20261111/kafka-cluster-detailed.html",
+  "specification": {
+    "sha256": "33ba8f38742cf8e6ab9221c027028cffda940fbc90495c1982b9f82097bbf639",
+    "bytes": 7427
+  },
+  "artifact": {
+    "sha256": "ef2d96a01aa9b2fe62e09b82c3ecb1a87154adc2c3e60d7a6d18473e07c8b506",
+    "bytes": 881925
+  }
+}

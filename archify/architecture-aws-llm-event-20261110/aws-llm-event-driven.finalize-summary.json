@@ -1,0 +1,181 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-aws-llm-event-20261111/candidate.json",
+    "sha256": "0d900a68a414e1633027f14e5b881d66dc9696547802fe438104eabeb54573d5",
+    "bytes": 6149
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-aws-llm-event-20261110/aws-llm-event-driven.html",
+    "sha256": "4ada60160d9ac3f66f3ced3c847dd15764ab66a05d48927b1a89d20018308e5b",
+    "bytes": 865440
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-aws-llm-event-20261110/aws-llm-event-driven.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-aws-llm-event-20261110/aws-llm-event-driven.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-aws-llm-event-20261110/aws-llm-event-driven.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-11-11T13:32:10.253Z",
+    "source": "network",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2097,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "resolvedCrossovers": 3,
+      "routesOverSuggestedBends": 3,
+      "routesOverSuggestedStretch": 2
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [
+        {
+          "left": {
+            "id": "fl3",
+            "from": "apigw",
+            "to": "sqs",
+            "label": "3 Publish",
+            "collectionIndex": 2,
+            "artifactIndex": 3
+          },
+          "right": {
+            "id": "fl8",
+            "from": "appsync",
+            "to": "lambda",
+            "label": "8 HTTP/REST APIs",
+            "collectionIndex": 10,
+            "artifactIndex": 11
+          },
+          "point": [
+            612.3846153846154,
+            105
+          ]
+        },
+        {
+          "left": {
+            "id": "fl3",
+            "from": "apigw",
+            "to": "sqs",
+            "label": "3 Publish",
+            "collectionIndex": 2,
+            "artifactIndex": 3
+          },
+          "right": {
+            "id": "fl9",
+            "from": "lambda",
+            "to": "appsync",
+            "label": "9 HTTP/REST APIs",
+            "collectionIndex": 11,
+            "artifactIndex": 12
+          },
+          "point": [
+            676,
+            114
+          ]
+        },
+        {
+          "left": {
+            "id": "fl8",
+            "from": "appsync",
+            "to": "lambda",
+            "label": "8 HTTP/REST APIs",
+            "collectionIndex": 10,
+            "artifactIndex": 11
+          },
+          "right": {
+            "id": "fl9",
+            "from": "lambda",
+            "to": "appsync",
+            "label": "9 HTTP/REST APIs",
+            "collectionIndex": 11,
+            "artifactIndex": 12
+          },
+          "point": [
+            534,
+            198
+          ],
+          "sharedNode": "appsync"
+        }
+      ],
+      "detours": [
+        {
+          "relationship": {
+            "id": "fl1",
+            "from": "web_client",
+            "to": "apigw",
+            "label": "1 Request",
+            "collectionIndex": 0,
+            "artifactIndex": 1
+          },
+          "bends": 6,
+          "stretch": 1.895
+        },
+        {
+          "relationship": {
+            "id": "fl6",
+            "from": "lambda",
+            "to": "dynamodb",
+            "label": "6",
+            "collectionIndex": 8,
+            "artifactIndex": 9
+          },
+          "bends": 4,
+          "stretch": 1.342
+        },
+        {
+          "relationship": {
+            "id": "fl10",
+            "from": "web_client",
+            "to": "web_client",
+            "label": "10 Client Poll",
+            "collectionIndex": 12,
+            "artifactIndex": 13
+          },
+          "bends": 4,
+          "stretch": 3.56
+        }
+      ],
+      "truncated": false
+    },
+    "hints": [
+      "web_client has 3 relationships facing its right side, which fits 2 ports: make that side at least 60px, or move some of those neighbours so they face another side of web_client.",
+      "apigw has 3 relationships facing its left side, which fits 2 ports: make that side at least 60px, or move some of those neighbours so they face another side of apigw.",
+      "lambda has 3 relationships facing its left side, which fits 2 ports: make that side at least 60px, or move some of those neighbours so they face another side of lambda.",
+      "apigw → sqs crosses appsync → lambda: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "apigw → sqs crosses lambda → appsync: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "appsync → lambda and lambda → appsync cross next to appsync: move node lambda or lambda so the two reach appsync from different sides (for example one level with it, one directly above or below it).",
+      "web_client → apigw needs 6 bends: move node web_client or apigw so they share a row or column with matching centers, or sit diagonally with a clear corner.",
+      "lambda → dynamodb needs 4 bends: move node lambda or dynamodb so they share a row or column with matching centers, or sit diagonally with a clear corner."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

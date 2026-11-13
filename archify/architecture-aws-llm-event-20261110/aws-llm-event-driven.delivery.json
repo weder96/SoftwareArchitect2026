@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "69eb14f5-a40d-4712-8d96-5cb6d11007b2",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-aws-llm-event-20261111/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-aws-llm-event-20261110/aws-llm-event-driven.html",
+  "specification": {
+    "sha256": "0d900a68a414e1633027f14e5b881d66dc9696547802fe438104eabeb54573d5",
+    "bytes": 6149
+  },
+  "artifact": {
+    "sha256": "4ada60160d9ac3f66f3ced3c847dd15764ab66a05d48927b1a89d20018308e5b",
+    "bytes": 865440
+  }
+}

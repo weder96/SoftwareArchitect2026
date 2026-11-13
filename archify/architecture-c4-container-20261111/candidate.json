@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Advanced Use System Design and Technical Diagrams",
+    "output": ".archify/architecture-c4-container-20261111/advanced-use-system-design.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "support_staff", "type": "external", "label": "Support Staff", "sublabel": "Monitors the production", "pos": [520, 80], "size": [140, 56], "icon": "person" },
+    { "id": "alert_system", "type": "external", "label": "Alert System", "sublabel": "Sends SMS notifications of problems", "pos": [120, 250], "size": [150, 56], "icon": "external" },
+    { "id": "data_collection", "type": "external", "label": "Data Collection System", "sublabel": "Monitors and collects data from sensors and PLCs", "pos": [900, 200], "size": [185, 56], "icon": "external" },
+    { "id": "web_app", "type": "frontend", "label": "Web Application", "sublabel": "[Container: HTML5/JavaScript]\nStatus Dashboard", "pos": [520, 240], "size": [180, 56], "icon": "frontend" },
+    { "id": "viz_dashboard", "type": "frontend", "label": "Visualisation Dashboard", "sublabel": "[Container: Graphics Libraries]\nStatus Dashboard", "pos": [520, 380], "size": [190, 56], "icon": "frontend" },
+    { "id": "api_service", "type": "backend", "label": "API Service", "sublabel": "[Container: Java/Python]", "pos": [740, 310], "size": [160, 56], "icon": "backend" },
+    { "id": "database", "type": "database", "label": "Database", "sublabel": "[Container: Time Series Database (Influx)]", "pos": [900, 400], "size": [160, 56], "icon": "database" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Status Dashboard Container", "wraps": ["web_app", "viz_dashboard", "api_service"], "pad": 22 }
+  ],
+  "connections": [
+    { "id": "c1", "from": "alert_system", "to": "support_staff", "label": "Sends notifications to [SMS]", "variant": "dashed" },
+    { "id": "c2", "from": "web_app", "to": "alert_system", "label": "Makes API call to [REST API]", "variant": "dashed" },
+    { "id": "c3", "from": "web_app", "to": "viz_dashboard", "label": "Sends data to [HTML]" },
+    { "id": "c4", "from": "web_app", "to": "api_service", "label": "Makes request to [JSON]" },
+    { "id": "c5", "from": "api_service", "to": "viz_dashboard", "label": "Sends data to [JSON]" },
+    { "id": "c6", "from": "api_service", "to": "database", "label": "Makes API calls to [REST API]", "variant": "dashed" },
+    { "id": "c7", "from": "data_collection", "to": "database", "label": "Writes to [Influx REST]", "variant": "dashed" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Modelo C4 — Container Diagram", "items": ["Person: Support Staff (ator)", "Software System: Alert System e Data Collection System (externos)", "Container: Web Application, Visualisation Dashboard, API Service", "Database: Time Series Database (Influx)"] },
+    { "dot": "emerald", "title": "Fluxos de dados", "items": ["Alert System → Support Staff (SMS)", "Web Application → Alert System (REST API)", "Web Application → Visualisation Dashboard (HTML)", "Web Application → API Service (JSON)", "API Service → Visualisation Dashboard (JSON)", "API Service → Database (REST API)", "Data Collection System → Database (Influx REST)"] }
+  ]
+}

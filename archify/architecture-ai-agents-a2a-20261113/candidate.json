@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Orquestração de Agentes de IA — A2A e Observabilidade",
+    "output": ".archify/architecture-ai-agents-a2a-20261113/ai-agents-a2a-observability.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "user", "type": "external", "label": "User", "sublabel": "Ícone de pessoa", "pos": [40, 300], "size": [120, 56], "icon": "person" },
+    { "id": "coord", "type": "backend", "label": "Coordinator :8083", "sublabel": "LangChain4j 1.16 · agentic · agentic-a2a · OpenAI gpt-5.2", "pos": [400, 150], "size": [240, 60], "icon": "backend" },
+    { "id": "coord_input", "type": "backend", "label": "InputValidator", "sublabel": "L1 regex · L2 LLM-detector · L3 output-leakage", "pos": [400, 240], "size": [220, 40], "icon": "backend" },
+    { "id": "coord_agenda", "type": "backend", "label": "AgendaService", "sublabel": "A2A client proxy", "pos": [400, 300], "size": [220, 40], "icon": "backend" },
+    { "id": "coord_scoring", "type": "backend", "label": "ScoringService", "sublabel": "A2A client proxy", "pos": [400, 360], "size": [220, 40], "icon": "backend" },
+    { "id": "coord_sum", "type": "backend", "label": "Summarizer", "sublabel": "+ OutputLeakageGuardrail", "pos": [400, 420], "size": [220, 40], "icon": "backend" },
+    { "id": "agenda_agent", "type": "backend", "label": "Agenda Agent :8081", "sublabel": "Spring AI 2.0 · OpenAI gpt-5.1", "pos": [760, 100], "size": [220, 60], "icon": "backend" },
+    { "id": "agenda_chat", "type": "backend", "label": "ChatClient + MCP tool callbacks", "sublabel": "Componente interno", "pos": [760, 180], "size": [200, 40], "icon": "backend" },
+    { "id": "scoring_agent", "type": "security", "label": "Scoring Agent :8082", "sublabel": "EmbLabel 0.4.0 + Spring AI 1.1.8 · OpenAI gpt-4.1-mini", "pos": [760, 320], "size": [220, 60], "icon": "security" },
+    { "id": "scoring_parse", "type": "backend", "label": "parseRequest", "sublabel": "Topo", "pos": [760, 400], "size": [200, 34], "icon": "backend" },
+    { "id": "scoring_topics", "type": "backend", "label": "scoreTopics", "sublabel": "parallelMap c=8", "pos": [760, 450], "size": [200, 34], "icon": "backend" },
+    { "id": "scoring_speakers", "type": "backend", "label": "scoreSpeakers", "sublabel": "parallelMap c=8", "pos": [760, 500], "size": [200, 34], "icon": "backend" },
+    { "id": "scoring_agg", "type": "backend", "label": "aggregate . @AchievesGoal", "sublabel": "Base", "pos": [760, 550], "size": [200, 34], "icon": "backend" },
+    { "id": "mcp", "type": "cloud", "label": "Devoxx MCP Server", "sublabel": "Exposed Tools — devoxx-agenda, devoxx-planner", "pos": [1100, 250], "size": [180, 56], "icon": "cloud" },
+    { "id": "grafana", "type": "cloud", "label": "Grafana LGTM (docker)", "sublabel": "Tempo · Prometheus · Loki — dashboards Tokens, Guardrails, Performance", "pos": [600, 680], "size": [260, 80], "icon": "cloud" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Coordinator :8083", "wraps": ["coord", "coord_input", "coord_agenda", "coord_scoring", "coord_sum"], "pad": 16 },
+    { "kind": "region", "label": "Agenda Agent :8081", "wraps": ["agenda_agent", "agenda_chat"], "pad": 16 },
+    { "kind": "region", "label": "Scoring Agent :8082", "wraps": ["scoring_agent", "scoring_parse", "scoring_topics", "scoring_speakers", "scoring_agg"], "pad": 16 },
+    { "kind": "region", "label": "Devoxx MCP Server", "wraps": ["mcp"], "pad": 16 },
+    { "kind": "region", "label": "Grafana LGTM (docker)", "wraps": ["grafana"], "pad": 16 }
+  ],
+  "connections": [
+    { "id": "a1", "from": "user", "to": "coord", "label": "POST /chat preferences" },
+    { "id": "a2", "from": "coord_agenda", "to": "agenda_agent", "label": "A2A JSON-RPC streamable-HTTP + W3C traceparent", "variant": "dashed" },
+    { "id": "a3", "from": "coord_scoring", "to": "scoring_agent", "label": "A2A JSON-RPC streamable-HTTP + W3C traceparent", "variant": "dashed" },
+    { "id": "a4", "from": "agenda_agent", "to": "mcp", "label": "MCP streamable-HTTP", "variant": "dashed" },
+    { "id": "a5", "from": "coord", "to": "grafana", "label": "OTel javaagent . OTLP :4317", "variant": "dashed" },
+    { "id": "a6", "from": "agenda_agent", "to": "grafana", "label": "OTel javaagent . OTLP :4317", "variant": "dashed" },
+    { "id": "a7", "from": "scoring_agent", "to": "grafana", "label": "OTel javaagent . OTLP :4317", "variant": "dashed" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Domínios", "items": ["Coordinator :8083 (azul) — orquestração central", "Agenda Agent :8081 (azul) — agenda", "Scoring Agent :8082 (roxo) — pontuação", "Devoxx MCP Server (amarelo) — ferramentas expostas", "Grafana LGTM (verde) — observabilidade"] },
+    { "dot": "emerald", "title": "Fluxo A2A", "items": ["User → Coordinator (POST /chat preferences)", "AgendaService → Agenda Agent (A2A JSON-RPC + W3C traceparent)", "ScoringService → Scoring Agent (A2A JSON-RPC + W3C traceparent)", "Agenda Agent → Devoxx MCP Server (MCP streamable-HTTP)"] },
+    { "dot": "rose", "title": "Observabilidade (base)", "items": ["Coordinator → Grafana LGTM (OTel javaagent · OTLP :4317)", "Agenda Agent → Grafana LGTM (OTel javaagent · OTLP :4317)", "Scoring Agent → Grafana LGTM (OTel javaagent · OTLP :4317)"] }
+  ]
+}

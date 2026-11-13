@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-ai-agents-a2a-20261113/candidate.json",
+    "sha256": "556d9fb578541a971a46ec5b8756c87c73a06dc38e04232396b622de9164a68f",
+    "bytes": 5354
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-ai-agents-a2a-20261113/ai-agents-a2a-observability.html",
+    "sha256": "b3710e79c839d811cdc6898b88acd0d42df16e3aeba0e64577dcf900d4f7f6e4",
+    "bytes": 854868
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-ai-agents-a2a-20261113/ai-agents-a2a-observability.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-ai-agents-a2a-20261113/ai-agents-a2a-observability.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-ai-agents-a2a-20261113/ai-agents-a2a-observability.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-11-13T20:26:35.034Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2175,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "resolvedCrossovers": 1
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [
+        {
+          "left": {
+            "id": "a3",
+            "from": "coord_scoring",
+            "to": "scoring_agent",
+            "label": "A2A JSON-RPC streamable-HTTP + W3C traceparent",
+            "collectionIndex": 2,
+            "artifactIndex": 3
+          },
+          "right": {
+            "id": "a6",
+            "from": "agenda_agent",
+            "to": "grafana",
+            "label": "OTel javaagent . OTLP :4317",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "point": [
+            730,
+            350
+          ]
+        }
+      ],
+      "detours": [],
+      "truncated": false
+    },
+    "hints": [
+      "coord_scoring → scoring_agent crosses agenda_agent → grafana: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

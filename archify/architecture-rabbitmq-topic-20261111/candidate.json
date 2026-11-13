@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "EXCHANGE TOPIC",
+    "subtitle": "A mensagem é enviada de acordo com a Routing Key e o padrão que o correspondente da fila espera receber.",
+    "output": ".archify/architecture-rabbitmq-topic-20261111/rabbitmq-topic.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "produtor1", "type": "external", "label": "PRODUTOR 1", "sublabel": "Caixa / documento cinza", "pos": [60, 120], "size": [120, 50], "icon": "external" },
+    { "id": "produtor2", "type": "external", "label": "PRODUTOR 2", "sublabel": "Caixa / documento cinza", "pos": [60, 260], "size": [120, 50], "icon": "external" },
+    { "id": "exchange", "type": "messagebus", "label": "EXCHANGE TOPIC", "sublabel": "Círculo amarelo — logo RabbitMQ laranja", "pos": [340, 190], "size": [160, 50], "icon": "messagebus" },
+    { "id": "queue_m1", "type": "database", "label": "QUEUE M1.*", "sublabel": "Cilindro laranja", "pos": [620, 80], "size": [140, 50], "icon": "database" },
+    { "id": "queue_error", "type": "database", "label": "QUEUE *.error", "sublabel": "Cilindro laranja", "pos": [620, 200], "size": [140, 50], "icon": "database" },
+    { "id": "queue_both", "type": "database", "label": "QUEUE M1.* e *.error", "sublabel": "Cilindro laranja", "pos": [620, 320], "size": [160, 50], "icon": "database" },
+    { "id": "consumer1", "type": "security", "label": "CONSUMIDOR 1", "sublabel": "Retângulo roxo / azul escuro", "pos": [920, 80], "size": [120, 50], "icon": "security" },
+    { "id": "consumer2", "type": "security", "label": "CONSUMIDOR 2", "sublabel": "Retângulo roxo / azul escuro", "pos": [920, 200], "size": [120, 50], "icon": "security" },
+    { "id": "consumer3", "type": "security", "label": "CONSUMIDOR 3", "sublabel": "Retângulo roxo / azul escuro", "pos": [920, 320], "size": [120, 50], "icon": "security" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Ambiente do Broker", "wraps": ["exchange", "queue_m1", "queue_error", "queue_both"], "pad": 22 }
+  ],
+  "connections": [
+    { "id": "f1", "from": "produtor1", "to": "exchange", "label": "M1.* (azul claro)" },
+    { "id": "f2", "from": "produtor2", "to": "exchange", "label": "*.error (vermelho/salmão)" },
+    { "id": "f3", "from": "exchange", "to": "queue_m1", "label": "M1.* (azul claro)", "variant": "dashed" },
+    { "id": "f4", "from": "exchange", "to": "queue_error", "label": "*.error (vermelho/salmão)", "variant": "dashed" },
+    { "id": "f5", "from": "exchange", "to": "queue_both", "label": "M1.* + *.error", "variant": "dashed" },
+    { "id": "f6", "from": "queue_m1", "to": "consumer1", "label": "M1.* (azul claro)" },
+    { "id": "f7", "from": "queue_error", "to": "consumer2", "label": "*.error (vermelho/salmão)" },
+    { "id": "f8", "from": "queue_both", "to": "consumer3", "label": "M1.* + *.error" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Padrão Exchange Topic", "items": ["Produtor 1 publica com Routing Key M1.* (azul)", "Produtor 2 publica com Routing Key *.error (vermelho/salmão)", "Exchange Topic roteia conforme padrão (wildcard) para as filas vinculadas"] },
+    { "dot": "emerald", "title": "Filas e Consumidores", "items": ["QUEUE M1.* → CONSUMIDOR 1", "QUEUE *.error → CONSUMIDOR 2", "QUEUE M1.* e *.error → CONSUMIDOR 3"] },
+    { "dot": "rose", "title": "Cores semânticas", "items": ["Cinza — Produtores", "Amarelo/Laranja — Exchange e Queues", "Roxo / azul escuro — Consumidores", "Azul claro — Routing Key M1.*", "Vermelho/salmão — Routing Key *.error"] }
+  ]
+}

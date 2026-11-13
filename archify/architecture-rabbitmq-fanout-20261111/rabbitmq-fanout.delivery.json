@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "23fb7653-23a7-409c-a496-6cf872b8755a",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-rabbitmq-fanout-20261111/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-rabbitmq-fanout-20261111/rabbitmq-fanout.html",
+  "specification": {
+    "sha256": "a2abea9fb6fc8b858d7842dca314063bfe07fd3d7bd53db295dbf61b2e536946",
+    "bytes": 3619
+  },
+  "artifact": {
+    "sha256": "40cd7f2a35a4cb1451ec5c9a8530d9c35ee93842dd17b85fedadfd227a8f33a4",
+    "bytes": 847214
+  }
+}

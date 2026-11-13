@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "9e982dac-9ef8-4207-96b6-4619631b09c3",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-c4-container-20261111/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-c4-container-20261111/advanced-use-system-design.html",
+  "specification": {
+    "sha256": "a92072263e616bbb39356356fa3ac466047ff0cc601e270296c991395ca71f85",
+    "bytes": 3273
+  },
+  "artifact": {
+    "sha256": "0504ca600287d5f3c826debd8096522af90d03930cd7975603d9e192c0a0ae6d",
+    "bytes": 842616
+  }
+}

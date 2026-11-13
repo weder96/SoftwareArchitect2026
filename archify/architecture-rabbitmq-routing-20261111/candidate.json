@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Padrões de Roteamento — RabbitMQ",
+    "subtitle": "Exchange Direct, Topic e Fanout — fluxo vertical top-down",
+    "output": ".archify/architecture-rabbitmq-routing-20261111/rabbitmq-routing.html",
+    "quality_profile": "showcase",
+    "visual_preset": "blueprint"
+  },
+  "components": [
+    { "id": "client", "type": "external", "label": "Client", "sublabel": "Globo / navegador", "pos": [100, 100], "size": [130, 50], "icon": "person" },
+    { "id": "producer", "type": "frontend", "label": "Producer", "sublabel": "Retângulo azul bordas arredondadas", "pos": [300, 100], "size": [140, 50], "icon": "frontend" },
+    { "id": "msg_top", "type": "messagebus", "label": "Mensagem", "sublabel": "Envelope em círculo roxo", "pos": [300, 200], "size": [140, 50], "icon": "messagebus" },
+    { "id": "direct", "type": "cloud", "label": "Direct", "sublabel": "Exchange — laranja", "pos": [200, 320], "size": [120, 50], "icon": "cloud" },
+    { "id": "topic", "type": "cloud", "label": "Topic", "sublabel": "Exchange — azul", "pos": [420, 320], "size": [120, 50], "icon": "cloud" },
+    { "id": "fanout", "type": "cloud", "label": "Fanout", "sublabel": "Exchange — verde", "pos": [640, 320], "size": [120, 50], "icon": "cloud" },
+    { "id": "queue1", "type": "database", "label": "Queue 1", "sublabel": "Fundo escuro, detalhe amarelo/ciano", "pos": [200, 470], "size": [140, 50], "icon": "database" },
+    { "id": "queue2", "type": "database", "label": "Queue 2", "sublabel": "Fundo escuro, detalhe amarelo/ciano", "pos": [420, 470], "size": [140, 50], "icon": "database" },
+    { "id": "queue3", "type": "database", "label": "Queue 3", "sublabel": "Fundo escuro, detalhe amarelo/ciano", "pos": [420, 540], "size": [140, 50], "icon": "database" },
+    { "id": "q4", "type": "database", "label": "Q4", "sublabel": "Fundo escuro, detalhe amarelo/ciano", "pos": [640, 470], "size": [140, 50], "icon": "database" },
+    { "id": "q5", "type": "database", "label": "Q5", "sublabel": "Fundo escuro, detalhe amarelo/ciano", "pos": [640, 540], "size": [140, 50], "icon": "database" },
+    { "id": "q6", "type": "database", "label": "Q6", "sublabel": "Fundo escuro, detalhe amarelo/ciano", "pos": [640, 610], "size": [140, 50], "icon": "database" },
+    { "id": "msg_bottom", "type": "messagebus", "label": "Mensagem", "sublabel": "Envelope em círculo roxo", "pos": [420, 740], "size": [140, 50], "icon": "messagebus" },
+    { "id": "consumer", "type": "security", "label": "Consumer", "sublabel": "Retângulo verde brilhante", "pos": [420, 840], "size": [140, 50], "icon": "security" },
+    { "id": "other_systems", "type": "external", "label": "Other Systems", "sublabel": "Banco de dados / servidores branco", "pos": [640, 840], "size": [140, 50], "icon": "external" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "RabbitMQ Broker", "wraps": ["direct", "topic", "fanout", "queue1", "queue2", "queue3", "q4", "q5", "q6"], "pad": 24 }
+  ],
+  "connections": [
+    { "id": "r1", "from": "client", "to": "producer", "label": "", "variant": "dashed" },
+    { "id": "r2", "from": "producer", "to": "msg_top", "label": "", "variant": "dashed", "fromSide": "bottom", "toSide": "top" },
+    { "id": "r3", "from": "direct", "to": "queue1", "label": "Bindings — Exact Routing Key Match", "variant": "dashed" },
+    { "id": "r4", "from": "topic", "to": "queue2", "label": "Routing Pattern — foo.*", "variant": "dashed" },
+    { "id": "r5", "from": "topic", "to": "queue3", "label": "Routing Pattern — bar.*", "variant": "dashed" },
+    { "id": "r6", "from": "fanout", "to": "q4", "variant": "dashed" },
+    { "id": "r7", "from": "fanout", "to": "q5", "variant": "dashed" },
+    { "id": "r8", "from": "fanout", "to": "q6", "variant": "dashed" },
+    { "id": "r9", "from": "msg_bottom", "to": "consumer", "label": "", "variant": "dashed", "fromSide": "bottom", "toSide": "top" },
+    { "id": "r10", "from": "consumer", "to": "other_systems", "label": "", "variant": "dashed" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Fluxo de entrada (topo)", "items": ["Client → Producer (tracejado, direita)", "Producer → Mensagem (tracejado, baixo)"] },
+    { "dot": "emerald", "title": "Roteamento dentro do Broker", "items": ["Direct → Queue 1 (laranja, Exact Routing Key Match)", "Topic → Queue 2 (foo.*) e Queue 3 (bar.*) (azul)", "Fanout → Q4, Q5, Q6 (verde, broadcast)"] },
+    { "dot": "rose", "title": "Fluxo de saída (base)", "items": ["Mensagem → Consumer (tracejado, baixo)", "Consumer → Other Systems (tracejado, direita)"] },
+    { "dot": "violet", "title": "Tema escuro", "items": ["Dark Theme (preset blueprint)", "Fundo escuro, textos em branco"] }
+  ]
+}

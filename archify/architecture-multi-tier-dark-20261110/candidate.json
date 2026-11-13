@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Arquitetura Multicamadas (Tiers) — Dark Mode",
+    "output": ".archify/architecture-multi-tier-dark-20261110/multi-tier-dark.html",
+    "quality_profile": "showcase",
+    "visual_preset": "blueprint"
+  },
+  "components": [
+    { "id": "web", "type": "frontend", "label": "Web", "sublabel": "Globo terrestre", "pos": [80, 150], "size": [120, 50], "icon": "frontend" },
+    { "id": "mobile", "type": "frontend", "label": "Mobile", "sublabel": "Smartphone", "pos": [80, 230], "size": [120, 50], "icon": "person" },
+    { "id": "dns", "type": "backend", "label": "DNS", "sublabel": "Route 53", "pos": [340, 150], "size": [120, 50], "icon": "backend" },
+    { "id": "cdn", "type": "cloud", "label": "CDN", "sublabel": "Nuvem contornada", "pos": [340, 230], "size": [120, 50], "icon": "cloud" },
+    { "id": "lb1", "type": "cloud", "label": "Load Balancer 1", "sublabel": "Hierarquia / rede", "pos": [600, 150], "size": [140, 50], "icon": "cloud" },
+    { "id": "lb2", "type": "cloud", "label": "Load Balancer 2", "sublabel": "Standby / réplica", "pos": [600, 230], "size": [140, 50], "icon": "cloud" },
+    { "id": "apigw", "type": "cloud", "label": "API Gateway", "sublabel": "Vermelho quadrado", "pos": [600, 330], "size": [140, 50], "icon": "cloud" },
+    { "id": "app1", "type": "backend", "label": "App Server 1", "sublabel": "Servidor de aplicação", "pos": [860, 150], "size": [120, 50], "icon": "backend" },
+    { "id": "app2", "type": "backend", "label": "App Server 2", "sublabel": "Servidor de aplicação", "pos": [1000, 150], "size": [120, 50], "icon": "backend" },
+    { "id": "app3", "type": "backend", "label": "App Server 3", "sublabel": "Servidor de aplicação", "pos": [860, 250], "size": [120, 50], "icon": "backend" },
+    { "id": "app4", "type": "backend", "label": "App Server 4", "sublabel": "Servidor de aplicação", "pos": [1000, 250], "size": [120, 50], "icon": "backend" },
+    { "id": "redis", "type": "database", "label": "Redis", "sublabel": "Banco de dados vermelho", "pos": [1140, 150], "size": [130, 50], "icon": "database" },
+    { "id": "pg_primary", "type": "database", "label": "PostgreSQL Primary", "sublabel": "Elefante azul", "pos": [1140, 250], "size": [150, 50], "icon": "database" },
+    { "id": "pg_replica1", "type": "database", "label": "PostgreSQL Replica 1", "sublabel": "Nó de leitura", "pos": [1140, 350], "size": [170, 50], "icon": "database" },
+    { "id": "pg_replica2", "type": "database", "label": "PostgreSQL Replica 2", "sublabel": "Nó de leitura", "pos": [1140, 430], "size": [170, 50], "icon": "database" },
+    { "id": "mongodb", "type": "database", "label": "MongoDB", "sublabel": "Folha verde", "pos": [1340, 250], "size": [130, 50], "icon": "database" },
+    { "id": "monitoring", "type": "cloud", "label": "Monitoring", "sublabel": "Pulso / onda", "pos": [80, 600], "size": [120, 50], "icon": "cloud" },
+    { "id": "s3", "type": "cloud", "label": "S3 Bucket", "sublabel": "Balde verde", "pos": [230, 600], "size": [120, 50], "icon": "cloud" },
+    { "id": "mq", "type": "messagebus", "label": "Message Queue", "sublabel": "Fila / envelope", "pos": [600, 600], "size": [130, 50], "icon": "messagebus" },
+    { "id": "worker", "type": "backend", "label": "Worker", "sublabel": "Chip / processador", "pos": [770, 600], "size": [120, 50], "icon": "backend" },
+    { "id": "search", "type": "backend", "label": "Search", "sublabel": "Lupa", "pos": [940, 600], "size": [120, 50], "icon": "backend" },
+    { "id": "notification", "type": "backend", "label": "Notification", "sublabel": "Sino", "pos": [1110, 600], "size": [130, 50], "icon": "backend" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Clients", "wraps": ["web", "mobile"], "pad": 16 },
+    { "kind": "region", "label": "Edge", "wraps": ["dns", "cdn"], "pad": 16 },
+    { "kind": "region", "label": "Entry", "wraps": ["lb1", "lb2", "apigw"], "pad": 16 },
+    { "kind": "region", "label": "App Tier", "wraps": ["app1", "app2", "app3", "app4"], "pad": 16 },
+    { "kind": "region", "label": "Data Tier", "wraps": ["redis", "pg_primary", "pg_replica1", "pg_replica2", "mongodb"], "pad": 16 },
+    { "kind": "region", "label": "Storage", "wraps": ["monitoring", "s3"], "pad": 16 },
+    { "kind": "region", "label": "Async Tier", "wraps": ["mq", "worker", "search", "notification"], "pad": 16 }
+  ],
+  "connections": [
+    { "id": "f1", "from": "web", "to": "dns" },
+    { "id": "f2", "from": "mobile", "to": "cdn" },
+    { "id": "f3", "from": "dns", "to": "lb1" },
+    { "id": "f4", "from": "cdn", "to": "s3", "fromSide": "bottom", "toSide": "top" },
+    { "id": "f5", "from": "lb1", "to": "apigw", "fromSide": "bottom", "toSide": "top" },
+    { "id": "f6", "from": "apigw", "to": "app1" },
+    { "id": "f7", "from": "app1", "to": "redis" },
+    { "id": "f8", "from": "app1", "to": "mq", "fromSide": "bottom", "toSide": "top" },
+    { "id": "f9", "from": "redis", "to": "pg_primary" },
+    { "id": "f10", "from": "pg_primary", "to": "pg_replica1", "fromSide": "bottom", "toSide": "top" },
+    { "id": "f11", "from": "pg_primary", "to": "pg_replica2", "fromSide": "bottom", "toSide": "top" },
+    { "id": "f12", "from": "mq", "to": "worker" },
+    { "id": "f13", "from": "worker", "to": "search" },
+    { "id": "f14", "from": "worker", "to": "notification", "label": "Notificação direta", "variant": "dashed" },
+    { "id": "f15", "from": "lb1", "to": "lb2", "variant": "dashed" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Camada superior (tiers)", "items": ["Clients → Edge → Entry → App Tier → Data Tier"] },
+    { "dot": "emerald", "title": "Camada inferior", "items": ["Storage (Monitoring + S3)", "Async Tier (Message Queue → Worker → Search → Notification)"] },
+    { "dot": "rose", "title": "Dark mode", "items": ["Tema escuro (preset blueprint)", "Bordas arredondadas com rótulos no canto superior esquerdo"] }
+  ]
+}

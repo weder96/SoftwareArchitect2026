@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "6d752bee-ba02-4a10-8873-4076d8c64334",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-rabbitmq-topic-20261111/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-rabbitmq-topic-20261111/rabbitmq-topic.html",
+  "specification": {
+    "sha256": "fbfe654adc430895a781d24b244312286405ed465f3c45aa54eb09dd9f361f97",
+    "bytes": 3598
+  },
+  "artifact": {
+    "sha256": "d83837723506b854625a22e9bde51eca911540e653393577dfce256de71ab420",
+    "bytes": 845735
+  }
+}

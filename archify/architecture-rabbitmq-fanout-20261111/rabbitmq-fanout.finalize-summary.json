@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-rabbitmq-fanout-20261111/candidate.json",
+    "sha256": "a2abea9fb6fc8b858d7842dca314063bfe07fd3d7bd53db295dbf61b2e536946",
+    "bytes": 3619
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-rabbitmq-fanout-20261111/rabbitmq-fanout.html",
+    "sha256": "40cd7f2a35a4cb1451ec5c9a8530d9c35ee93842dd17b85fedadfd227a8f33a4",
+    "bytes": 847214
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-rabbitmq-fanout-20261111/rabbitmq-fanout.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-rabbitmq-fanout-20261111/rabbitmq-fanout.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-rabbitmq-fanout-20261111/rabbitmq-fanout.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-11-11T13:32:10.253Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2178,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  }
+}

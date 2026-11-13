@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "aef1cc7b-1266-4966-a412-555200d96746",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-multi-tier-dark-20261110/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-multi-tier-dark-20261110/multi-tier-dark.html",
+  "specification": {
+    "sha256": "535994288a4eda8db02ff77eb8b6e9342bde0534406e6d31001cad4d93619446",
+    "bytes": 5965
+  },
+  "artifact": {
+    "sha256": "72e731e991007b87acf053fa626e21ca5de9b79a139843bd996bcc103bab914f",
+    "bytes": 865854
+  }
+}

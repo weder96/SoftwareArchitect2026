@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "ae935259-d68d-4bd3-a788-8477f1e8b002",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/weder/Documentos/Default Project/.archify/architecture-aws-llm-data-20261111/candidate.json",
+  "output": "/home/weder/Documentos/Default Project/.archify/architecture-aws-llm-data-20261111/aws-llm-data-processing.html",
+  "specification": {
+    "sha256": "b3e7ac1338070a325b587d35f76937263f86088418625947d3ec1316b66d9fcb",
+    "bytes": 5704
+  },
+  "artifact": {
+    "sha256": "80d6891501afb2d09f086339ea098d392f39f26432dfef655f4c012e2ae138f8",
+    "bytes": 861147
+  }
+}

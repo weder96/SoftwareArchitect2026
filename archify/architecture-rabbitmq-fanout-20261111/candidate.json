@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "EXCHANGE FANOUT",
+    "subtitle": "A mensagem enviada pelo produtor é espelhada pela Exchange Fanout e enviada para todas as filas vinculadas.",
+    "output": ".archify/architecture-rabbitmq-fanout-20261111/rabbitmq-fanout.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "produtor", "type": "external", "label": "PRODUTOR", "sublabel": "Caixa / documento cinza", "pos": [60, 240], "size": [120, 50], "icon": "external" },
+    { "id": "exchange", "type": "messagebus", "label": "EXCHANGE FANOUT", "sublabel": "Círculo amarelo — logo RabbitMQ laranja", "pos": [340, 240], "size": [160, 50], "icon": "messagebus" },
+    { "id": "queue1", "type": "database", "label": "QUEUE", "sublabel": "Cilindro laranja", "pos": [620, 120], "size": [110, 50], "icon": "database" },
+    { "id": "queue2", "type": "database", "label": "QUEUE", "sublabel": "Cilindro laranja", "pos": [620, 240], "size": [110, 50], "icon": "database" },
+    { "id": "queue3", "type": "database", "label": "QUEUE", "sublabel": "Cilindro laranja", "pos": [620, 360], "size": [110, 50], "icon": "database" },
+    { "id": "queue4", "type": "database", "label": "QUEUE", "sublabel": "Cilindro laranja", "pos": [620, 480], "size": [110, 50], "icon": "database" },
+    { "id": "consumer1", "type": "security", "label": "CONSUMIDOR 1", "sublabel": "Retângulo roxo / azul escuro", "pos": [880, 120], "size": [120, 50], "icon": "security" },
+    { "id": "consumer2", "type": "security", "label": "CONSUMIDOR 2", "sublabel": "Retângulo roxo / azul escuro", "pos": [880, 240], "size": [120, 50], "icon": "security" },
+    { "id": "consumer3", "type": "security", "label": "CONSUMIDOR 3", "sublabel": "Retângulo roxo / azul escuro", "pos": [880, 360], "size": [120, 50], "icon": "security" },
+    { "id": "consumer4", "type": "security", "label": "CONSUMIDOR 4", "sublabel": "Retângulo roxo / azul escuro", "pos": [880, 480], "size": [120, 50], "icon": "security" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Ambiente do Broker", "wraps": ["exchange", "queue1", "queue2", "queue3", "queue4"], "pad": 22 }
+  ],
+  "connections": [
+    { "id": "f1", "from": "produtor", "to": "exchange", "label": "M1" },
+    { "id": "f2", "from": "exchange", "to": "queue1", "label": "M1", "variant": "dashed" },
+    { "id": "f3", "from": "exchange", "to": "queue2", "label": "M1", "variant": "dashed" },
+    { "id": "f4", "from": "exchange", "to": "queue3", "label": "M1", "variant": "dashed" },
+    { "id": "f5", "from": "exchange", "to": "queue4", "label": "M1", "variant": "dashed" },
+    { "id": "f6", "from": "queue1", "to": "consumer1", "label": "M1" },
+    { "id": "f7", "from": "queue2", "to": "consumer2", "label": "M1" },
+    { "id": "f8", "from": "queue3", "to": "consumer3", "label": "M1" },
+    { "id": "f9", "from": "queue4", "to": "consumer4", "label": "M1" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Padrão Exchange Fanout", "items": ["Produtor envia M1 para a Exchange Fanout", "Exchange espelha M1 para todas as filas vinculadas (QUEUE 1–4)", "Cada fila entrega M1 ao seu consumidor respectivo"] },
+    { "dot": "emerald", "title": "Fluxo de mensagens (M1)", "items": ["Produtor → Exchange Fanout (sólida)", "Exchange Fanout → QUEUEs (tracejada, espelhamento)", "QUEUEs → Consumidores (sólida)"] },
+    { "dot": "rose", "title": "Cores semânticas", "items": ["Cinza — Produtor", "Amarelo/Laranja — Exchange e Queues", "Roxo / azul escuro — Consumidores", "Verde claro — rótulos de mensagem (M1)"] }
+  ]
+}

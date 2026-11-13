@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Integração com LLMs — AWS Event-Driven",
+    "output": ".archify/architecture-aws-llm-event-20261110/aws-llm-event-driven.html",
+    "quality_profile": "showcase",
+    "visual_preset": "classic"
+  },
+  "components": [
+    { "id": "web_client", "type": "frontend", "label": "Web client", "sublabel": "Monitor", "pos": [60, 80], "size": [130, 50], "icon": "frontend" },
+    { "id": "mobile_client", "type": "external", "label": "Mobile client", "sublabel": "Smartphone", "pos": [60, 160], "size": [130, 50], "icon": "person" },
+    { "id": "app_client", "type": "external", "label": "App client", "sublabel": "Cubo", "pos": [60, 240], "size": [130, 50], "icon": "briefcase" },
+    { "id": "aws_int_services", "type": "backend", "label": "AWS Int Services", "sublabel": "Quebra-cabeça rosa", "pos": [60, 320], "size": [130, 50], "icon": "backend" },
+    { "id": "apigw", "type": "cloud", "label": "Amazon API Gateway", "sublabel": "REST/HTTP APIs — rosa", "pos": [340, 80], "size": [170, 50], "icon": "cloud" },
+    { "id": "appsync", "type": "cloud", "label": "AWS AppSync", "sublabel": "GraphQL APIs — rosa", "pos": [340, 180], "size": [170, 50], "icon": "cloud" },
+    { "id": "eventbridge", "type": "messagebus", "label": "Amazon EventBridge", "sublabel": "Event bus — rosa", "pos": [340, 280], "size": [170, 50], "icon": "messagebus" },
+    { "id": "sqs", "type": "messagebus", "label": "Amazon SQS", "sublabel": "Buffer — vermelho/rosa", "pos": [620, 180], "size": [140, 50], "icon": "messagebus" },
+    { "id": "lambda", "type": "backend", "label": "AWS Lambda", "sublabel": "Computação — laranja", "pos": [900, 80], "size": [140, 50], "icon": "backend" },
+    { "id": "ec2", "type": "backend", "label": "Amazon EC2", "sublabel": "Computação — laranja", "pos": [900, 180], "size": [140, 50], "icon": "backend" },
+    { "id": "fargate", "type": "backend", "label": "AWS Fargate", "sublabel": "Computação — laranja", "pos": [900, 280], "size": [140, 50], "icon": "backend" },
+    { "id": "dynamodb", "type": "database", "label": "Amazon DynamoDB", "sublabel": "Request Response Store — roxo", "pos": [900, 420], "size": [180, 50], "icon": "database" },
+    { "id": "secrets", "type": "security", "label": "AWS Secrets Manager", "sublabel": "API Keys — vermelho/rosa", "pos": [1100, 420], "size": [150, 50], "icon": "security" },
+    { "id": "bedrock", "type": "cloud", "label": "Amazon Bedrock", "sublabel": "IA gerenciada — verde", "pos": [1380, 80], "size": [150, 50], "icon": "cloud" },
+    { "id": "sagemaker", "type": "cloud", "label": "Amazon SageMaker", "sublabel": "IA gerenciada — verde", "pos": [1380, 180], "size": [150, 50], "icon": "cloud" },
+    { "id": "sagemaker_js", "type": "cloud", "label": "SageMaker JumpStart", "sublabel": "IA gerenciada — verde", "pos": [1380, 280], "size": [150, 50], "icon": "cloud" },
+    { "id": "openai", "type": "external", "label": "OpenAI", "sublabel": "Provedor externo", "pos": [1380, 420], "size": [130, 50], "icon": "external" },
+    { "id": "huggingface", "type": "external", "label": "Hugging Face", "sublabel": "Provedor externo", "pos": [1380, 500], "size": [130, 50], "icon": "external" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Client", "wraps": ["web_client", "mobile_client", "app_client", "aws_int_services"], "pad": 16 },
+    { "kind": "region", "label": "API/Event", "wraps": ["apigw", "appsync", "eventbridge"], "pad": 16 },
+    { "kind": "region", "label": "Buffer", "wraps": ["sqs"], "pad": 16 },
+    { "kind": "region", "label": "Middleware", "wraps": ["lambda", "ec2", "fargate", "dynamodb", "secrets"], "pad": 16 },
+    { "kind": "region", "label": "LLM Host", "wraps": ["bedrock", "sagemaker", "sagemaker_js", "openai", "huggingface"], "pad": 16 }
+  ],
+  "connections": [
+    { "id": "fl1", "from": "web_client", "to": "apigw", "label": "1 Request", "variant": "emphasis" },
+    { "id": "fl2", "from": "apigw", "to": "web_client", "label": "2 ACK (Id)", "variant": "dashed" },
+    { "id": "fl3", "from": "apigw", "to": "sqs", "label": "3 Publish", "variant": "dashed" },
+    { "id": "fl4", "from": "sqs", "to": "lambda", "label": "4 ESM", "variant": "dashed" },
+    { "id": "fl5a", "from": "lambda", "to": "bedrock", "label": "5a InvokeModel", "variant": "emphasis" },
+    { "id": "fl5a_ret", "from": "bedrock", "to": "lambda", "label": "Model Response", "variant": "dashed" },
+    { "id": "fl5b", "from": "secrets", "to": "openai", "label": "5b", "variant": "dashed" },
+    { "id": "fl5b_hf", "from": "secrets", "to": "huggingface", "variant": "dashed" },
+    { "id": "fl6", "from": "lambda", "to": "dynamodb", "label": "6", "variant": "dashed" },
+    { "id": "fl7", "from": "apigw", "to": "web_client", "label": "7 GET Response (Id)", "variant": "dashed" },
+    { "id": "fl8", "from": "appsync", "to": "lambda", "label": "8 HTTP/REST APIs" },
+    { "id": "fl9", "from": "lambda", "to": "appsync", "label": "9 HTTP/REST APIs", "variant": "dashed" },
+    { "id": "fl10", "from": "web_client", "to": "web_client", "label": "10 Client Poll", "variant": "dashed" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Fluxo assíncrono numerado", "items": ["1 Request — Client → API Gateway", "2 ACK (Id) — API Gateway → Client", "3 Publish — API Gateway → SQS", "4 ESM — SQS → Middleware", "5a InvokeModel — Middleware → LLM Host", "5b — Secrets Manager → provedores externos", "6 — Middleware → DynamoDB", "7 GET Response (Id) — API Gateway → Client", "8/9 — AppSync ↔ Middleware (HTTP/REST)", "10 Client Poll — loop no cliente"] },
+    { "dot": "emerald", "title": "Colunas (esquerda → direita)", "items": ["Client", "API/Event", "Buffer", "Middleware", "LLM Host"] },
+    { "dot": "rose", "title": "Cores por tipo AWS (semântico)", "items": ["Rosa — Integração/API (API Gateway, AppSync, EventBridge)", "Laranja — Computação (Lambda, EC2, Fargate)", "Verde — ML (Bedrock, SageMaker, JumpStart)", "Roxo — Banco de dados (DynamoDB)", "Vermelho/rosa — Segurança (Secrets Manager)"] }
+  ]
+}

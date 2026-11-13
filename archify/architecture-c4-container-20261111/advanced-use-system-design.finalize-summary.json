@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-c4-container-20261111/candidate.json",
+    "sha256": "a92072263e616bbb39356356fa3ac466047ff0cc601e270296c991395ca71f85",
+    "bytes": 3273
+  },
+  "artifact": {
+    "path": "/home/weder/Documentos/Default Project/.archify/architecture-c4-container-20261111/advanced-use-system-design.html",
+    "sha256": "0504ca600287d5f3c826debd8096522af90d03930cd7975603d9e192c0a0ae6d",
+    "bytes": 842616
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/weder/Documentos/Default Project/.archify/architecture-c4-container-20261111/advanced-use-system-design.finalize.json",
+    "summaryReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-c4-container-20261111/advanced-use-system-design.finalize-summary.json",
+    "browserCheckReceipt": "/home/weder/Documentos/Default Project/.archify/architecture-c4-container-20261111/advanced-use-system-design.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-11-11T13:32:10.253Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 1964,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  }
+}
